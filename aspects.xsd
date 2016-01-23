@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="Operation View" type="Operation View"/>
+	<xs:complexType name="Operation View">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Functional" type="Functional"/>
+	<xs:complexType name="Functional">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Design" type="Design"/>
+	<xs:complexType name="Design">
+		<xs:complexContent>
+			<xs:extension base="Realization &#xA;Activity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Functional Aspect" type="Functional Aspect"/>
+	<xs:complexType name="Functional Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Performance concern" type="Performance concern" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Actuation" type="Actuation" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Communication" type="Communication" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Controllability" type="Controllability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Functionality" type="Functionality" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Measurability" type="Measurability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Monitorability" type="Monitorability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Physical Context" type="Physical Context" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Sensing" type="Sensing" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Uncertainty" type="Uncertainty" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Boundaries Aspect" type="Boundaries Aspect"/>
+	<xs:complexType name="Boundaries Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Behavioral" type="Behavioral" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Networkability" type="Networkability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Responsibility" type="Responsibility" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CPS &#xA;Stakeholder" type="CPS &#xA;Stakeholder"/>
+	<xs:complexType name="CPS &#xA;Stakeholder">
+		<xs:sequence>
+			<xs:element name="CPS Concern" type="CPS Concern" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Lifecyscle Aspect" type="Lifecyscle Aspect"/>
+	<xs:complexType name="Lifecyscle Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Deployability" type="Deployability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Operatability" type="Operatability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Disposability" type="Disposability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Engineerability" type="Engineerability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Maintainability" type="Maintainability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Procurability" type="Procurability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Producibility" type="Producibility" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Business Aspect" type="Business Aspect"/>
+	<xs:complexType name="Business Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Enterprise" type="Enterprise" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Cost" type="Cost" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Environment" type="Environment" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Policy" type="Policy" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Quality" type="Quality" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Regulatory" type="Regulatory" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Time to market" type="Time to market" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Utility" type="Utility" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Trustworthiness &#xA;Aspect" type="Trustworthiness &#xA;Aspect"/>
+	<xs:complexType name="Trustworthiness &#xA;Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Security" type="Security" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Privacy" type="Privacy" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Resiliance" type="Resiliance" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Reliability" type="Reliability" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Safety" type="Safety" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CPS Framework" type="CPS Framework"/>
+	<xs:complexType name="CPS Framework">
+		<xs:sequence>
+			<xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Assured CPS" type="Assured CPS" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Aspect" type="Aspect" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Physical" type="Physical"/>
+	<xs:complexType name="Physical">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Measurability" type="Measurability"/>
+	<xs:complexType name="Measurability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Performance concern" type="Performance concern"/>
+	<xs:complexType name="Performance concern">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Monitorability" type="Monitorability"/>
+	<xs:complexType name="Monitorability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Controllability" type="Controllability"/>
+	<xs:complexType name="Controllability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Sensing" type="Sensing"/>
+	<xs:complexType name="Sensing">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Functionality" type="Functionality"/>
+	<xs:complexType name="Functionality">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Uncertainty" type="Uncertainty"/>
+	<xs:complexType name="Uncertainty">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Communication" type="Communication"/>
+	<xs:complexType name="Communication">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Physical Context" type="Physical Context"/>
+	<xs:complexType name="Physical Context">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Actuation" type="Actuation"/>
+	<xs:complexType name="Actuation">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Human Aspect" type="Human Aspect"/>
+	<xs:complexType name="Human Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Human factors" type="Human factors" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Usability" type="Usability" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Timing Aspect" type="Timing Aspect"/>
+	<xs:complexType name="Timing Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Environment" type="Environment"/>
+	<xs:complexType name="Environment">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Engineerability" type="Engineerability"/>
+	<xs:complexType name="Engineerability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Producibility" type="Producibility"/>
+	<xs:complexType name="Producibility">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Disposability" type="Disposability"/>
+	<xs:complexType name="Disposability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Operatability" type="Operatability"/>
+	<xs:complexType name="Operatability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Deployability" type="Deployability"/>
+	<xs:complexType name="Deployability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Procurability" type="Procurability"/>
+	<xs:complexType name="Procurability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Assured CPS" type="Assured CPS"/>
+	<xs:complexType name="Assured CPS">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Responsibility" type="Responsibility"/>
+	<xs:complexType name="Responsibility">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Privacy" type="Privacy"/>
+	<xs:complexType name="Privacy">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Data Aspect" type="Data Aspect"/>
+	<xs:complexType name="Data Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Safety" type="Safety"/>
+	<xs:complexType name="Safety">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Resiliance" type="Resiliance"/>
+	<xs:complexType name="Resiliance">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Enterprise" type="Enterprise"/>
+	<xs:complexType name="Enterprise">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Quality" type="Quality"/>
+	<xs:complexType name="Quality">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Time to market" type="Time to market"/>
+	<xs:complexType name="Time to market">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Regulatory" type="Regulatory"/>
+	<xs:complexType name="Regulatory">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Policy" type="Policy"/>
+	<xs:complexType name="Policy">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Utility" type="Utility"/>
+	<xs:complexType name="Utility">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Cost" type="Cost"/>
+	<xs:complexType name="Cost">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Human factors" type="Human factors"/>
+	<xs:complexType name="Human factors">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Usability" type="Usability"/>
+	<xs:complexType name="Usability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Maintainability" type="Maintainability"/>
+	<xs:complexType name="Maintainability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Behavioral" type="Behavioral"/>
+	<xs:complexType name="Behavioral">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Networkability" type="Networkability"/>
+	<xs:complexType name="Networkability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Composition&#xA;Aspect" type="Composition&#xA;Aspect"/>
+	<xs:complexType name="Composition&#xA;Aspect">
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CPS Concern" type="CPS Concern"/>
+	<xs:complexType name="CPS Concern">
+		<xs:sequence>
+			<xs:element name="Aspect" type="Aspect" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Aspect" type="Aspect"/>
+	<xs:complexType name="Aspect">
+		<xs:sequence>
+			<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Reliability" type="Reliability"/>
+	<xs:complexType name="Reliability">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="Security" type="Security"/>
+	<xs:complexType name="Security">
+		<xs:sequence/>
+	</xs:complexType>
+</xs:schema>
