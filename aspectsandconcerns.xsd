@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include/>
 	<xs:element name="LogicalTime" type="LogicalTime"/>
 	<xs:complexType name="LogicalTime">
 		<xs:sequence/>
@@ -61,14 +60,6 @@
 	<xs:complexType name="Discoverability">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="Design" type="Design"/>
-	<xs:complexType name="Design">
-		<xs:complexContent>
-			<xs:extension base="Realization&#xA;Activity">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="FunctionalAspect" type="FunctionalAspect"/>
 	<xs:complexType name="FunctionalAspect">
 		<xs:complexContent>
@@ -100,12 +91,6 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="CPS &#xA;Stakeholder" type="CPS &#xA;Stakeholder"/>
-	<xs:complexType name="CPS &#xA;Stakeholder">
-		<xs:sequence>
-			<xs:element name="CPS Concern" type="CPS Concern" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="LifecyscleAspect" type="LifecyscleAspect"/>
 	<xs:complexType name="LifecyscleAspect">
@@ -140,8 +125,8 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Trustworthiness&#xA;Aspect" type="Trustworthiness&#xA;Aspect"/>
-	<xs:complexType name="Trustworthiness&#xA;Aspect">
+	<xs:element name="TrustworthinessAspect" type="TrustworthinessAspect"/>
+	<xs:complexType name="TrustworthinessAspect">
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
@@ -153,14 +138,6 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="CPS Framework" type="CPS Framework"/>
-	<xs:complexType name="CPS Framework">
-		<xs:sequence>
-			<xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Assured CPS" type="Assured CPS" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Aspect" type="Aspect" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Physical" type="Physical"/>
 	<xs:complexType name="Physical">
@@ -259,10 +236,6 @@
 	<xs:complexType name="Procurability">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="Assured CPS" type="Assured CPS"/>
-	<xs:complexType name="Assured CPS">
-		<xs:sequence/>
-	</xs:complexType>
 	<xs:element name="Responsibility" type="Responsibility"/>
 	<xs:complexType name="Responsibility">
 		<xs:sequence/>
@@ -340,8 +313,8 @@
 	<xs:complexType name="Networkability">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="Composition&#xA;Aspect" type="Composition&#xA;Aspect"/>
-	<xs:complexType name="Composition&#xA;Aspect">
+	<xs:element name="CompositionAspect" type="CompositionAspect"/>
+	<xs:complexType name="CompositionAspect">
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
@@ -353,17 +326,10 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="CPS Concern" type="CPS Concern"/>
-	<xs:complexType name="CPS Concern">
-		<xs:sequence>
-			<xs:element name="Aspect" type="Aspect" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:element name="Aspect" type="Aspect"/>
 	<xs:complexType name="Aspect">
 		<xs:sequence>
 			<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Reliability" type="Reliability"/>
