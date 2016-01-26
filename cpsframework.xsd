@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema targetNamespace="cpsframework" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:f="cpsframework">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:f="cpsframework" targetNamespace="cpsframework" >
 	<xsd:include schemaLocation="aspectsandconcerns.xsd"/>
 	<xsd:element name="BusinessObject" type="BusinessObject"/>
 	<xsd:complexType name="BusinessObject">
@@ -235,7 +235,7 @@ These common service definitions are related to automation / information or comm
 		</xsd:annotation>
 		<xsd:simpleContent>
 			<xsd:extension base="Resource_String_value_ValueType">
-				<xsd:attribute name="type" use="required" type="ResourceType"/>
+				<xsd:attribute name="type" type="ResourceType" use="required"/>
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>
