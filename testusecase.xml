@@ -10,33 +10,44 @@
 		<identifier>String</identifier>
 		<description>String</description>
 		<Actor>
+			<name>Person</name>
+			<technicalId>1</technicalId>
+			<furtherInformation>The injured party</furtherInformation>
+		</Actor>
+		<Actor>
 			<name>Smart Phone</name>
-			<technicalId>String</technicalId>
-			<furtherInformation>String</furtherInformation>
+			<technicalId>2</technicalId>
+			<furtherInformation>A smart phone available at the scene</furtherInformation>
 		</Actor>
 		<Actor>
-			<name>E-911 system (includes dispatch system)</name>
-			<technicalId/>
+			<name>E-911 system </name>
+			<technicalId>3</technicalId>
+			<furtherInformation>Emergency phone network (includes dispatch system)</furtherInformation>
 		</Actor>
 		<Actor>
-			<name>Ambulance (includes smart GPS subsystem)</name>
-			<technicalId/>
+			<name>Ambulance</name>
+			<technicalId>4</technicalId>
+			<furtherInformation>An ambulance able to respond.</furtherInformation>
 		</Actor>
 		<Actor>
 			<name>Traffic Control System</name>
-			<technicalId/>
+			<technicalId>5</technicalId>
+			<furtherInformation>System responsible for controlling lights and providing status on the traffic system.</furtherInformation>
 		</Actor>
 		<Actor>
 			<name>GPS System</name>
-			<technicalId/>
+			<technicalId>6</technicalId>
+			<furtherInformation>System of satellites providing location and time reference information.</furtherInformation>
 		</Actor>
 		<Actor>
 			<name>Cellular Phone Network</name>
-			<technicalId/>
+			<technicalId>7</technicalId>
+			<furtherInformation>The network of cellular telephony providing for mobile voice/data communications.</furtherInformation>
 		</Actor>
 		<Actor>
 			<name>Other vehicles</name>
-			<technicalId/>
+			<technicalId>8</technicalId>
+			<furtherInformation>Vehicles using the roads in proximity or in the path of the ambulance.</furtherInformation>
 		</Actor>
 	</ActorGrouping>
 	<PrimaryActor>
@@ -45,27 +56,36 @@
 	</PrimaryActor>
 	<Assumption>
 		<name>String</name>
-		<content>String</content>
+		<content>The existence of the system components is assumed.  They are assumed to be functioning as expected. Organizational responsibilities are pre-existing and functioning as expected. No other extraordinary event is occurring at the same time.</content>
+	</Assumption>
+	<Assumption>
+		<name/>
+		<content>Only analyzing the positive and narrow use case.</content>
+	</Assumption>
+	<Assumption>
+		<name/>
+		<content>Person is not moving.</content>
 	</Assumption>
 	<Prerequisite>
 		<name>String</name>
 		<content>String</content>
 	</Prerequisite>
 	<KeyPerformanceIndicator>
-		<name>String</name>
+		<name>Success</name>
 		<technicalId>String</technicalId>
-		<description>String</description>
+		<description>Ambulance arrives at injured person in a timely fashion and in line with the accepted practices in emergency response. </description>
 		<Objective>
 			<technicalId>String</technicalId>
 		</Objective>
 	</KeyPerformanceIndicator>
 	<BusinessCase>
+		<name>Injured person needs help – 1st responders on the way</name>
 		<technicalId>String</technicalId>
-		
+		<description>The goal of this service is to provide medical attention to an injured person. The value of human life justifies the expenditures needed to make this service viable.</description>
 	</BusinessCase>
 	<Narrative>
 		<shortDescription>A person has been injured.  The injured person sends a text to e-911 for help.  An ambulance is dispatched.  A smart GPS combines map data with traffic flow data to route the ambulance.  Traffic signals are triggered to assist ambulance in navigation (or negotiating) the route. </shortDescription>
-		<completeDescription>String</completeDescription>
+		<completeDescription>TBD</completeDescription>
 	</Narrative>
 	<Reference>
 		<identifier>String</identifier>
@@ -103,12 +123,12 @@
 		<technicalId>String</technicalId>
 	</CommonTerm>
 	<Scenario>
-		<name>String</name>
+		<name>Primary</name>
 		<identifier>String</identifier>
-		<description>String</description>
+		<description>This is the primary success case scenario</description>
 		<PrimaryActor>
-			<name>String</name>
-			<technicalId>String</technicalId>
+			<name>Person</name>
+			<technicalId>1</technicalId>
 		</PrimaryActor>
 		<Drawing>
 			<name>String</name>
@@ -116,16 +136,16 @@
 			<URI type="UMLDiagram">String</URI>
 		</Drawing>
 		<TriggeringEvent>
-			<name>String</name>
-			<content>String</content>
+			<name>Injury occurs</name>
+			<content>A person becomes injured</content>
 		</TriggeringEvent>
 		<Precondition>
-			<name>String</name>
-			<content>String</content>
+			<name>ConnectedCellPhone</name>
+			<content>Person has cell phone and connectivity</content>
 		</Precondition>
 		<Postcondition>
-			<name>String</name>
-			<content>String</content>
+			<name>AmbulanceArrives</name>
+			<content>An ambulance arrives to help the Person</content>
 		</Postcondition>
 		<Requirement>
 			<technicalId>String</technicalId>
@@ -148,14 +168,9 @@
 			<Step>
 				<name>String</name>
 				<identifier>String</identifier>
-				<description>String</description>
+				<description>Person uses cell phone to text for help</description>
 				<event>String</event>
 				<service>String</service>
-				<Drawing>
-					<name>String</name>
-					<drawingType>Actions Flowchart</drawingType>
-					<URI type="UMLDiagram">String</URI>
-				</Drawing>
 				<Requirement>
 					<technicalId>String</technicalId>
 				</Requirement>
@@ -165,21 +180,11 @@
 				</InformationReceiver>
 				<InformationProducer>
 					<name>String</name>
-					<technicalId>String</technicalId>
-				</InformationProducer>
-				<BusinessObject>
-					<name>String</name>
-					<technicalId>String</technicalId>
-				</BusinessObject>
-				<Aspect xsi:type="UC:DataAspect">
-					<concern>String</concern>
-				</Aspect>
+					<technicalId>2</technicalId>
+				</InformationProducer><Aspect xmlns:UC="cpsframework" xsi:type="UC:TimingAspect"><LogicalTime/></Aspect>
 			</Step>
 			<technicalId>String</technicalId>
 		</MacroActivity>
 		<technicalId>String</technicalId>
 	</Scenario>
-	<Aspect xsi:type="UC:Actuation">
-		<concern>String</concern>
-	</Aspect>
 </UC:UseCase>

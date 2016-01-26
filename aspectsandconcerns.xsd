@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:f="cpsframework">
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
 	<xs:element name="LogicalTime" type="LogicalTime"/>
 	<xs:complexType name="LogicalTime">
-		<xs:complexContent>
-			<xs:extension base="TimingAspect">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="TimingAndLatency" type="TimingAndLatency"/>
 	<xs:complexType name="TimingAndLatency">
-		<xs:complexContent>
-			<xs:extension base="TimingAspect">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="Synchronization" type="Synchronization"/>
 	<xs:complexType name="Synchronization">
-		<xs:complexContent>
-			<xs:extension base="TimingAspect">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="TimeAwareness" type="TimeAwareness"/>
 	<xs:complexType name="TimeAwareness">
-		<xs:complexContent>
-			<xs:extension base="TimingAspect">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="IntervalAndLatencyControl" type="IntervalAndLatencyControl"/>
 	<xs:complexType name="IntervalAndLatencyControl">
-		<xs:complexContent>
-			<xs:extension base="TimingAspect">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="DataSemantics" type="DataSemantics"/>
 	<xs:complexType name="DataSemantics">
@@ -218,18 +198,7 @@
 	</xs:complexType>
 	<xs:element name="Communication" type="Communication"/>
 	<xs:complexType name="Communication">
-		<xs:sequence>
-			<xs:element name="concern" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>String describing concern</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="concern" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>String describing concern</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="PhysicalContext" type="PhysicalContext"/>
 	<xs:complexType name="PhysicalContext">
@@ -241,11 +210,7 @@
 	</xs:complexType>
 	<xs:element name="Actuation" type="Actuation"/>
 	<xs:complexType name="Actuation">
-		<xs:complexContent>
-			<xs:extension base="FunctionalAspect">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="HumanAspect" type="HumanAspect"/>
 	<xs:complexType name="HumanAspect">
@@ -259,7 +224,13 @@
 	<xs:complexType name="TimingAspect">
 		<xs:complexContent>
 			<xs:extension base="Aspect">
-				<xs:sequence/>
+				<xs:sequence>
+					<xs:element name="LogicalTime" type="LogicalTime" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="TimingAndLatency" type="TimingAndLatency" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Synchronization" type="Synchronization" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="TimeAwareness" type="TimeAwareness" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="IntervalAndLatencyControl" type="IntervalAndLatencyControl" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -465,13 +436,7 @@
 	</xs:complexType>
 	<xs:element name="Aspect" type="Aspect"/>
 	<xs:complexType name="Aspect" abstract="true">
-		<xs:sequence>
-			<xs:element name="concern" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>String describing concern</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="Reliability" type="Reliability"/>
 	<xs:complexType name="Reliability">
@@ -489,4 +454,5 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Concerns" type="xs:string"/>
 </xs:schema>
