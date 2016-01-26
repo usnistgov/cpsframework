@@ -2,23 +2,43 @@
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
 	<xs:element name="LogicalTime" type="LogicalTime"/>
 	<xs:complexType name="LogicalTime">
-		<xs:sequence/>
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="TimingAndLatency" type="TimingAndLatency"/>
 	<xs:complexType name="TimingAndLatency">
-		<xs:sequence/>
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="Synchronization" type="Synchronization"/>
 	<xs:complexType name="Synchronization">
-		<xs:sequence/>
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="TimeAwareness" type="TimeAwareness"/>
 	<xs:complexType name="TimeAwareness">
-		<xs:sequence/>
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="IntervalAndLatencyControl" type="IntervalAndLatencyControl"/>
 	<xs:complexType name="IntervalAndLatencyControl">
-		<xs:sequence/>
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="DataSemantics" type="DataSemantics"/>
 	<xs:complexType name="DataSemantics">
@@ -95,7 +115,7 @@
 	<xs:element name="FunctionalAspect" type="FunctionalAspect"/>
 	<xs:complexType name="FunctionalAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -103,7 +123,7 @@
 	<xs:element name="BoundariesAspect" type="BoundariesAspect"/>
 	<xs:complexType name="BoundariesAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -111,7 +131,7 @@
 	<xs:element name="LifecyscleAspect" type="LifecyscleAspect"/>
 	<xs:complexType name="LifecyscleAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -119,7 +139,7 @@
 	<xs:element name="BusinessAspect" type="BusinessAspect"/>
 	<xs:complexType name="BusinessAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -127,7 +147,7 @@
 	<xs:element name="TrustworthinessAspect" type="TrustworthinessAspect"/>
 	<xs:complexType name="TrustworthinessAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -215,7 +235,7 @@
 	<xs:element name="HumanAspect" type="HumanAspect"/>
 	<xs:complexType name="HumanAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -223,7 +243,7 @@
 	<xs:element name="TimingAspect" type="TimingAspect"/>
 	<xs:complexType name="TimingAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence>
 					<xs:element name="LogicalTime" type="LogicalTime" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="TimingAndLatency" type="TimingAndLatency" minOccurs="0" maxOccurs="unbounded"/>
@@ -309,7 +329,7 @@
 	<xs:element name="DataAspect" type="DataAspect"/>
 	<xs:complexType name="DataAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
@@ -429,13 +449,13 @@
 	<xs:element name="CompositionAspect" type="CompositionAspect"/>
 	<xs:complexType name="CompositionAspect">
 		<xs:complexContent>
-			<xs:extension base="Aspect">
+			<xs:extension base="Concerns">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Aspect" type="Aspect"/>
-	<xs:complexType name="Aspect" abstract="true">
+	<xs:element name="Concerns" type="Concerns"/>
+	<xs:complexType name="Concerns" abstract="true">
 		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="Reliability" type="Reliability"/>
@@ -454,5 +474,15 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Concerns" type="xs:string"/>
+	<xs:element name="Concern" type="Concern"/>
+	<xs:complexType name="Concern" abstract="true">
+		<xs:sequence>
+			<xs:element name="trace" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Traceability to upstream concern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="property" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

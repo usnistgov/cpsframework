@@ -181,7 +181,13 @@
 				<InformationProducer>
 					<name>String</name>
 					<technicalId>2</technicalId>
-				</InformationProducer><Aspect xmlns:UC="cpsframework" xsi:type="UC:TimingAspect"><LogicalTime/></Aspect>
+				</InformationProducer>
+				<!--This is a bogus concern just spliced in to see how it could work-->
+				<!--Also note that the xsi:type could be eliminated by using substitution groups which are supported in XSD for abstract type substitution but not in the UML exporter-->
+				<Concerns xmlns:UC="cpsframework" xsi:type="UC:TimingAspect"><Synchronization>
+					<trace>/UC:UseCase/Scenario/MacroActivity/Step/InformationReceiver</trace>
+					<property>clock can receive time sync from gps system</property>
+				</Synchronization></Concerns>
 			</Step>
 			<technicalId>String</technicalId>
 		</MacroActivity>

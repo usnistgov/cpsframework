@@ -173,7 +173,7 @@ These common service definitions are related to automation / information or comm
 					<xsd:documentation>This describes briefly the information to be exchanged between the two actors – information producer and information receiver. It is possible to several information in one step, comma separated.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="BusinessCase" type="BusinessCase"/>
@@ -202,7 +202,7 @@ These common service definitions are related to automation / information or comm
 					<xsd:documentation>Use cases can be used in various areas (e.g. energy system). Within these areas different domains are used to define / determine a more specific subgrouping. One or more domains and zones, comma separated, can be specified in the template. These are the other ones.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="Domain" type="Domain"/>
@@ -298,7 +298,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xsd:documentation>Type of the actor (business, system, ....)</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="Reference" type="Reference"/>
@@ -634,7 +634,7 @@ This prioritisation might be different from country to country.</xsd:documentati
 					<xsd:documentation>reference to the scenarios belonging to the use case.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="DomainLibrary" type="DomainLibrary"/>
