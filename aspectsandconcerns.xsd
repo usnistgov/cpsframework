@@ -477,12 +477,13 @@
 	<xs:element name="Concern" type="Concern"/>
 	<xs:complexType name="Concern" abstract="true">
 		<xs:sequence>
-			<xs:element name="trace" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="trace" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Traceability to upstream concern</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="property" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="weight" type="xs:float" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
