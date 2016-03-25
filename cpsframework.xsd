@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema targetNamespace="cpsframework" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
-	<xsd:include schemaLocation="aspectsandconcerns.xsd"/>
+<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by National Institute of Standards & Technology (NIST) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" targetNamespace="cpsframework">
+	<xsd:include schemaLocation="file:///C:/Users/Martys%20VM/Documents/Source/github/cpsframework/aspectsandconcerns.xsd"/>
 	<xsd:element name="BusinessObject" type="BusinessObject"/>
 	<xsd:complexType name="BusinessObject">
 		<xsd:annotation>
@@ -173,7 +174,7 @@ These common service definitions are related to automation / information or comm
 					<xsd:documentation>This describes briefly the information to be exchanged between the two actors – information producer and information receiver. It is possible to several information in one step, comma separated.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="BusinessCase" type="BusinessCase"/>
@@ -202,7 +203,7 @@ These common service definitions are related to automation / information or comm
 					<xsd:documentation>Use cases can be used in various areas (e.g. energy system). Within these areas different domains are used to define / determine a more specific subgrouping. One or more domains and zones, comma separated, can be specified in the template. These are the other ones.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="Domain" type="Domain"/>
@@ -235,7 +236,7 @@ These common service definitions are related to automation / information or comm
 		</xsd:annotation>
 		<xsd:simpleContent>
 			<xsd:extension base="Resource_String_value_ValueType">
-				<xsd:attribute name="type" use="required" type="ResourceType"/>
+				<xsd:attribute name="type" type="ResourceType" use="required"/>
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>
@@ -298,7 +299,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xsd:documentation>Type of the actor (business, system, ....)</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="Reference" type="Reference"/>
@@ -634,7 +635,7 @@ This prioritisation might be different from country to country.</xsd:documentati
 					<xsd:documentation>reference to the scenarios belonging to the use case.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="Concerns" type="Concerns" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="DomainLibrary" type="DomainLibrary"/>
