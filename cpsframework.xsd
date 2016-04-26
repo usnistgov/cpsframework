@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by National Institute of Standards & Technology (NIST) -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" targetNamespace="cpsframework">
-	<xsd:include schemaLocation="file:///C:/Users/Martys%20VM/Documents/Source/github/cpsframework/aspectsandconcerns.xsd"/>
+<xsd:schema targetNamespace="cpsframework" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xsd:include/>
 	<xsd:element name="BusinessObject" type="BusinessObject"/>
 	<xsd:complexType name="BusinessObject">
 		<xsd:annotation>
@@ -236,7 +235,7 @@ These common service definitions are related to automation / information or comm
 		</xsd:annotation>
 		<xsd:simpleContent>
 			<xsd:extension base="Resource_String_value_ValueType">
-				<xsd:attribute name="type" type="ResourceType" use="required"/>
+				<xsd:attribute name="type" use="required" type="ResourceType"/>
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>
