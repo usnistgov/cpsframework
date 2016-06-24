@@ -7,9 +7,11 @@
 	<Folder FolderName="XQuery Files" ExtStr="xq;xql;xquery;xqu"/>
 	<Folder FolderName="HTML Files" ExtStr="html;htm;xhtml;asp"/>
 	<Folder FolderName="DTD/Schemas" ExtStr="dtd;dcd;xdr;biz;xsd">
-		<File FilePath="aspectsandconcerns.xsd" HomeFolder="Yes"/>
+		<File FilePath="assurance.xsd" HomeFolder="Yes"/>
+		<File FilePath="conceptualization.xsd" HomeFolder="Yes"/>
 		<File FilePath="cpsframework.xsd" HomeFolder="Yes"/>
 		<File FilePath="IEC62559-3.xsd" HomeFolder="Yes"/>
+		<File FilePath="realization.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>
 </Project>

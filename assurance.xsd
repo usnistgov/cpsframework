@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:include schemaLocation="cpsframework.xsd"/>
+	<xs:include schemaLocation="realization.xsd"/>
+	<xs:include schemaLocation="conceptualization.xsd"/>
+	<xs:element name="AssuranceCase" type="AssuranceCase"/>
+	<xs:complexType name="AssuranceCase">
+		<xs:sequence>
+			<xs:element name="Judgement" type="Judgement" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Evidence" type="Evidence"/>
+	<xs:complexType name="Evidence">
+		<xs:sequence>
+			<xs:element name="TestCase" type="TestCase" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Judgement" type="Judgement"/>
+	<xs:complexType name="Judgement">
+		<xs:sequence>
+			<xs:element name="claim" type="Claim" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="evidence" type="Evidence" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="argumenation" type="ArgumentationKind" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="confidence" type="xs:float" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ArgumentationKind">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="standard"/>
+			<xs:enumeration value="best practice"/>
+			<xs:enumeration value="formal method"/>
+			<xs:enumeration value="regulation"/>
+			<xs:enumeration value="expertise"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Claim" type="Claim"/>
+	<xs:complexType name="Claim">
+		<xs:sequence>
+			<xs:element name="Property" type="Property" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="VerificationKind">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="test"/>
+			<xs:enumeration value="inspection"/>
+			<xs:enumeration value="analysis"/>
+			<xs:enumeration value="demonstration"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
