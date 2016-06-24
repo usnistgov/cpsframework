@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:include schemaLocation="IEC62559-3.xsd"/>
 	<xs:element name="LogicalTime" type="LogicalTime"/>
 	<xs:complexType name="LogicalTime">
 		<xs:complexContent>
@@ -499,5 +500,53 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Domain" type="Domain"/>
+	<xs:complexType name="Domain">
+		<xs:complexContent>
+			<xs:extension base="Domain">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="UseCase" type="UseCase"/>
+	<xs:complexType name="UseCase">
+		<xs:complexContent>
+			<xs:extension base="UseCase">
+				<xs:sequence>
+					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="BusinessCase" type="BusinessCase"/>
+	<xs:complexType name="BusinessCase">
+		<xs:complexContent>
+			<xs:extension base="BusinessCase">
+				<xs:sequence>
+					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Actor" type="Actor"/>
+	<xs:complexType name="Actor">
+		<xs:complexContent>
+			<xs:extension base="Actor">
+				<xs:sequence>
+					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Step" type="Step"/>
+	<xs:complexType name="Step">
+		<xs:complexContent>
+			<xs:extension base="Step">
+				<xs:sequence>
+					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>
