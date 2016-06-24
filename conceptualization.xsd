@@ -149,7 +149,9 @@
 	<xs:complexType name="TrustworthinessAspect">
 		<xs:complexContent>
 			<xs:extension base="Aspect">
-				<xs:sequence/>
+				<xs:sequence>
+					<xs:element name="Security" type="Security" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -246,7 +248,7 @@
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
-					<xs:element name="LogicalTime" type="LogicalTime" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="LogicalTime" type="LogicalTime" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="TimingAndLatency" type="TimingAndLatency" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Synchronization" type="Synchronization" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="TimeAwareness" type="TimeAwareness" minOccurs="0" maxOccurs="unbounded"/>
@@ -470,8 +472,10 @@
 	<xs:element name="Security" type="Security"/>
 	<xs:complexType name="Security">
 		<xs:complexContent>
-			<xs:extension base="TrustworthinessAspect">
-				<xs:sequence/>
+			<xs:extension base="Concern">
+				<xs:sequence>
+					<xs:element name="Cybersecurity" type="Cybersecurity" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -514,7 +518,7 @@
 		<xs:complexContent>
 			<xs:extension base="UseCase">
 				<xs:sequence>
-					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -524,7 +528,7 @@
 		<xs:complexContent>
 			<xs:extension base="BusinessCase">
 				<xs:sequence>
-					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -534,7 +538,7 @@
 		<xs:complexContent>
 			<xs:extension base="Actor">
 				<xs:sequence>
-					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -544,9 +548,30 @@
 		<xs:complexContent>
 			<xs:extension base="Step">
 				<xs:sequence>
-					<xs:element name="Aspect" type="Aspect" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Aspects" type="Aspects"/>
+	<xs:complexType name="Aspects">
+		<xs:annotation>
+			<xs:documentation>Set of aspects that might be applicable at a level of the decomposition of conceptualization.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="functional" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="business" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="human" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="trustworthiness" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="timing" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="data" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="boundaries" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="composition" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="lifecylce" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Cybersecurity" type="Cybersecurity"/>
+	<xs:complexType name="Cybersecurity">
+		<xs:sequence/>
 	</xs:complexType>
 </xs:schema>
