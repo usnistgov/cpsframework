@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:element name="AnalyzeEvidence" type="AnalyzeEvidence"/>
+	<xs:complexType name="AnalyzeEvidence">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ProductCertificationAndRegulatoryComplianceTesting" type="ProductCertificationAndRegulatoryComplianceTesting"/>
+	<xs:complexType name="ProductCertificationAndRegulatoryComplianceTesting">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ManufacturingImplementation" type="ManufacturingImplementation"/>
+	<xs:complexType name="ManufacturingImplementation">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RequirementsAllocation" type="RequirementsAllocation"/>
+	<xs:complexType name="RequirementsAllocation">
+		<xs:complexContent>
+			<xs:extension base="ConceptualizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RequirementsAnalysis" type="RequirementsAnalysis"/>
+	<xs:complexType name="RequirementsAnalysis">
+		<xs:complexContent>
+			<xs:extension base="ConceptualizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Disposal" type="Disposal"/>
+	<xs:complexType name="Disposal">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RequirementsVerification" type="RequirementsVerification"/>
+	<xs:complexType name="RequirementsVerification">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DesignCPS" type="DesignCPS"/>
+	<xs:complexType name="DesignCPS">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="FunctionalDecomposition" type="FunctionalDecomposition"/>
+	<xs:complexType name="FunctionalDecomposition">
+		<xs:complexContent>
+			<xs:extension base="ConceptualizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LifecycleManagement" type="LifecycleManagement"/>
+	<xs:complexType name="LifecycleManagement">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="PhysicalLayerRealization" type="PhysicalLayerRealization"/>
+	<xs:complexType name="PhysicalLayerRealization">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="IdentifyAssuranceObjectives" type="IdentifyAssuranceObjectives"/>
+	<xs:complexType name="IdentifyAssuranceObjectives">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="InterfaceRequirementsAnalysis" type="InterfaceRequirementsAnalysis"/>
+	<xs:complexType name="InterfaceRequirementsAnalysis">
+		<xs:complexContent>
+			<xs:extension base="ConceptualizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ConfigureAudit" type="ConfigureAudit"/>
+	<xs:complexType name="ConfigureAudit">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ProvideAssuranceArgument" type="ProvideAssuranceArgument"/>
+	<xs:complexType name="ProvideAssuranceArgument">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="BusinessCaseAnalysis" type="BusinessCaseAnalysis"/>
+	<xs:complexType name="BusinessCaseAnalysis">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ProvideEstimateOfConfidence" type="ProvideEstimateOfConfidence"/>
+	<xs:complexType name="ProvideEstimateOfConfidence">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MissionAndBusinessCaseDevelopment" type="MissionAndBusinessCaseDevelopment"/>
+	<xs:complexType name="MissionAndBusinessCaseDevelopment">
+		<xs:complexContent>
+			<xs:extension base="ConceptualizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ControlAssuranceEvidence" type="ControlAssuranceEvidence"/>
+	<xs:complexType name="ControlAssuranceEvidence">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CyberPhysicalAbstractionLayerFormation" type="CyberPhysicalAbstractionLayerFormation"/>
+	<xs:complexType name="CyberPhysicalAbstractionLayerFormation">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Operations" type="Operations"/>
+	<xs:complexType name="Operations">
+		<xs:complexContent>
+			<xs:extension base="RealizationActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DefineAssuranceStrategy" type="DefineAssuranceStrategy"/>
+	<xs:complexType name="DefineAssuranceStrategy">
+		<xs:complexContent>
+			<xs:extension base="AssuranceActivity">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="ConceptualizationActivity" type="ConceptualizationActivity"/>
+	<xs:complexType name="ConceptualizationActivity">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="ConceputalizationArtifact" type="ConceputalizationArtifact"/>
+	<xs:complexType name="ConceputalizationArtifact">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="RealizationArtifact" type="RealizationArtifact"/>
+	<xs:complexType name="RealizationArtifact">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="AssuranceActivity" type="AssuranceActivity"/>
+	<xs:complexType name="AssuranceActivity">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="RealizationActivity" type="RealizationActivity"/>
+	<xs:complexType name="RealizationActivity">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="AssuranceArtifact" type="AssuranceArtifact"/>
+	<xs:complexType name="AssuranceArtifact">
+		<xs:sequence/>
+	</xs:complexType>
+</xs:schema>

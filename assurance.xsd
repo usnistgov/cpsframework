@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
-	<xs:include schemaLocation="cpsframework.xsd"/>
-	<xs:include schemaLocation="realization.xsd"/>
 	<xs:include schemaLocation="conceptualization.xsd"/>
+	<xs:include schemaLocation="realization.xsd"/>
+	<xs:include schemaLocation="cpsframework.xsd"/>
+	<xs:include schemaLocation="activities.xsd"/>
+	<xs:element name="Assurance" type="Assurance"/>
+	<xs:complexType name="Assurance">
+		<xs:complexContent>
+			<xs:extension base="Facet">
+				<xs:sequence>
+					<xs:element name="AssuranceArtifact" type="AssuranceArtifact" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="AssuranceActivity" type="AssuranceActivity" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="AssuranceCase" type="AssuranceCase" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:element name="AssuranceCase" type="AssuranceCase"/>
 	<xs:complexType name="AssuranceCase">
 		<xs:sequence>
@@ -26,7 +39,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="ArgumentationKind">
-		<xs:restriction base="xs:int">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="standard"/>
 			<xs:enumeration value="best practice"/>
 			<xs:enumeration value="formal method"/>
