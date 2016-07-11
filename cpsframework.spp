@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
 	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml">
+		<File FilePath="CPSFrameworkIntegrationWithUseCase.xml" HomeFolder="Yes"/>
 		<File FilePath="testusecase.xml" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XSL Files" ExtStr="xsl;xslt"/>

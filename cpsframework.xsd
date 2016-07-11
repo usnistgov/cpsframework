@@ -7,9 +7,11 @@ Title:.
 Comment:.</xs:documentation>
 	</xs:annotation>
 	<xs:import namespace="IEC62559" schemaLocation="IEC62559-3.xsd"/>
+	<xs:include schemaLocation="realization.xsd"/>
+	<xs:include schemaLocation="assurance.xsd"/>
 	<xs:include schemaLocation="conceptualization.xsd"/>
 	<xs:element name="Facet" type="Facet"/>
-	<xs:complexType name="Facet">
+	<xs:complexType name="Facet" abstract="true">
 		<xs:sequence/>
 	</xs:complexType>
 	<xs:element name="Aspect" type="Aspect"/>
@@ -167,7 +169,33 @@ Comment:.</xs:documentation>
 		<xs:sequence>
 			<xs:element name="BusinessCase" type="BusinessCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="UseCase" type="UseCase" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="Facet" type="Facet" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Conceptualization" type="Conceptualization" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ActorLibrary" type="ActorLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ActorLibrary" type="ActorLibrary"/>
+	<xs:complexType name="ActorLibrary">
+		<xs:annotation>
+			<xs:documentation>Actors of the repository. Recreated based on iec:ActorLibrary.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Actor" type="Actor" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary"/>
+	<xs:complexType name="BusinessObjectLibrary">
+		<xs:annotation>
+			<xs:documentation>Business objects exchanged of the repository. Recreated based on iec:BusinessObjectLibrary.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessObject" type="BusinessObject" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of business objects within the library.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
