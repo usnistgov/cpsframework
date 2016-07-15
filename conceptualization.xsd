@@ -843,7 +843,8 @@
 			<xs:extension base="iec:Actor">
 				<xs:sequence>
 					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Function" type="Function" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="HWCI" type="HWCI" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="SWCI" type="SWCI" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1366,24 +1367,6 @@
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Function" type="Function"/>
-	<xs:complexType name="Function">
-		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of the function.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the function.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="HWCI" type="HWCI" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="SWCI" type="SWCI" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="HWCI" type="HWCI"/>
 	<xs:complexType name="HWCI">

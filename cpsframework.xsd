@@ -89,7 +89,7 @@ Comment:.</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="Actor">
 				<xs:sequence>
-					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="state" type="xs:string" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_Influences" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
@@ -168,7 +168,7 @@ Comment:.</xs:documentation>
 	<xs:complexType name="CPSFramwork">
 		<xs:sequence>
 			<xs:element name="BusinessCase" type="BusinessCase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="UseCase" type="UseCase" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="UseCase" type="UseCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Conceptualization" type="Conceptualization" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ActorLibrary" type="ActorLibrary" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
