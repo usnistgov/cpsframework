@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by National Institute of Standards & Technology (NIST) -->
-<n1:CPSFramwork xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
+<n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
 		<name>String</name>
 		<technicalId>String</technicalId>
@@ -850,10 +850,6 @@
 			<technicalId>12345677</technicalId>
 			<description>qwe</description>
 			<type>device</type>
-			<Function>
-				<name/>
-				<description/>
-			</Function>
 		</Actor>
 	</ActorLibrary>
 	<BusinessObjectLibrary>
@@ -863,4 +859,4 @@
 			<description>The currently sensed temperature</description>
 		</BusinessObject>
 	</BusinessObjectLibrary>
-</n1:CPSFramwork>
+</n1:CPSFramework>
