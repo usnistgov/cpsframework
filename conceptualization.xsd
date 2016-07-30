@@ -844,7 +844,7 @@
 				<xs:sequence>
 					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="HWCI" type="HWCI" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="SWCI" type="SWCI" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="CSCI" type="CSCI" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1387,10 +1387,10 @@
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="SWCI" type="SWCI"/>
-	<xs:complexType name="SWCI">
+	<xs:element name="CSCI" type="CSCI"/>
+	<xs:complexType name="CSCI">
 		<xs:annotation>
-			<xs:documentation>Software configuration item</xs:documentation>
+			<xs:documentation>Computer Software Configuration Item</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
