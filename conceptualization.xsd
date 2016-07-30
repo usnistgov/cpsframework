@@ -184,8 +184,8 @@
 		<xs:complexContent>
 			<xs:extension base="Facet">
 				<xs:sequence>
-					<xs:element name="ConceputalizationArtifact" type="ConceputalizationArtifact" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="ConceptualizationActivity" type="ConceptualizationActivity" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="ConceputalizationArtifacts" type="ConceputalizationArtifacts" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

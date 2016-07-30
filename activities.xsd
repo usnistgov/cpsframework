@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:include schemaLocation="conceptualization.xsd"/>
+	<xs:include schemaLocation="assurance.xsd"/>
+	<xs:include schemaLocation="realization.xsd"/>
 	<xs:element name="AnalyzeEvidence" type="AnalyzeEvidence"/>
 	<xs:complexType name="AnalyzeEvidence">
 		<xs:complexContent>
@@ -180,13 +183,18 @@
 	<xs:complexType name="ConceptualizationActivity">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="ConceputalizationArtifact" type="ConceputalizationArtifact"/>
-	<xs:complexType name="ConceputalizationArtifact">
-		<xs:sequence/>
+	<xs:element name="ConceputalizationArtifacts" type="ConceputalizationArtifacts"/>
+	<xs:complexType name="ConceputalizationArtifacts">
+		<xs:sequence>
+			<xs:element name="Property" type="Property" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="RealizationArtifact" type="RealizationArtifact"/>
-	<xs:complexType name="RealizationArtifact">
-		<xs:sequence/>
+	<xs:element name="RealizationArtifacts" type="RealizationArtifacts"/>
+	<xs:complexType name="RealizationArtifacts">
+		<xs:sequence>
+			<xs:element name="Design" type="Design" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="TestCase" type="TestCase" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="AssuranceActivity" type="AssuranceActivity"/>
 	<xs:complexType name="AssuranceActivity">
@@ -196,8 +204,10 @@
 	<xs:complexType name="RealizationActivity">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="AssuranceArtifact" type="AssuranceArtifact"/>
-	<xs:complexType name="AssuranceArtifact">
-		<xs:sequence/>
+	<xs:element name="AssuranceArtifacts" type="AssuranceArtifacts"/>
+	<xs:complexType name="AssuranceArtifacts">
+		<xs:sequence>
+			<xs:element name="AssuranceCase" type="AssuranceCase" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

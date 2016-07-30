@@ -9,9 +9,8 @@
 		<xs:complexContent>
 			<xs:extension base="Facet">
 				<xs:sequence>
-					<xs:element name="AssuranceArtifact" type="AssuranceArtifact" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="AssuranceActivity" type="AssuranceActivity" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="AssuranceCase" type="AssuranceCase" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="AssuranceArtifacts" type="AssuranceArtifacts" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

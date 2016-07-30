@@ -10,9 +10,7 @@
 			<xs:extension base="Facet">
 				<xs:sequence>
 					<xs:element name="RealizationActivity" type="RealizationActivity" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="RealizationArtifact" type="RealizationArtifact" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="Design" type="Design" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="TestCase" type="TestCase" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="RealizationArtifacts" type="RealizationArtifacts" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
