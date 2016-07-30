@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:iec="IEC62559">
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework">
 	<xs:annotation>
 		<xs:documentation>Author:Howard.
 Created:12/18/15 3:03 PM.
 Title:.
 Comment:.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="IEC62559" schemaLocation="IEC62559-3.xsd"/>
+	<xs:include schemaLocation="IEC62559-3.xsd"/>
 	<xs:include schemaLocation="realization.xsd"/>
 	<xs:include schemaLocation="assurance.xsd"/>
 	<xs:include schemaLocation="conceptualization.xsd"/>
@@ -23,18 +23,74 @@ Comment:.</xs:documentation>
 	</xs:complexType>
 	<xs:element name="Device" type="Device"/>
 	<xs:complexType name="Device">
-		<xs:complexContent>
-			<xs:extension base="Physical">
-				<xs:sequence>
-					<xs:element name="Ref_Device" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>reference to other Device objects</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="state" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Ref_Influences" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ref_Device" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>reference to other Device objects</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="System" type="System"/>
 	<xs:complexType name="System">
@@ -99,16 +155,6 @@ Comment:.</xs:documentation>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="UseCase" type="UseCase"/>
-	<xs:complexType name="UseCase">
-		<xs:complexContent>
-			<xs:extension base="iec:UseCase">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="reference" type="reference"/>
 	<xs:complexType name="reference">
 		<xs:annotation>
@@ -126,26 +172,6 @@ Comment:.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="BusinessCase" type="BusinessCase"/>
-	<xs:complexType name="BusinessCase">
-		<xs:complexContent>
-			<xs:extension base="iec:BusinessCase">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Step" type="Step"/>
-	<xs:complexType name="Step">
-		<xs:complexContent>
-			<xs:extension base="iec:Step">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="Aspects" type="Aspects"/>
 	<xs:complexType name="Aspects">
@@ -174,28 +200,6 @@ Comment:.</xs:documentation>
 			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="ActorLibrary" type="ActorLibrary"/>
-	<xs:complexType name="ActorLibrary">
-		<xs:annotation>
-			<xs:documentation>Actors of the repository. Recreated based on iec:ActorLibrary.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Actor" type="Actor" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary"/>
-	<xs:complexType name="BusinessObjectLibrary">
-		<xs:annotation>
-			<xs:documentation>Business objects exchanged of the repository. Recreated based on iec:BusinessObjectLibrary.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="BusinessObject" type="BusinessObject" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>List of business objects within the library.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

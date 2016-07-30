@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:iec="IEC62559">
-	<xs:import namespace="IEC62559" schemaLocation="IEC62559-3.xsd"/>
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
 	<xs:include schemaLocation="cpsframework.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
 	<xs:element name="LogicalTime" type="LogicalTime"/>
@@ -829,26 +828,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Domain" type="Domain"/>
-	<xs:complexType name="Domain">
-		<xs:complexContent>
-			<xs:extension base="iec:Domain">
-				<xs:sequence/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Actor" type="Actor"/>
-	<xs:complexType name="Actor">
-		<xs:complexContent>
-			<xs:extension base="iec:Actor">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="HWCI" type="HWCI" minOccurs="0" maxOccurs="unbounded"/>
-					<xs:element name="CSCI" type="CSCI" minOccurs="0" maxOccurs="unbounded"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:element name="Cybersecurity" type="Cybersecurity"/>
 	<xs:complexType name="Cybersecurity">
 		<xs:annotation>
@@ -1405,18 +1384,5 @@
 			</xs:element>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="BusinessObject" type="BusinessObject"/>
-	<xs:complexType name="BusinessObject">
-		<xs:annotation>
-			<xs:documentation>Business object exchanged in detailed activity step.</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="iec:BusinessObject">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>
