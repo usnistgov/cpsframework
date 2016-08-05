@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
-	<xs:include schemaLocation="conceptualization.xsd"/>
 	<xs:include schemaLocation="realization.xsd"/>
 	<xs:include schemaLocation="cpsframework.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
@@ -49,7 +48,7 @@
 	<xs:element name="Claim" type="Claim"/>
 	<xs:complexType name="Claim">
 		<xs:sequence>
-			<xs:element name="Property" type="Property" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="VerificationKind">

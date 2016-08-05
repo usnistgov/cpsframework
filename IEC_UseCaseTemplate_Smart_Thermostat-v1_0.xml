@@ -201,6 +201,9 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -228,6 +231,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -255,6 +261,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -282,6 +291,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -309,6 +321,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -336,6 +351,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -363,6 +381,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
@@ -437,6 +458,9 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -464,6 +488,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -491,6 +518,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -518,6 +548,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -545,6 +578,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -572,6 +608,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -599,6 +638,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
@@ -675,6 +717,9 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -702,6 +747,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -729,6 +777,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -756,6 +807,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -783,6 +837,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -810,6 +867,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -837,6 +897,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>1</refInteraction>
+					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
@@ -859,4 +922,22 @@
 			<description>The currently sensed temperature</description>
 		</BusinessObject>
 	</BusinessObjectLibrary>
+	<InteractionLibrary>
+		<interaction>
+			<technicalId>1</technicalId>
+			<kind>message</kind>
+			<Aspects>
+				<trustworthiness>
+					<Privacy>
+						<Property>
+							<statement/>
+						</Property>
+						<Property>
+							<statement>No PII shall be in message.</statement>
+						</Property>
+					</Privacy>
+				</trustworthiness>
+			</Aspects>
+		</interaction>
+	</InteractionLibrary>
 </n1:CPSFramework>

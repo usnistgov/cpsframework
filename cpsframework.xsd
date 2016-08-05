@@ -173,6 +173,80 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="InteractionLibrary" type="InteractionLibrary"/>
+	<xs:complexType name="InteractionLibrary">
+		<xs:annotation>
+			<xs:documentation>A library of interactions that can define a messaging pattern and associated aspects, or, an influence.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="interaction" type="Interaction" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>An interaction definition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Interaction" type="Interaction"/>
+	<xs:complexType name="Interaction">
+		<xs:annotation>
+			<xs:documentation>An interaction is re-usable description of a message or an influence. An interaction is governed by a set of properties.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kind" type="InteractionKind" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Kind of interaction.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Ref_Property" type="Ref_Property"/>
+	<xs:complexType name="Ref_Property">
+		<xs:sequence>
+			<xs:element name="refProperty" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>URI reference to a property</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Ref_Interaction" type="Ref_Interaction"/>
+	<xs:complexType name="Ref_Interaction">
+		<xs:sequence>
+			<xs:element name="refInteraction" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contains a reference to an Interaction.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="InteractionKind">
+		<xs:annotation>
+			<xs:documentation>Kind of interaction -- either information exchange, or, physical influence.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="message">
+				<xs:annotation>
+					<xs:documentation>A message exchange of information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="influence">
+				<xs:annotation>
+					<xs:documentation>A physical influence -- such as mechanical, electrical, thermal, ....</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:element name="Aspects" type="Aspects"/>
 	<xs:complexType name="Aspects">
 		<xs:annotation>
@@ -200,6 +274,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InteractionLibrary" type="InteractionLibrary" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

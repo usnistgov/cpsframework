@@ -174,7 +174,7 @@ These common service definitions are related to automation / information or comm
 					<xs:documentation>This describes briefly the information to be exchanged between the two actors – information producer and information receiver. It is possible to several information in one step, comma separated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="interaction" type="Ref_Interaction" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="BusinessCase" type="BusinessCase"/>
