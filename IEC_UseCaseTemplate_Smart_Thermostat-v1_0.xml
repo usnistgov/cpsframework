@@ -2,11 +2,11 @@
 <!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by National Institute of Standards & Technology (NIST) -->
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
-		<name>String</name>
+		<name>Design a Communicating Smart Thermostat</name>
 		<technicalId>String</technicalId>
-		<description>String</description>
+		<description>Build a smart thermostat that has a heating and cooling mode and uses WiFi to interact with an HVAC system in a home. The Thermostat should be able to retail for $79.  I must be intrinsicly safe, secure, and protect privacy. </description>
 		<Domain>
-			<name>String</name>
+			<name>Home Automation</name>
 			<technicalId>String</technicalId>
 		</Domain>
 	</BusinessCase>
