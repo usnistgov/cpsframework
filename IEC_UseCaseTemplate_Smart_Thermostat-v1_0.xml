@@ -2,11 +2,11 @@
 <!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by National Institute of Standards & Technology (NIST) -->
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
-		<name>String</name>
+		<name>Design a Communicating Smart Thermostat</name>
 		<technicalId>String</technicalId>
-		<description>String</description>
+		<description>Build a smart thermostat that has a heating and cooling mode and uses WiFi to interact with an HVAC system in a home. The Thermostat should be able to retail for $79.  I must be intrinsicly safe, secure, and protect privacy. </description>
 		<Domain>
-			<name>String</name>
+			<name>Home Automation</name>
 			<technicalId>String</technicalId>
 		</Domain>
 	</BusinessCase>
@@ -201,9 +201,6 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -231,9 +228,6 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -261,9 +255,6 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -291,9 +282,6 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -321,9 +309,6 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -351,9 +336,6 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -381,9 +363,6 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
@@ -458,9 +437,6 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -488,9 +464,6 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -518,9 +491,6 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -548,9 +518,6 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -578,9 +545,6 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -608,9 +572,6 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -638,9 +599,6 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
@@ -717,9 +675,6 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -747,9 +702,6 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -777,9 +729,6 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -807,9 +756,6 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -837,9 +783,6 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -867,9 +810,6 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -897,9 +837,6 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
-					<interaction>
-						<refInteraction>1</refInteraction>
-					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
@@ -922,22 +859,4 @@
 			<description>The currently sensed temperature</description>
 		</BusinessObject>
 	</BusinessObjectLibrary>
-	<InteractionLibrary>
-		<interaction>
-			<technicalId>1</technicalId>
-			<kind>message</kind>
-			<Aspects>
-				<trustworthiness>
-					<Privacy>
-						<Property>
-							<statement/>
-						</Property>
-						<Property>
-							<statement>No PII shall be in message.</statement>
-						</Property>
-					</Privacy>
-				</trustworthiness>
-			</Aspects>
-		</interaction>
-	</InteractionLibrary>
 </n1:CPSFramework>
