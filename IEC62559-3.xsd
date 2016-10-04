@@ -30,8 +30,8 @@
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="ActorGrouping" type="ActorGrouping"/>
-	<xs:complexType name="ActorGrouping">
+	<xs:element name="CPSGrouping" type="CPSGrouping"/>
+	<xs:complexType name="CPSGrouping">
 		<xs:annotation>
 			<xs:documentation>Group of actors used to organize an actor list.</xs:documentation>
 		</xs:annotation>
@@ -52,7 +52,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Actor" type="UseCase_Ref_Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CPS" type="UseCase_Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>list of grouped Actors</xs:documentation>
 				</xs:annotation>
@@ -159,12 +159,12 @@ These common service definitions are related to automation / information or comm
 					<xs:documentation>Requirement(s) for the step. It is allowed to list several requirement in one step, comma separated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InformationReceiver" type="Ref_Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="InformationReceiver" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>This identifies the receiver of the information. This should be one of the actors defined in the repository.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="InformationProducer" type="Ref_Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="InformationProducer" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>This identifies the producer or source of the information. This should be one of the actors defined in the repository.</xs:documentation>
 				</xs:annotation>
@@ -251,6 +251,7 @@ These common service definitions are related to automation / information or comm
 					<xs:documentation>list of business objects within the library</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="UseCaseLibrary" type="UseCaseLibrary"/>
@@ -266,8 +267,8 @@ These common service definitions are related to automation / information or comm
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Actor" type="Actor"/>
-	<xs:complexType name="Actor">
+	<xs:element name="CPS" type="CPS"/>
+	<xs:complexType name="CPS">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
@@ -351,8 +352,8 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="UseCase_Ref_Actor" type="UseCase_Ref_Actor"/>
-	<xs:complexType name="UseCase_Ref_Actor">
+	<xs:element name="UseCase_Ref_CPS" type="UseCase_Ref_CPS"/>
+	<xs:complexType name="UseCase_Ref_CPS">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
@@ -623,8 +624,8 @@ path to an XMI file with a relative diagram path from the root of the UML model.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Ref_Actor" type="Ref_Actor"/>
-	<xs:complexType name="Ref_Actor">
+	<xs:element name="Ref_CPS" type="Ref_CPS"/>
+	<xs:complexType name="Ref_CPS">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
@@ -744,12 +745,12 @@ This prioritisation might be different from country to country.</xs:documentatio
 					<xs:documentation>Known relations to other use cases can be provided here if e.g. the use case is a more detailed one related to a high level use case, or it is an alternative to an existing use case. </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ActorGrouping" type="ActorGrouping" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CPSGrouping" type="CPSGrouping" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>a Use Case references several set of Actors</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PrimaryActor" type="Ref_Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Identification of the PrimaryActor linked by the use case.</xs:documentation>
 				</xs:annotation>
@@ -876,7 +877,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PrimaryActor" type="Ref_Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Describes which actor  triggers this scenario.</xs:documentation>
 				</xs:annotation>
@@ -983,7 +984,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>The associated library</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ActorLibrary" type="ActorLibrary" minOccurs="0" maxOccurs="1">
+			<xs:element name="ActorLibrary" type="CPSLibrary" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Library of actors</xs:documentation>
 				</xs:annotation>
@@ -1023,17 +1024,18 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="ActorLibrary" type="ActorLibrary"/>
-	<xs:complexType name="ActorLibrary">
+	<xs:element name="CPSLibrary" type="CPSLibrary"/>
+	<xs:complexType name="CPSLibrary">
 		<xs:annotation>
 			<xs:documentation>Actors of the repository.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Actor" type="Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CPS" type="CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The actors listed in the library</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="RequirementLibrary" type="RequirementLibrary"/>
@@ -1104,7 +1106,7 @@ The description may include drawings for explanation.</xs:documentation>
 					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PrimaryActor" type="Ref_Actor" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>reference to the PrimaryActor</xs:documentation>
 				</xs:annotation>
@@ -1175,6 +1177,7 @@ The description may include drawings for explanation.</xs:documentation>
 					<xs:documentation>the list of business cases</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

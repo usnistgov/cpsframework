@@ -84,12 +84,24 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Name of Physical part of a CPS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of this Physical part of a CPS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Ref_Device" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>reference to other Device objects</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="System" type="System"/>
@@ -111,7 +123,7 @@ This identifier is unique among several exchange of information. A global reposi
 	<xs:element name="Human" type="Human"/>
 	<xs:complexType name="Human">
 		<xs:complexContent>
-			<xs:extension base="Actor">
+			<xs:extension base="CPS">
 				<xs:sequence>
 					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
@@ -143,7 +155,7 @@ This identifier is unique among several exchange of information. A global reposi
 	<xs:element name="Physical" type="Physical"/>
 	<xs:complexType name="Physical">
 		<xs:complexContent>
-			<xs:extension base="Actor">
+			<xs:extension base="CPS">
 				<xs:sequence>
 					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_Influences" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -151,6 +163,17 @@ This identifier is unique among several exchange of information. A global reposi
 							<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Name of Physical part of a CPS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Description of this Physical part of a CPS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -184,6 +207,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>An interaction definition.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Interaction" type="Interaction"/>
@@ -262,6 +286,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="boundaries" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="composition" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="lifecylce" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="CPSFramework" type="CPSFramework"/>
@@ -270,11 +295,49 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="BusinessCase" type="BusinessCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="UseCase" type="UseCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Conceptualization" type="Conceptualization" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ActorLibrary" type="ActorLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CPSLibrary" type="CPSLibrary" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="InteractionLibrary" type="InteractionLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Maturity" type="Maturity"/>
+	<xs:complexType name="Maturity">
+		<xs:annotation>
+			<xs:documentation>Describes the maturity level of a component of the CPSFramework model.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="maturity" type="maturityLevels" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="effective" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Effective date. ISO 8601 string.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="responsibleParty" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>responsible party</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="revision" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Version string</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="maturityLevels">
+		<xs:annotation>
+			<xs:documentation>Enumeration of maturity levels -- can be extended to include custom values. Typically the meaning of the values is governed by the development process which is an orchestration of the Facet Activities.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="submitted"/>
+			<xs:enumeration value="verified"/>
+			<xs:enumeration value="approved"/>
+			<xs:enumeration value="delegated"/>
+			<xs:enumeration value="rejected"/>
+			<xs:enumeration value="reviewed"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

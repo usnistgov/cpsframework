@@ -238,13 +238,9 @@
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
-					<xs:element name="Deployability" type="Deployability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Disposability" type="Disposability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Engineerability" type="Engineerability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Maintainability" type="Maintainability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Operatability" type="Operatability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Procurability" type="Procurability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Producibility" type="Producibility" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="BOL" type="BOL" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="MOL" type="MOL" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="EOL" type="EOL" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1347,27 +1343,8 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="HWCI" type="HWCI"/>
-	<xs:complexType name="HWCI">
-		<xs:annotation>
-			<xs:documentation>Hardware configuration item.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of hardware configuration item (HWCI).</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of HWCI.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="CSCI" type="CSCI"/>
-	<xs:complexType name="CSCI">
+	<xs:element name="Cyber" type="Cyber"/>
+	<xs:complexType name="Cyber">
 		<xs:annotation>
 			<xs:documentation>Computer Software Configuration Item</xs:documentation>
 		</xs:annotation>
@@ -1384,5 +1361,48 @@
 			</xs:element>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BOL" type="BOL"/>
+	<xs:complexType name="BOL">
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence>
+					<xs:element name="Deployability" type="Deployability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Engineerability" type="Engineerability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Procurability" type="Procurability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Producibility" type="Producibility" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MOL" type="MOL"/>
+	<xs:complexType name="MOL">
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence>
+					<xs:element name="Maintainability" type="Maintainability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Operatability" type="Operatability" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="EOL" type="EOL"/>
+	<xs:complexType name="EOL">
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence>
+					<xs:element name="Disposability" type="Disposability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Preservability" type="Preservability" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Preservability" type="Preservability"/>
+	<xs:complexType name="Preservability">
+		<xs:complexContent>
+			<xs:extension base="Concern">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>
