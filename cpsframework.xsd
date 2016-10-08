@@ -23,107 +23,46 @@ Comment:.</xs:documentation>
 	</xs:complexType>
 	<xs:element name="Device" type="Device"/>
 	<xs:complexType name="Device">
-		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Unique global identifier for the object.
-This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Unique global identifier for the object.
-This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="state" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Ref_Influences" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of Physical part of a CPS.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of this Physical part of a CPS.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Ref_Device" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>reference to other Device objects</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="CPS">
+				<xs:sequence>
+					<xs:element name="Ref_messages" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>reference to messages (peer to influences)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="System" type="System"/>
 	<xs:complexType name="System">
-		<xs:sequence>
-			<xs:element name="Ref_SystemOfSystems" type="xs:string" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>References to other System objects for System of Systems. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="CPS">
+				<xs:sequence>
+					<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="SystemOfSystems" type="SystemOfSystems"/>
 	<xs:complexType name="SystemOfSystems">
-		<xs:sequence/>
+		<xs:complexContent>
+			<xs:extension base="CPS">
+				<xs:sequence>
+					<xs:element name="System" type="System" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="Human" type="Human"/>
 	<xs:complexType name="Human">
 		<xs:complexContent>
-			<xs:extension base="CPS">
+			<xs:extension base="Function">
 				<xs:sequence>
 					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
@@ -155,7 +94,7 @@ This identifier is unique among several exchange of information. A global reposi
 	<xs:element name="Physical" type="Physical"/>
 	<xs:complexType name="Physical">
 		<xs:complexContent>
-			<xs:extension base="CPS">
+			<xs:extension base="Function">
 				<xs:sequence>
 					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_Influences" type="xs:string" minOccurs="0" maxOccurs="unbounded">
