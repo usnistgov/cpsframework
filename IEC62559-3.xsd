@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework">
 	<xs:include schemaLocation="cpsframework.xsd"/>
+	<xs:element name="CPS" type="CPS"/>
+	<xs:complexType name="CPS">
+		<xs:annotation>
+			<xs:documentation>Entity that communicates and interacts.
+These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:element name="BusinessObject" type="BusinessObject"/>
 	<xs:complexType name="BusinessObject">
 		<xs:annotation>
@@ -267,8 +302,8 @@ These common service definitions are related to automation / information or comm
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="CPS" type="CPS"/>
-	<xs:complexType name="CPS">
+	<xs:element name="Function" type="Function"/>
+	<xs:complexType name="Function">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
@@ -1030,7 +1065,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Actors of the repository.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CPS" type="CPS" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CPS" type="Function" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The actors listed in the library</xs:documentation>
 				</xs:annotation>
