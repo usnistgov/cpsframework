@@ -34,6 +34,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="BusinessObject" type="BusinessObject"/>
@@ -170,7 +171,6 @@ This identifier is unique among several exchange of information. A global reposi
 				<xs:annotation>
 					<xs:documentation>This column identifies the nature of the information flow and the originator of the information. Available options are CREATE, GET, CHANGE, DELETE, CANCEL, EXECUTE derived from IEC 61968-100:2013.
 Additionally, REPORT, TIMER and REPEAT are suggested. 
-
 	- CREATE means that an information object is to be created at the Producer. 
 	- GET (this is the default value if none is populated) means that the Receiver requests information from the Producer (default).
 	- CHANGE means that information is to be updated. Producer updates the Receiver’s information.
@@ -180,7 +180,6 @@ Additionally, REPORT, TIMER and REPEAT are suggested.
 	- REPORT is used to represent transferral of unsolicited information or asynchronous information flows. Producer provides information to the Receiver.
 	- TIMER is used to represent a waiting period. When using the TIMER service, the Information Producer and Information Receiver fields shall refer to the same actor. 
 	- REPEAT is used to indicate that a series of steps is repeated until a condition or trigger event. The condition is specified as the text in the "Event" column for this row or step. Following the word REPEAT, shall appear, in parenthesis, the first and last step numbers of the series to be repeated in the following form REPEAT(X-Y) where X is the first step and Y is the last step.
-
 These common service definitions are related to automation / information or communication systems. In case the use case template is applied in other domains, further services might be used and described.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -210,6 +209,7 @@ These common service definitions are related to automation / information or comm
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="interaction" type="Ref_Interaction" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="BusinessCase" type="BusinessCase"/>

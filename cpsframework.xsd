@@ -44,7 +44,6 @@ Comment:.</xs:documentation>
 			<xs:extension base="CPS">
 				<xs:sequence>
 					<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -65,6 +64,7 @@ Comment:.</xs:documentation>
 			<xs:extension base="Function">
 				<xs:sequence>
 					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
