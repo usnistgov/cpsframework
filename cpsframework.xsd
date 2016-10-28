@@ -26,14 +26,10 @@ Comment:.</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="CPS">
 				<xs:sequence>
-					<xs:element name="Ref_messages" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>reference to messages (peer to influences)</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="unbounded"/>
 					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Ref_Device" type="Ref_Device" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -64,7 +60,6 @@ Comment:.</xs:documentation>
 			<xs:extension base="Function">
 				<xs:sequence>
 					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -113,6 +108,7 @@ Comment:.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -264,6 +260,7 @@ Comment:.</xs:documentation>
 					<xs:documentation>Version string</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="status" type="MaturityStatus" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="maturityLevels">
@@ -279,4 +276,25 @@ Comment:.</xs:documentation>
 			<xs:enumeration value="reviewed"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="MaturityStatus">
+		<xs:annotation>
+			<xs:documentation>The status of maturity of this instance.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="asDeveloped"/>
+			<xs:enumeration value="asDesigned"/>
+			<xs:enumeration value="asPlanned"/>
+			<xs:enumeration value="asBuilt"/>
+			<xs:enumeration value="asMaintained"/>
+			<xs:enumeration value="asDisposed"/>
+			<xs:enumeration value="asPreserved"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Ref_Device" type="Ref_Device"/>
+	<xs:complexType name="Ref_Device">
+		<xs:annotation>
+			<xs:documentation>Reference to a device.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
+	</xs:complexType>
 </xs:schema>

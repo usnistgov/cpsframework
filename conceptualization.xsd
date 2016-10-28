@@ -1363,8 +1363,13 @@
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="state" type="xs:string" minOccurs="1" maxOccurs="1"/>
-					<xs:element name="Ref_msgs" type="xs:int" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Ref_msgs" type="Ref_Interaction" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>reference to messages (peer to influences)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
