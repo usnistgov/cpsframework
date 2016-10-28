@@ -217,29 +217,17 @@ These common service definitions are related to automation / information or comm
 		<xs:annotation>
 			<xs:documentation>Provides a description or reference with some rationale for the suggested use case. Usually the business case is related to several use cases.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Domain" type="Ref_Domain" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Use cases can be used in various areas (e.g. energy system). Within these areas different domains are used to define / determine a more specific subgrouping. One or more domains and zones, comma separated, can be specified in the template. These are the other ones.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="Function">
+				<xs:sequence>
+					<xs:element name="Domain" type="Ref_Domain" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Use cases can be used in various areas (e.g. energy system). Within these areas different domains are used to define / determine a more specific subgrouping. One or more domains and zones, comma separated, can be specified in the template. These are the other ones.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="Domain" type="Domain"/>
 	<xs:complexType name="Domain">
@@ -727,136 +715,123 @@ These actors can include people, software applications, systems, databases, and 
 		<xs:annotation>
 			<xs:documentation>Specification of a set of actions performed by a system, which yields an observable result that is, typically, of value for one or more actors or other stakeholders of the system </xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Unique global identifier for the object.
-This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="nature" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Classifies the main focus of the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="classification" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>On international level the use case description might be generic enough to describe a use case in a more general way independently from the national or regional market design. But use cases might be used to describe regional or national specific circumstances like laws or even project specific details. If the use case reflects to those circumstances, it should be characterized accordingly.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="keywords" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Keywords can be defined in order to support extended search functionalities within a use case repository. Multiple keywords should be provided as a comma-separated list.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="levelOfDepth" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Use cases can be described on different levels, for example high-level use case, detailed use case, specialised use case, ...</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="prioritisation" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Considering a larger number of use cases it might be interesting to cluster them according to priority.
+		<xs:complexContent>
+			<xs:extension base="Function">
+				<xs:sequence>
+					<xs:element name="nature" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Classifies the main focus of the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="classification" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>On international level the use case description might be generic enough to describe a use case in a more general way independently from the national or regional market design. But use cases might be used to describe regional or national specific circumstances like laws or even project specific details. If the use case reflects to those circumstances, it should be characterized accordingly.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="keywords" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Keywords can be defined in order to support extended search functionalities within a use case repository. Multiple keywords should be provided as a comma-separated list.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="levelOfDepth" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Use cases can be described on different levels, for example high-level use case, detailed use case, specialised use case, ...</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="prioritisation" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Considering a larger number of use cases it might be interesting to cluster them according to priority.
 This prioritisation might be different from country to country.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="scope" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>The scope defines the limits of the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RelatedUseCase" type="Ref_UseCase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Known relations to other use cases can be provided here if e.g. the use case is a more detailed one related to a high level use case, or it is an alternative to an existing use case. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CPSGrouping" type="CPSGrouping" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>a Use Case references several set of Actors</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Identification of the PrimaryActor linked by the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="RelatedObjective" type="Objective" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>List of objectives of the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Assumption" type="Assumption" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>set of assumptions related to the use case</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Prerequisite" type="Condition" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Describes what condition(s) should have been met before initiation of the use case, such as prior state of the actors and activities.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="KeyPerformanceIndicator" type="KeyPerformanceIndicator" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>information about the KPI related to the use case</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BusinessCase" type="Ref_BusinessCase" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>list of business cases associated to the use case</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Narrative" type="Narrative" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>the information about the narrative part of the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Reference" type="Reference" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>information about referenced documents.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Remark" type="Remark" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>remark associated to the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>the list of associated drawing.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Version" type="Version" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>list of versions describing changes about the use case</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CustomInformation" type="CustomInformation" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Related additional information</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CommonTerm" type="Ref_CommonTerm" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>the associated common terms.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Scenario" type="Scenario" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>reference to the scenarios belonging to the use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="scope" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The scope defines the limits of the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RelatedUseCase" type="Ref_UseCase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Known relations to other use cases can be provided here if e.g. the use case is a more detailed one related to a high level use case, or it is an alternative to an existing use case. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CPSGrouping" type="CPSGrouping" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>a Use Case references several set of Actors</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identification of the PrimaryActor linked by the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RelatedObjective" type="Objective" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>List of objectives of the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Assumption" type="Assumption" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>set of assumptions related to the use case</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Prerequisite" type="Condition" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes what condition(s) should have been met before initiation of the use case, such as prior state of the actors and activities.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="KeyPerformanceIndicator" type="KeyPerformanceIndicator" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>information about the KPI related to the use case</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="BusinessCase" type="Ref_BusinessCase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>list of business cases associated to the use case</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Narrative" type="Narrative" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>the information about the narrative part of the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Reference" type="Reference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>information about referenced documents.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Remark" type="Remark" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>remark associated to the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>the list of associated drawing.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Version" type="Version" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>list of versions describing changes about the use case</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CustomInformation" type="CustomInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Related additional information</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CommonTerm" type="Ref_CommonTerm" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>the associated common terms.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Scenario" type="Scenario" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>reference to the scenarios belonging to the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="DomainLibrary" type="DomainLibrary"/>
 	<xs:complexType name="DomainLibrary">
@@ -895,64 +870,47 @@ This prioritisation might be different from country to country.</xs:documentatio
 		<xs:annotation>
 			<xs:documentation>A possible sequence of interactions.</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="identifier" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Unique global identifier for the object.
-This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Describes which actor  triggers this scenario.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>the list of associated drawing.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TriggeringEvent" type="TriggeringEvent" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>list of triggering events for the scenario</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Precondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Describes which condition(s) should prevail after this scenario happens The post conditions may also define "success" or "failure" conditions for each use case.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Postcondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Describes which condition(s) should have been met before this scenario happens.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>information about the requirement</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MacroActivity" type="MacroActivity" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>list of macro activities for the scenario</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="Function">
+				<xs:sequence>
+					<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes which actor  triggers this scenario.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>the list of associated drawing.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TriggeringEvent" type="TriggeringEvent" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>list of triggering events for the scenario</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Precondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes which condition(s) should prevail after this scenario happens The post conditions may also define "success" or "failure" conditions for each use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Postcondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes which condition(s) should have been met before this scenario happens.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>information about the requirement</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MacroActivity" type="MacroActivity" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>list of macro activities for the scenario</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="RequirementCategory" type="RequirementCategory"/>
 	<xs:complexType name="RequirementCategory">

@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2017 (x64) (http://www.altova.com) by Martin Burns (NIST) -->
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
-		<name>Design a Communicating Smart Thermostat</name>
+		<name>Design a Communicating Smart Thermostat</name><identifier>222</identifier>
 		<technicalId>String</technicalId>
 		<description>Build a smart thermostat that has heating, cooling and automatic control modes to maintain room temperature near a user’s set point and uses a WiFi local area network (LAN) to interact with a temperature sensor and an HVAC system in a home. The thermostat should be able to retail for less or equal to $79.  It must be intrinsically safe, reliable, secure, protect privacy, easy to use and upgradable.</description>
 		<Domain>
@@ -134,7 +134,7 @@
 		</CommonTerm>
 		<Scenario>
 			<name>Heating Mode (The commands and statuses reference to both heat pump and fan )</name>
-			<identifier>4.1</identifier>
+			<identifier>4.1</identifier><technicalId></technicalId>
 			<description>This is the heat setting on the thermostat</description>
 			<PrimaryCPS>
 				<name>Thermostat Controller</name>
@@ -331,7 +331,6 @@
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
-			<technicalId>String</technicalId>
 		</Scenario>
 		<Scenario>
 			<name>Cooling Mode (The commands and statuses reference to both cool pump and fan )</name>
