@@ -196,7 +196,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -218,7 +218,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -240,7 +240,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -262,7 +262,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -284,7 +284,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -306,7 +306,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -328,7 +328,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
@@ -397,7 +397,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -419,7 +419,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -441,7 +441,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -463,7 +463,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -485,7 +485,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -507,7 +507,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -529,7 +529,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
@@ -600,7 +600,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -622,7 +622,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -644,7 +644,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -666,7 +666,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -688,7 +688,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -710,7 +710,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<Step>
@@ -732,7 +732,7 @@
 						<technicalId>String</technicalId>
 					</BusinessObject>
 					<interaction>
-						<refInteraction>restmessage</refInteraction>
+						<refInteraction>msg1234</refInteraction>
 					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
@@ -757,8 +757,36 @@
 	</BusinessObjectLibrary>
 	<InteractionLibrary>
 		<interaction>
-			<technicalId>restmessage</technicalId>
+			<name>restmessage</name>
+			<technicalId>msg1234</technicalId>
 			<kind>message</kind>
+			<Aspects>
+				<functional>
+					<Communication>
+						<SyntacticInteroperability>
+							<OSIApplication>
+								<Property>
+									<statement>use REST pattern</statement>
+								</Property>
+							</OSIApplication>
+						</SyntacticInteroperability>
+					</Communication>
+				</functional>
+				<trustworthiness>
+					<Security>
+						<Cybersecurity>
+							<Confidentiality>
+								<Property>
+									<statement>Use TLS 1.2</statement>
+								</Property>
+								<Property>
+									<statement>Require mutual certificate authentication</statement>
+								</Property>
+							</Confidentiality>
+						</Cybersecurity>
+					</Security>
+				</trustworthiness>
+			</Aspects>
 		</interaction>
 		<Maturity>
 			<maturity>submitted</maturity>

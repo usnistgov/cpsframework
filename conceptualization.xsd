@@ -766,7 +766,7 @@
 			<xs:documentation>Dimensions of conceiving, realizing and assuring a CPS through the lifecycle.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Property" type="Property" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Property" type="Property"/>
