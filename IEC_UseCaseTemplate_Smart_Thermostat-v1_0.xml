@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by National Institute of Standards & Technology (NIST) -->
+<!-- edited with XMLSpy v2017 (x64) (http://www.altova.com) by Martin Burns (NIST) -->
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
 		<name>Design a Communicating Smart Thermostat</name>
+		<identifier>222</identifier>
 		<technicalId>String</technicalId>
-		<description>Build a smart thermostat that has a heating and cooling mode and uses WiFi to interact with an HVAC system in a home. The Thermostat should be able to retail for $79.  I must be intrinsicly safe, secure, and protect privacy. </description>
+		<description>Build a smart thermostat that has heating, cooling and automatic control modes to maintain room temperature near a user’s set point and uses a WiFi local area network (LAN) to interact with a temperature sensor and an HVAC system in a home. The thermostat should be able to retail for less or equal to $79.  It must be intrinsically safe, reliable, secure, protect privacy, easy to use and upgradable.</description>
 		<Domain>
 			<name>Home Automation</name>
 			<technicalId>String</technicalId>
@@ -24,40 +25,40 @@
 			<name>None</name>
 			<technicalId>None</technicalId>
 		</RelatedUseCase>
-		<ActorGrouping>
+		<CPSGrouping>
 			<name>Home Energy System</name>
 			<identifier>None</identifier>
 			<description>A  thermostat to remotely control the HVAC system through a local area network (LAN) in the home</description>
-			<Actor>
+			<CPS>
 				<name>Thermostat Controller</name>
 				<technicalId>Thermostat Controller UUID</technicalId>
 				<furtherInformation>A controller in the thermostat to send and receive messages as well as control to the HVAC system</furtherInformation>
-			</Actor>
-			<Actor>
+			</CPS>
+			<CPS>
 				<name>HVAC Controller</name>
 				<technicalId>HVAC Controller UUID</technicalId>
 				<furtherInformation>A controller in the HVAC to send and receive messages from the thermostat, as well as triggering the HVAC operations</furtherInformation>
-			</Actor>
-			<Actor>
+			</CPS>
+			<CPS>
 				<name>Sensor Gateway</name>
 				<technicalId>Sensor Gateway UUID</technicalId>
 				<furtherInformation>A gateway in sensor network to read data from temperature sensor and send sensor data to the thermostat</furtherInformation>
-			</Actor>
-		</ActorGrouping>
-		<ActorGrouping>
+			</CPS>
+		</CPSGrouping>
+		<CPSGrouping>
 			<name>Home Automation Users</name>
 			<identifier/>
 			<description>These are the users of the system</description>
-			<Actor>
+			<CPS>
 				<name>User</name>
 				<technicalId>User UUID</technicalId>
 				<furtherInformation>The owner of the thermostat. A User would provide the inputs or set points for the operation of the thermostat</furtherInformation>
-			</Actor>
-		</ActorGrouping>
-		<PrimaryActor>
+			</CPS>
+		</CPSGrouping>
+		<PrimaryCPS>
 			<name>Thermostat Controller</name>
 			<technicalId>Thermostat Controller UUID</technicalId>
-		</PrimaryActor>
+		</PrimaryCPS>
 		<RelatedObjective>
 			<name>String</name>
 			<technicalId>String</technicalId>
@@ -135,11 +136,12 @@
 		<Scenario>
 			<name>Heating Mode (The commands and statuses reference to both heat pump and fan )</name>
 			<identifier>4.1</identifier>
+			<technicalId/>
 			<description>This is the heat setting on the thermostat</description>
-			<PrimaryActor>
+			<PrimaryCPS>
 				<name>Thermostat Controller</name>
 				<technicalId>Thermostat Controller UUID</technicalId>
-			</PrimaryActor>
+			</PrimaryCPS>
 			<Drawing>
 				<name>String</name>
 				<drawingType>Domain Overview</drawingType>
@@ -163,10 +165,10 @@
 			<MacroActivity>
 				<name>Heating Mode </name>
 				<description>The commands and statuses reference to both heat pump and fan</description>
-				<PrimaryActor>
+				<PrimaryCPS>
 					<name>Thermostat Controlle</name>
 					<technicalId>String</technicalId>
-				</PrimaryActor>
+				</PrimaryCPS>
 				<Requirement>
 					<technicalId>String</technicalId>
 				</Requirement>
@@ -181,14 +183,6 @@
 					<description>String</description>
 					<event>SetTemperature Set Point</event>
 					<service>String</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -201,6 +195,9 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -208,14 +205,6 @@
 					<description>The sensor gateway reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -228,6 +217,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -235,14 +227,6 @@
 					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn on the heating system of HVAC system</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>HVAC Controller</name>
 						<technicalId>String</technicalId>
@@ -255,6 +239,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -262,14 +249,6 @@
 					<description>The HVAC controller reports that the HVAC system is on</description>
 					<event>Status Update</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -282,6 +261,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -289,14 +271,6 @@
 					<description>The HVAC controller reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -309,6 +283,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -316,14 +293,6 @@
 					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn off the heating system of HVAC system</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>HVAC Controller</name>
 						<technicalId>String</technicalId>
@@ -336,6 +305,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -343,14 +315,6 @@
 					<description>The HVAC controller reports that the HVAC system is on</description>
 					<event>Status Update</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -363,19 +327,22 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
-			<technicalId>String</technicalId>
 		</Scenario>
 		<Scenario>
 			<name>Cooling Mode (The commands and statuses reference to both cool pump and fan )</name>
 			<identifier>4.2</identifier>
+			<technicalId>String</technicalId>
 			<description>This is the cool setting on the thermostat</description>
-			<PrimaryActor>
+			<PrimaryCPS>
 				<name>Thermostat Controller</name>
 				<technicalId>Thermostat Controller UUID</technicalId>
-			</PrimaryActor>
+			</PrimaryCPS>
 			<Drawing>
 				<name>String</name>
 				<drawingType>Domain Overview</drawingType>
@@ -399,10 +366,10 @@
 			<MacroActivity>
 				<name>Cooling Mode</name>
 				<description>The commands and statuses reference to both cool pump and fan</description>
-				<PrimaryActor>
+				<PrimaryCPS>
 					<name>Thermostat Controller</name>
 					<technicalId>Thermostat Controller UUID</technicalId>
-				</PrimaryActor>
+				</PrimaryCPS>
 				<Requirement>
 					<technicalId>String</technicalId>
 				</Requirement>
@@ -417,14 +384,6 @@
 					<description>String</description>
 					<event>SetTemperature Set Point</event>
 					<service>String</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -437,6 +396,9 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -444,14 +406,6 @@
 					<description>The HVAC controller reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -464,6 +418,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -471,14 +428,6 @@
 					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn on the cooling system off the HVAC system</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>HVAC Controller</name>
 						<technicalId>String</technicalId>
@@ -491,6 +440,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -498,14 +450,6 @@
 					<description>The HVAC controller reports that the HVAC system is on</description>
 					<event>Status Update</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -518,6 +462,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -525,14 +472,6 @@
 					<description>The HVAC controller reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -545,6 +484,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -552,14 +494,6 @@
 					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn off the cooling system of HVAC system</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>HVAC Controller</name>
 						<technicalId>String</technicalId>
@@ -572,6 +506,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -579,14 +516,6 @@
 					<description>The HVAC controller reports that the HVAC system is on</description>
 					<event>Status Update</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -599,19 +528,22 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
-			<technicalId>String</technicalId>
 		</Scenario>
 		<Scenario>
 			<name>Automatic Control Mode (The commands and statuses reference to heat pump and fan)</name>
 			<identifier>4.3</identifier>
+			<technicalId>String</technicalId>
 			<description>This is the automatic mode on the thermostat</description>
-			<PrimaryActor>
+			<PrimaryCPS>
 				<name>Thermostat Controller</name>
 				<technicalId>Thermostat Controller UUID</technicalId>
-			</PrimaryActor>
+			</PrimaryCPS>
 			<Drawing>
 				<name>String</name>
 				<drawingType>Domain Overview</drawingType>
@@ -637,10 +569,10 @@
 			<MacroActivity>
 				<name>Automatic Control Mode</name>
 				<description>TThe commands and statuses reference to heat pump and fan</description>
-				<PrimaryActor>
+				<PrimaryCPS>
 					<name>Thermostat Controlle</name>
 					<technicalId>Thermostat Controller UUID</technicalId>
-				</PrimaryActor>
+				</PrimaryCPS>
 				<Requirement>
 					<technicalId>String</technicalId>
 				</Requirement>
@@ -655,14 +587,6 @@
 					<description>String</description>
 					<event>SetTemperature Set Point</event>
 					<service>String</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -675,6 +599,9 @@
 						<name>TemperatureSetPoint</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -682,14 +609,6 @@
 					<description>The HVAC controller reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -702,6 +621,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch on</name>
@@ -709,14 +631,6 @@
 					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn on the cooling system off the HVAC system</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>HVAC Controller</name>
 						<technicalId>String</technicalId>
@@ -729,6 +643,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status On</name>
@@ -736,14 +653,6 @@
 					<description>The HVAC controller reports that the HVAC system is on</description>
 					<event>Status Update</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -756,6 +665,9 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>Temperature update</name>
@@ -763,14 +675,6 @@
 					<description>The HVAC controller reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -783,6 +687,9 @@
 						<name>Temperature</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC switch Off</name>
@@ -790,14 +697,6 @@
 					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn off the cooling system of HVAC system</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>HVAC Controller</name>
 						<technicalId>String</technicalId>
@@ -810,6 +709,9 @@
 						<name>Control</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<Step>
 					<name>HVAC Status Off</name>
@@ -817,14 +719,6 @@
 					<description>The HVAC controller reports that the HVAC system is on</description>
 					<event>Status Update</event>
 					<service>REPORT</service>
-					<Drawing>
-						<name>String</name>
-						<drawingType>other</drawingType>
-						<URI type="UMLDiagram">String</URI>
-					</Drawing>
-					<Requirement>
-						<technicalId>String</technicalId>
-					</Requirement>
 					<InformationReceiver>
 						<name>Thermostat Controller</name>
 						<technicalId>String</technicalId>
@@ -837,21 +731,23 @@
 						<name>Status</name>
 						<technicalId>String</technicalId>
 					</BusinessObject>
+					<interaction>
+						<refInteraction>msg1234</refInteraction>
+					</interaction>
 				</Step>
 				<technicalId>String</technicalId>
 			</MacroActivity>
-			<technicalId>String</technicalId>
 		</Scenario>
 	</UseCase>
-	<ActorLibrary>
-		<Actor>
+	<CPSLibrary>
+		<CPS>
 			<name>asd</name>
 			<identifier>23423</identifier>
 			<technicalId>12345677</technicalId>
 			<description>qwe</description>
 			<type>device</type>
-		</Actor>
-	</ActorLibrary>
+		</CPS>
+	</CPSLibrary>
 	<BusinessObjectLibrary>
 		<BusinessObject>
 			<name>Temperature</name>
@@ -859,4 +755,52 @@
 			<description>The currently sensed temperature</description>
 		</BusinessObject>
 	</BusinessObjectLibrary>
+	<InteractionLibrary>
+		<interaction>
+			<name>restmessage</name>
+			<technicalId>msg1234</technicalId>
+			<kind>message</kind>
+			<Aspects>
+				<functional>
+					<Communication>
+						<SyntacticInteroperability>
+							<OSIApplication>
+								<Property>
+									<statement>use REST pattern</statement>
+								</Property>
+							</OSIApplication>
+						</SyntacticInteroperability>
+					</Communication>
+				</functional>
+				<trustworthiness>
+					<Security>
+						<Cybersecurity>
+							<Confidentiality>
+								<Property>
+									<statement>Use TLS 1.2</statement>
+								</Property>
+								<Property>
+									<statement>Require mutual certificate authentication</statement>
+								</Property>
+							</Confidentiality>
+						</Cybersecurity>
+					</Security>
+				</trustworthiness>
+			</Aspects>
+		</interaction>
+		<Maturity>
+			<maturity>submitted</maturity>
+			<effective> </effective>
+			<responsibleParty/>
+			<revision>0.1</revision>
+			<status>asDeveloped</status>
+		</Maturity>
+	</InteractionLibrary>
+	<Maturity>
+		<maturity>submitted</maturity>
+		<effective/>
+		<responsibleParty/>
+		<revision>0.1</revision>
+		<status>asDeveloped</status>
+	</Maturity>
 </n1:CPSFramework>
