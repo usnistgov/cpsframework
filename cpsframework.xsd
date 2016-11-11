@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:iec="IEC62559">
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework">
 	<xs:annotation>
 		<xs:documentation>Author:Howard.
 Created:12/18/15 3:03 PM.
 Title:.
 Comment:.</xs:documentation>
 	</xs:annotation>
-	<xs:import namespace="IEC62559" schemaLocation="IEC62559-3.xsd"/>
+	<xs:include schemaLocation="IEC62559-3.xsd"/>
 	<xs:include schemaLocation="realization.xsd"/>
 	<xs:include schemaLocation="assurance.xsd"/>
 	<xs:include schemaLocation="conceptualization.xsd"/>
@@ -24,43 +24,96 @@ Comment:.</xs:documentation>
 	<xs:element name="Device" type="Device"/>
 	<xs:complexType name="Device">
 		<xs:complexContent>
-			<xs:extension base="Physical">
+			<xs:extension base="CPS">
 				<xs:sequence>
-					<xs:element name="Ref_Device" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>reference to other Device objects</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Ref_Device" type="Ref_Device" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="System" type="System"/>
 	<xs:complexType name="System">
-		<xs:sequence>
-			<xs:element name="Ref_SystemOfSystems" type="xs:string" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>References to other System objects for System of Systems. </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="SystemOfSystems" type="SystemOfSystems"/>
-	<xs:complexType name="SystemOfSystems">
-		<xs:sequence/>
-	</xs:complexType>
-	<xs:element name="Human" type="Human"/>
-	<xs:complexType name="Human">
 		<xs:complexContent>
-			<xs:extension base="Actor">
+			<xs:extension base="CPS">
 				<xs:sequence>
-					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Human" type="Human" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="SystemOfSystems" type="SystemOfSystems"/>
+	<xs:complexType name="SystemOfSystems">
+		<xs:complexContent>
+			<xs:extension base="CPS">
+				<xs:sequence>
+					<xs:element name="System" type="System" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Human" type="Human"/>
+	<xs:complexType name="Human">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Energy" type="Energy"/>
 	<xs:complexType name="Energy">
@@ -87,7 +140,7 @@ Comment:.</xs:documentation>
 	<xs:element name="Physical" type="Physical"/>
 	<xs:complexType name="Physical">
 		<xs:complexContent>
-			<xs:extension base="Actor">
+			<xs:extension base="Function">
 				<xs:sequence>
 					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_Influences" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -95,16 +148,18 @@ Comment:.</xs:documentation>
 							<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="UseCase" type="UseCase"/>
-	<xs:complexType name="UseCase">
-		<xs:complexContent>
-			<xs:extension base="iec:UseCase">
-				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Name of Physical part of a CPS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Description of this Physical part of a CPS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Cyber" type="Cyber" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -127,26 +182,81 @@ Comment:.</xs:documentation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="BusinessCase" type="BusinessCase"/>
-	<xs:complexType name="BusinessCase">
-		<xs:complexContent>
-			<xs:extension base="iec:BusinessCase">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+	<xs:element name="InteractionLibrary" type="InteractionLibrary"/>
+	<xs:complexType name="InteractionLibrary">
+		<xs:annotation>
+			<xs:documentation>A library of interactions that can define a messaging pattern and associated aspects, or, an influence.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="interaction" type="Interaction" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>An interaction definition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Step" type="Step"/>
-	<xs:complexType name="Step">
-		<xs:complexContent>
-			<xs:extension base="iec:Step">
-				<xs:sequence>
-					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+	<xs:element name="Interaction" type="Interaction"/>
+	<xs:complexType name="Interaction">
+		<xs:annotation>
+			<xs:documentation>An interaction is re-usable description of a message or an influence. An interaction is governed by a set of properties.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kind" type="InteractionKind" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Kind of interaction.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_Property" type="Ref_Property"/>
+	<xs:complexType name="Ref_Property">
+		<xs:sequence>
+			<xs:element name="refProperty" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>URI reference to a property</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Ref_Interaction" type="Ref_Interaction"/>
+	<xs:complexType name="Ref_Interaction">
+		<xs:sequence>
+			<xs:element name="refInteraction" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contains a reference to an Interaction.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="InteractionKind">
+		<xs:annotation>
+			<xs:documentation>Kind of interaction -- either information exchange, or, physical influence.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="message">
+				<xs:annotation>
+					<xs:documentation>A message exchange of information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="influence">
+				<xs:annotation>
+					<xs:documentation>A physical influence -- such as mechanical, electrical, thermal, ....</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:element name="Aspects" type="Aspects"/>
 	<xs:complexType name="Aspects">
 		<xs:annotation>
@@ -162,7 +272,38 @@ Comment:.</xs:documentation>
 			<xs:element name="boundaries" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="composition" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="lifecylce" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Cyber" type="Cyber"/>
+	<xs:complexType name="Cyber">
+		<xs:annotation>
+			<xs:documentation>Computer Software Configuration Item</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Function">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Name of software configuration item (SWCI).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Description of SWCI.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="state" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Ref_msgs" type="Ref_Interaction" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>reference to messages (peer to influences)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	<xs:element name="CPSFramework" type="CPSFramework"/>
 	<xs:complexType name="CPSFramework">
@@ -170,32 +311,71 @@ Comment:.</xs:documentation>
 			<xs:element name="BusinessCase" type="BusinessCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="UseCase" type="UseCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Conceptualization" type="Conceptualization" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ActorLibrary" type="ActorLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CPSLibrary" type="CPSLibrary" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InteractionLibrary" type="InteractionLibrary" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="ActorLibrary" type="ActorLibrary"/>
-	<xs:complexType name="ActorLibrary">
+	<xs:element name="Maturity" type="Maturity"/>
+	<xs:complexType name="Maturity">
 		<xs:annotation>
-			<xs:documentation>Actors of the repository. Recreated based on iec:ActorLibrary.</xs:documentation>
+			<xs:documentation>Describes the maturity level of a component of the CPSFramework model.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Actor" type="Actor" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary"/>
-	<xs:complexType name="BusinessObjectLibrary">
-		<xs:annotation>
-			<xs:documentation>Business objects exchanged of the repository. Recreated based on iec:BusinessObjectLibrary.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="BusinessObject" type="BusinessObject" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="maturity" type="maturityLevels" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="effective" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>List of business objects within the library.</xs:documentation>
+					<xs:documentation>Effective date. ISO 8601 string.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="responsibleParty" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>responsible party</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="revision" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Version string</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="MaturityStatus" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="maturityLevels">
+		<xs:annotation>
+			<xs:documentation>Enumeration of maturity levels -- can be extended to include custom values. Typically the meaning of the values is governed by the development process which is an orchestration of the Facet Activities.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="submitted"/>
+			<xs:enumeration value="verified"/>
+			<xs:enumeration value="approved"/>
+			<xs:enumeration value="delegated"/>
+			<xs:enumeration value="rejected"/>
+			<xs:enumeration value="reviewed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaturityStatus">
+		<xs:annotation>
+			<xs:documentation>The status of maturity of this instance.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="asDeveloped"/>
+			<xs:enumeration value="asDesigned"/>
+			<xs:enumeration value="asPlanned"/>
+			<xs:enumeration value="asBuilt"/>
+			<xs:enumeration value="asMaintained"/>
+			<xs:enumeration value="asDisposed"/>
+			<xs:enumeration value="asPreserved"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Ref_Device" type="Ref_Device"/>
+	<xs:complexType name="Ref_Device">
+		<xs:annotation>
+			<xs:documentation>Reference to a device.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence/>
 	</xs:complexType>
 </xs:schema>
