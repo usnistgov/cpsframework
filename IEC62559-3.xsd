@@ -37,10 +37,10 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="BusinessObject" type="BusinessObject"/>
-	<xs:complexType name="BusinessObject">
+	<xs:element name="InformationModel" type="InformationModel"/>
+	<xs:complexType name="InformationModel">
 		<xs:annotation>
-			<xs:documentation>Business object exchanged in detailed activity step.</xs:documentation>
+			<xs:documentation>Information model exchanged in detailed activity step.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -203,12 +203,12 @@ These common service definitions are related to automation / information or comm
 					<xs:documentation>This identifies the producer or source of the information. This should be one of the actors defined in the repository.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BusinessObject" type="Ref_BusinessObject" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="BusinessObject" type="Ref_InformationModel" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>This describes briefly the information to be exchanged between the two actors – information producer and information receiver. It is possible to several information in one step, comma separated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="interaction" type="Ref_Interaction" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="interaction" type="Ref_Message" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -263,13 +263,13 @@ These common service definitions are related to automation / information or comm
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary"/>
-	<xs:complexType name="BusinessObjectLibrary">
+	<xs:element name="InformationModelLibrary" type="InformationModelLibrary"/>
+	<xs:complexType name="InformationModelLibrary">
 		<xs:annotation>
-			<xs:documentation>Business objects exchanged of the repository.</xs:documentation>
+			<xs:documentation>Information model objects exchanged of the repository.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="BusinessObject" type="BusinessObject" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="InformationModel" type="InformationModel" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>list of business objects within the library</xs:documentation>
 				</xs:annotation>
@@ -666,10 +666,10 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Ref_BusinessObject" type="Ref_BusinessObject"/>
-	<xs:complexType name="Ref_BusinessObject">
+	<xs:element name="Ref_InformationModel" type="Ref_InformationModel"/>
+	<xs:complexType name="Ref_InformationModel">
 		<xs:annotation>
-			<xs:documentation>Business object exchanged in detailed activity step.</xs:documentation>
+			<xs:documentation>Reference to an information model exchanged in detailed activity step.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -967,7 +967,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>the associated library of domains</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BusinessObjectLibrary" type="BusinessObjectLibrary" minOccurs="0" maxOccurs="1">
+			<xs:element name="BusinessObjectLibrary" type="InformationModelLibrary" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>the library of business objects</xs:documentation>
 				</xs:annotation>
@@ -1023,7 +1023,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Actors of the repository.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CPS" type="Function" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="cps" type="CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>The actors listed in the library</xs:documentation>
 				</xs:annotation>
