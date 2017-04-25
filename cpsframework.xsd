@@ -126,8 +126,8 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Transportation" type="Transportation"/>
-	<xs:complexType name="Transportation">
+	<xs:element name="TransportationDomain" type="TransportationDomain"/>
+	<xs:complexType name="TransportationDomain">
 		<xs:complexContent>
 			<xs:extension base="Domain">
 				<xs:sequence>
@@ -192,17 +192,9 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>A library of interactions that can define a messaging pattern and associated aspects, or, an influence.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="messages" type="Message" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>An set of Message definitions.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="influences" type="Influence" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>A set of Influence definitions.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Messages" type="Messages" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Influences" type="Influences" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Interaction" type="Interaction"/>
@@ -242,7 +234,7 @@ This identifier is unique among several exchange of information. A global reposi
 		<xs:sequence>
 			<xs:element name="refMessage" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Contains a reference to an Interaction.</xs:documentation>
+					<xs:documentation>Contains a reference to a message.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -381,26 +373,36 @@ This identifier is unique among several exchange of information. A global reposi
 		</xs:annotation>
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="Influence" type="Influence"/>
-	<xs:complexType name="Influence">
-		<xs:annotation>
-			<xs:documentation>An influence interaction.</xs:documentation>
-		</xs:annotation>
+	<xs:element name="Message" type="Message"/>
+	<xs:complexType name="Message">
 		<xs:complexContent>
 			<xs:extension base="Interaction">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Message" type="Message"/>
-	<xs:complexType name="Message">
-		<xs:annotation>
-			<xs:documentation>A message interaction.</xs:documentation>
-		</xs:annotation>
+	<xs:element name="Influence" type="Influence"/>
+	<xs:complexType name="Influence">
 		<xs:complexContent>
 			<xs:extension base="Interaction">
 				<xs:sequence/>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Messages" type="Messages"/>
+	<xs:complexType name="Messages">
+		<xs:sequence>
+			<xs:element name="message" type="Message" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Influences" type="Influences"/>
+	<xs:complexType name="Influences">
+		<xs:sequence>
+			<xs:element name="influence" type="Influence" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An influence.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

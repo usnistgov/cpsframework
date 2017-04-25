@@ -756,7 +756,15 @@
 		</InformationModel>
 	</InformationModelLibrary>
 	<InteractionLibrary>
-		<messages>
+		<Maturity>
+			<maturity>submitted</maturity>
+			<effective> </effective>
+			<responsibleParty/>
+			<revision>0.1</revision>
+			<status>asDeveloped</status>
+		</Maturity>
+		<Messages>
+			<message>
 				<name>restmessage</name>
 				<technicalId>msg1234</technicalId>
 				<Aspects>
@@ -786,14 +794,8 @@
 						</Security>
 					</trustworthiness>
 				</Aspects>
-		</messages>
-		<Maturity>
-			<maturity>submitted</maturity>
-			<effective> </effective>
-			<responsibleParty/>
-			<revision>0.1</revision>
-			<status>asDeveloped</status>
-		</Maturity>
+			</message>
+		</Messages>
 	</InteractionLibrary>
 	<Maturity>
 		<maturity>submitted</maturity>
