@@ -21,15 +21,15 @@ Comment:.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="Device" type="Device"/>
-	<xs:complexType name="Device">
+	<xs:element name="IrreducibleCPS" type="IrreducibleCPS"/>
+	<xs:complexType name="IrreducibleCPS">
 		<xs:complexContent>
 			<xs:extension base="CPS">
 				<xs:sequence>
 					<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Logical" type="Logical" minOccurs="1" maxOccurs="unbounded"/>
 					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element name="Ref_Device" type="Ref_Device" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Ref_IrreducibleCPS" type="Ref_IrreducibleCPS" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -39,7 +39,7 @@ Comment:.</xs:documentation>
 		<xs:complexContent>
 			<xs:extension base="CPS">
 				<xs:sequence>
-					<xs:element name="Device" type="Device" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="IrreducibleCPS" type="IrreducibleCPS" minOccurs="1" maxOccurs="unbounded"/>
 					<xs:element name="Human" type="Human" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
@@ -366,8 +366,8 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:enumeration value="asPreserved"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:element name="Ref_Device" type="Ref_Device"/>
-	<xs:complexType name="Ref_Device">
+	<xs:element name="Ref_IrreducibleCPS" type="Ref_IrreducibleCPS"/>
+	<xs:complexType name="Ref_IrreducibleCPS">
 		<xs:annotation>
 			<xs:documentation>Reference to a device.</xs:documentation>
 		</xs:annotation>

@@ -6,6 +6,24 @@
 		<identifier>222</identifier>
 		<technicalId>String</technicalId>
 		<description>Build a smart thermostat that has heating, cooling and automatic control modes to maintain room temperature near a user’s set point and uses a WiFi local area network (LAN) to interact with a temperature sensor and an HVAC system in a home. The thermostat should be able to retail for less or equal to $79.  It must be intrinsically safe, reliable, secure, protect privacy, easy to use and upgradable.</description>
+		<Aspects>
+			<functional>
+				<Communication>
+					<Property>
+						<statement>Smart Thermostat shall communicate with sensor and HVAC using WiFi</statement>
+					</Property>
+				</Communication>
+			</functional>
+			<trustworthiness>
+				<Security>
+					<Cybersecurity>
+						<Property>
+							<statement>All messaging shall be secure</statement>
+						</Property>
+					</Cybersecurity>
+				</Security>
+			</trustworthiness>
+		</Aspects>
 		<Domain>
 			<name>Home Automation</name>
 			<technicalId>String</technicalId>
