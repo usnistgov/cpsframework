@@ -1,0 +1,73 @@
+Possible use case(s)
+	Body cameras
+	emergency response (firefighters? -- division at NIST)
+
+
+================== BODY CAMERAS ==================
+
+Known episodes:
+	webcam footage: police officers investigating black lady. Started searching vehicle. Obstructed view. Which kind of concern?
+	Camera image; infer physical location from image; can be verified in physical ways. Can be used to mitigate risks of cyber-intrusion
+
+
+CLASSES
+=======
+body cameras: sensors
+location sensors: sensors
+
+
+OBJECTS
+=======
+% Need to describe: physical interaction, logical interaction, sensing, actuation, human role
+bc1, bc2,...: body cameras
+actors
+server
+steam-tampering: events
+
+resilience, reliability, privacy, safety, security: trustworthiness elements
+
+cyber-security elements, physical security elements: security elements
+confidentiality, integrity, availability: cyber-security elements [HOW ARE THEY LINKED TO "security"???] [WHAT ABOUT PHYSICAL SECURITY???]
+
+
+
+% AI connected to a body camera
+% body cam picking up readings, uses ML and recognizes faces, objects (e.g., weapons)
+% and making recommendations to human agent, e.g. "pull gun"
+% OR it can inform nearby policemen about actors, risks and recommendations
+
+% Capture sensing info that is not visible to human, but is processed by equipment
+%   face recognition, object recognition, event/activity recognition: purely logical
+%   making recommendations/generating warnings: can be viewed as actuation
+%     e.g. warning policeman that a gun was identified
+%          OR policeman weapons are only activated/unlocked in the presence of a threat
+%          OR anomaly detection: if the cam notices attempts at tampering with the stream, the input should be sent to a safer storage
+%	NOTE: actor manipulating stream of images: related to integrity and possibly other elements of security
+%	      so, we need some kind of notation letting us say that parts are related to elements of security
+
+
+
+%   Are there objects to represent privacy, safety, etc.?
+%   Are they in this ontology? Or in another one?
+
+
+
+
+FUNCTIONS
+=========
+owner(BC): body camera -> person
+
+
+
+
+
+
+RELATIONS
+=========
+relatedTo(EVENT,SECURITY_ELEMENT)
+	% also link elements of systems design to security elements??
+
+
+================================================================================
+
+relatedTo(stream-tampering,integrity)
