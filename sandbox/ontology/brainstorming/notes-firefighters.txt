@@ -1,0 +1,52 @@
+Possible use case(s)
+	Body cameras
+	emergency response (firefighters? -- division at NIST)
+
+
+================== EMERGENCY RESPONSE / FIREFIGHTERS ==================
+
+
+CLASSES
+=======
+body cameras: sensors
+temperature sensors: sensors
+location sensors: sensors
+
+OBJECTS
+=======
+% Need to describe: physical interaction, logical interaction, sensing, actuation, human role
+bc1, bc2,...: body cameras
+ts1, ts2, ts3: temperature sensor
+compass1, gps1: location sensors
+
+breathing equipment
+
+% ways of remotely acquiring the condition of the operator
+%  heart rate, ...
+% if too tired and have safety-critical role, there's a problem
+% LINK WITH SAFETY CONCERNS
+%    RELATION TO CYBER- AND PHYSICAL-?
+% CAN THIS RAISE PRIVACY ISSUES????
+
+
+Automobiles
+-----------
+Mounted on steering wheel: breathing rate
+	sensor estimating weight/body mass
+	COULD RAISE privacy concerns
+
+
+
+
+
+FUNCTIONS
+=========
+
+
+
+
+
+
+RELATIONS
+=========
+
