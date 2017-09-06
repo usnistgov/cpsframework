@@ -1,0 +1,75 @@
+1. Select scenario / use-case
+2. Ontologies for:
+    - use-case
+    - some part of CPS framework, e.g. trustworthiness concerns
+
+         Use-case/scenario function --> Concerns 
+               --<rise to>--> properties or requirements 
+               --<realized by>--> realization facet (test plans and test results generated) 
+               ---> assurance facet
+                    (builds assurance case, e.g. a derivation where justification of 
+                     each step refers to some kind of expert opinion)
+
+      = ontology must also cover trustworthiness assurance
+      = discuss facets within the ontology?
+      = concerns, realization, assurance: different ontologies??
+
+    - stretch goal: enrich the model by including the environment (both logical and physical components)
+
+    - modular part of ontology: trustworthiness ontology
+	OBJECTS
+		individual concerns? (safety, security, privacy, etc.)
+
+		each of them has subconcerns corresponding to physical and cyber (e.g., physical security and cyber security)
+
+		more subconcerns: cyber security -> confidentiality, integrity, availability
+
+	CLASSES
+		concern
+
+	RELATIONS
+		sub-concern-of: concern x concern
+		is-physical-concern: concern
+		is-cyber-concern: concern
+
+
+	==ISSUE==
+	properties/requirements depend on a whole branch. They can be viewed as the leaves of the tree.
+	Example:
+		path: security -> cyber security -> confidentiality
+		for the sake of confidentiality, I might make a design choice to use AES encryption. That's a property
+		To choose the property, we need to know the whole path.
+		Confidentiality might be used with other meanings, that's why we need the path
+
+	So, how can we handle this? One way is to name paths, but that may be tricky
+	Another option is to refine the naming. For confidentiality in the context of cyber security, we could use
+	information_confidentiality. Hence, the OBJECTS change as:
+
+		more subconcerns: cyber security -> information_confidentiality, information_integrity, information_availability
+
+	the path becomes: security -> cyber security -> information_confidentiality
+
+	we still want to capture the fact that information_confidentiality is a "type of" confidentiality, so we will need
+	suitable objects and/or classes and/or relations, e.g.
+		OBJECTS
+		confidentiality (still a type of concern, but possible an ABSTRACT-CONCERN)
+
+		RELATION
+			type-of: concern x abstract-concern
+
+		FACTS
+			type-of(information-confidentiality,confidentiality)
+
+	WHY? Because in this way we can ask questions related to confidentiality in general
+	E.g., which subconcern of security is related to confidentiality?
+		or: which controls are needed to handle confidentiality in the context of cyber security?
+
+	**OR
+		maybe we could fix the length of the tree and give names to the levels
+
+
+	--NOTE: the UML model on GITHUB already has this developed to a good extent
+
+
+	For WED: short sketch on what to do to complete an ontology
+		what the criteria are for introducing classes, etc.
