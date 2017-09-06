@@ -1,0 +1,14 @@
+1. Select a use-case
+2. a. Identify Objects, Classes, Functions, Relations
+   b. Generate 2-4 competency questions
+      Generate 1-2 competency questions that apply to 2+ use-cases
+   c. MEASURING PROGRESS/COMPLETION: Measure quality of (a) by ability to answer (b)
+   d. Iteratively refine (a). Expand (b) if needed
+3. Generate ontology specification
+   - Map competency questions to formal queries over the ontology
+   - Measure quality of the ontology by ability to answer queries
+   - Iteratively refine ontology
+   - If needed, iterate to step 2
+4. Select another use-case and repeat
+   - During the process, identify object, classes, functions, relations that
+     are suitable for the upper-level ontology

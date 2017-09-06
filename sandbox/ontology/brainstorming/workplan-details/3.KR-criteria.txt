@@ -1,0 +1,56 @@
+Criteria for introducing objects, classes, functions, relations
+1. They play a central role in the use-case
+2. The use-case cannot be told without mentioning them
+3. Competency questions mention them
+Type-specific criteria are listed below.
+
+Below, "promote DGDO" stands for:
+  "Promotes
+   - Describing the use-case in a more organized way
+   - Generalizing the use-case
+   - Describing multiple use-cases as variants of a more general one
+   - Organizing, grouping, generalizing competency questions"
+
+Criteria for introducing classes and subclasses
+1. Every object introduced should belong to a class.
+   Classes should be added as needed
+2. Parent classes should be introduced when they promote DGDO
+3. Subclasses should be introduced when:
+   - (Trivially) Corresponding objects are mentioned in the use-case
+   - Commonsense and domain knowledge indicate their existence
+   - They promote DGDO
+
+Criteria for introducing relations
+1. Properties of objects or collections of objects are central to the use-case
+2. In the case of unary properties, either classes or relations can be used.
+   The choice depends on the quality (e.g., level of generalizability of
+   use-cases and competency questions) of the outcome
+3. When convenient, relations can also be reified by means of objects and functions.
+   Example: properties such as instance-of and subclass-of can be represented by
+         relations, such as 
+                 instance_of(x,y) and subclass_of(x,y)
+         or by a single relation and a reified type, such as
+                 link(x,y,type) where type belongs to { instance, subclass }
+   The choice to introduce reification or not is based on the choice that most
+   promotes DGDO.
+
+Criteria for introducing functions
+1. The use-case includes objects that are not mentioned explicitly, but
+   rather indicated by their relation with other objects.
+   Example: the use-case mentions "John's father", but never provides a name.
+   In this case, father(john), where "father" is a function, may be a convenient
+   representation.
+2. They allow for generalizing and parametrizing objects.
+   Example: the use-case mentions that an intrusion in a system s1 occurred.
+   Intrusion can be modeled by an object "intrusion" and its occurrence by
+   a relation "occurs". However, the representation can be generalized by
+   representing the intrusion in system s1 by a compound term intrusion(s1),
+   where "intrusion" is a function.
+   The choice to introduce functions to generalize and parametrize objects
+   is based on the choice that most promotes DGDO.
+
+Criteria for locating objects, classes, functions, relations in upper-level ontology
+* They are substantially independent from the domains of the use-cases
+* They occur frequently in the use-cases
+* They describe concepts that are felt to be "general"
+* The upper-level ontology should form a self-contained "module"
