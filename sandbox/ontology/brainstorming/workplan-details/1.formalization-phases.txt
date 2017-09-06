@@ -1,0 +1,36 @@
+PHASE 1: DISCRETE CASE
+======================
+         Use-case(s)    Domain knowledge    Commonsense/World knowledge
+	                  ---------- FEED INTO -----------
+       Objects, Classes, Functions, Relations       Competency questions
+                          ---------- MAPPED TO -----------
+             Ontology Specification                       Queries
+
+Types of queries
+1. Retrieval queries
+     DB-like queries, purely deductive
+2. Reasoning queries
+     Require guess-and-check: planning, diagnostics from first principles
+
+
+
+PHASE 2: HYBRID CASE
+====================
+         Use-case(s)    Domain knowledge    Commonsense/World knowledge
+	                  ---------- FEED INTO -----------
+Obj, Classes, Func, Rel, Numerical Variables, Constraints       Competency questions
+                          ---------- MAPPED TO -----------
+          Hybrid Ontology Specifications                                 Queries
+
+Numerical Constraints: equalities and inequalities over numerical variables and numerical constants/functions
+
+
+Types of queries
+1. Retrieval queries
+     DB-like queries, purely deductive
+2. Reasoning queries
+     Require guess-and-check: planning, diagnostics from first principles
+3. Numerical queries
+     Find values of numerical parameters that safisfy all given constraints
+4. Hybrid queries
+     Combine 1+3, 2+3, 1+2+3
