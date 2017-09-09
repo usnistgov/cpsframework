@@ -153,7 +153,7 @@ This identifier is unique among several exchange of information. A global reposi
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="CPS" type="CPS"/>
-	<xs:complexType name="CPS">
+	<xs:complexType name="CPS" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
@@ -185,6 +185,7 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -223,9 +224,19 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Actors of the repository.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="cps" type="CPS" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="cps" type="IrreducibleCPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The actors listed in the library</xs:documentation>
+					<xs:documentation>An irreducible CPS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="system" type="System" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A system or subsystem of irreducible CPS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="systemofsystems" type="SystemOfSystems" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A system of systems CPS.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
@@ -317,7 +328,7 @@ path to an XMI file with a relative diagram path from the root of the UML model.
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Function" type="Function"/>
-	<xs:complexType name="Function">
+	<xs:complexType name="Function" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
