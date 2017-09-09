@@ -3,6 +3,13 @@
 	<xs:include schemaLocation="assurance.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
 	<xs:include schemaLocation="cpsframework.xsd"/>
+	<xs:element name="Design" type="Design"/>
+	<xs:complexType name="Design">
+		<xs:sequence>
+			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:element name="Realization" type="Realization"/>
 	<xs:complexType name="Realization">
 		<xs:complexContent>
@@ -13,13 +20,6 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Design" type="Design"/>
-	<xs:complexType name="Design">
-		<xs:sequence>
-			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="TestCase" type="TestCase"/>
 	<xs:complexType name="TestCase">
