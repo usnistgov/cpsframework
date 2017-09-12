@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2017 (x64) (http://www.altova.com) by Martin Burns (NIST) -->
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Martin Burns (NIST) -->
+<?xml-stylesheet type="text/xsl" href="IntermediateToXHTMLNew.xslt"?>
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
 		<name>Design a Communicating Smart Thermostat</name>
@@ -35,7 +36,7 @@
 		<technicalId>CPS-T-1 UUID</technicalId>
 		<nature>Technical</nature>
 		<classification>Generic</classification>
-		<keywords>User,thermostat, thermostat controller, sensor gateway, HVAC controller, LAN </keywords>
+		<keywords>User, thermostat, thermostat controller, temperature sensor, HVAC controller, WLAN</keywords>
 		<levelOfDepth>Detailed</levelOfDepth>
 		<prioritisation>High</prioritisation>
 		<scope>A  thermostat to remotely control the HVAC system through a local area network (LAN) in the home</scope>
@@ -58,9 +59,9 @@
 				<furtherInformation>A controller in the HVAC to send and receive messages from the thermostat, as well as triggering the HVAC operations</furtherInformation>
 			</CPS>
 			<CPS>
-				<name>Sensor Gateway</name>
-				<technicalId>Sensor Gateway UUID</technicalId>
-				<furtherInformation>A gateway in sensor network to read data from temperature sensor and send sensor data to the thermostat</furtherInformation>
+				<name>Sensor</name>
+				<technicalId>Sensor UUID</technicalId>
+				<furtherInformation>Thermostat reads data from temperature sensor</furtherInformation>
 			</CPS>
 		</CPSGrouping>
 		<CPSGrouping>
@@ -103,8 +104,11 @@
 		</BusinessCase>
 		<Narrative>
 			<shortDescription>This use case describes the operations of a thermostat to control an HVAC system.  The thermostat has three operational modes – heating, cooling, and automatic control.</shortDescription>
-			<completeDescription>This use case describes the operations of a thermostat to control an HVAC system.  The thermostat has three operational modes – heating, cooling, and automatic control.  User can set the temperature set point for thermostat locally. Thermostat controller in thermostat can pull the room temperature from the temperature sensor via a sensor gateway, compare it to the set point and then remotely turn heating and cooling systems of an HVAC system on or off via an HVAC controller through a LAN to maintain room temperature near the desired set point. 
-</completeDescription>
+			<completeDescription>This use case describes the operations of a thermostat to control an HVAC system.  The thermostat has three operational modes – heating, cooling, and automatic control.  
+ 
+User can set the temperature set point for thermostat locally. Thermostat controller in thermostat can pull the room temperature from the temperature sensor, compare it to the set point and then remotely control heating and cooling systems of an HVAC system via an HVAC controller through a WLAN to maintain room temperature near the desired set point. 
+
+The thermostat communicates over the network and is globally reachable from the WLAN. This allows remote client applications to read the status of the thermostat and manipulate its set points. </completeDescription>
 		</Narrative>
 		<Reference>
 			<identifier>1</identifier>
@@ -220,7 +224,7 @@
 				<Step>
 					<name>Temperature update</name>
 					<identifier>2</identifier>
-					<description>The sensor gateway reports the new temperature</description>
+					<description>Temperature sensor reports the new temperature</description>
 					<event>Temperature Change</event>
 					<service>REPORT</service>
 					<InformationReceiver>
@@ -228,7 +232,7 @@
 						<technicalId>String</technicalId>
 					</InformationReceiver>
 					<InformationProducer>
-						<name>Sensor gateway</name>
+						<name>Temperature Sensor</name>
 						<technicalId>String</technicalId>
 					</InformationProducer>
 					<BusinessObject>
@@ -242,7 +246,7 @@
 				<Step>
 					<name>HVAC switch on</name>
 					<identifier>3</identifier>
-					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn on the heating system of HVAC system</description>
+					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn on the heating system of HVAC system (set control to {0,1,1})</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
 					<InformationReceiver>
@@ -294,7 +298,7 @@
 						<technicalId>String</technicalId>
 					</InformationReceiver>
 					<InformationProducer>
-						<name>Sensor gateway</name>
+						<name>Temperature Sensor</name>
 						<technicalId>String</technicalId>
 					</InformationProducer>
 					<BusinessObject>
@@ -308,7 +312,7 @@
 				<Step>
 					<name>HVAC switch Off</name>
 					<identifier>6</identifier>
-					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn off the heating system of HVAC system</description>
+					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn off the heating system of HVAC system (set control to {0,0,0})</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
 					<InformationReceiver>
@@ -429,7 +433,7 @@
 						<technicalId>String</technicalId>
 					</InformationReceiver>
 					<InformationProducer>
-						<name>Sensor gateway</name>
+						<name>Temperature Sensor</name>
 						<technicalId>String</technicalId>
 					</InformationProducer>
 					<BusinessObject>
@@ -443,7 +447,7 @@
 				<Step>
 					<name>HVAC switch on</name>
 					<identifier>3</identifier>
-					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn on the cooling system off the HVAC system</description>
+					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn on the cooling system off the HVAC system (set control to {1,1,0})</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
 					<InformationReceiver>
@@ -495,7 +499,7 @@
 						<technicalId>String</technicalId>
 					</InformationReceiver>
 					<InformationProducer>
-						<name>Sensor gateway</name>
+						<name>Temperature Sensor</name>
 						<technicalId>String</technicalId>
 					</InformationProducer>
 					<BusinessObject>
@@ -509,7 +513,7 @@
 				<Step>
 					<name>HVAC switch Off</name>
 					<identifier>6</identifier>
-					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn off the cooling system of HVAC system</description>
+					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn off the cooling system of HVAC system (set control to {0,0,0})</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
 					<InformationReceiver>
@@ -632,7 +636,7 @@
 						<technicalId>String</technicalId>
 					</InformationReceiver>
 					<InformationProducer>
-						<name>Sensor gateway</name>
+						<name>Temperature Sensor</name>
 						<technicalId>String</technicalId>
 					</InformationProducer>
 					<BusinessObject>
@@ -646,7 +650,7 @@
 				<Step>
 					<name>HVAC switch on</name>
 					<identifier>3</identifier>
-					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn on the cooling system off the HVAC system</description>
+					<description>If the temperature is higher than or equal to the set point, then the thermostat controller sends a command to turn on the cooling system off the HVAC system (set control to {1,1,0})</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
 					<InformationReceiver>
@@ -698,7 +702,7 @@
 						<technicalId>String</technicalId>
 					</InformationReceiver>
 					<InformationProducer>
-						<name>Sensor gateway</name>
+						<name>Temperature Sensor</name>
 						<technicalId>String</technicalId>
 					</InformationProducer>
 					<BusinessObject>
@@ -712,7 +716,7 @@
 				<Step>
 					<name>HVAC switch Off</name>
 					<identifier>6</identifier>
-					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn off the cooling system of HVAC system</description>
+					<description>If the temperature is lower than or equal to the set point, then the thermostat controller sends a command to turn off the cooling system of HVAC system (set control to {0,0,0})</description>
 					<event>HVAC Operation</event>
 					<service>CHANGE</service>
 					<InformationReceiver>
@@ -776,7 +780,8 @@
 				<name>WiFiAdapter</name>
 				<identifier/>
 				<technicalId/>
-				<description>This physical component is a WiFi interface adapter</description><state>active</state>
+				<description>This physical component is a WiFi interface adapter</description>
+				<state>active</state>
 			</Physical>
 		</cps>
 	</CPSLibrary>
@@ -785,6 +790,21 @@
 			<name>Temperature</name>
 			<technicalId>1232231</technicalId>
 			<description>The currently sensed temperature</description>
+		</InformationModel>
+		<InformationModel>
+			<name>TemperatureSetPoint</name>
+			<technicalId>1234</technicalId>
+			<description>Floating point setting for comfort temperature</description>
+		</InformationModel>
+		<InformationModel>
+			<name>Control</name>
+			<technicalId>1234</technicalId>
+			<description>Control of HVAC System. 1=on, 0=off {cool,fan,heat}</description>
+		</InformationModel>
+		<InformationModel>
+			<name>Status</name>
+			<technicalId>1234</technicalId>
+			<description>Status of HVAC System: 1=on, 0=off {cool,fan,heat}</description>
 		</InformationModel>
 	</InformationModelLibrary>
 	<InteractionLibrary>
