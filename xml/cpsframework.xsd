@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework">
 	<xs:annotation>
-		<xs:documentation>Author:Howard.
-Created:12/18/15 3:03 PM.
-Title:.
-Comment:.</xs:documentation>
+		<xs:documentation></xs:documentation>
 	</xs:annotation>
 	<xs:include schemaLocation="IEC62559-3.xsd"/>
 	<xs:include schemaLocation="realization.xsd"/>
@@ -112,6 +109,7 @@ Comment:.</xs:documentation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
