@@ -12,8 +12,11 @@ Known episodes:
 
 CLASSES
 =======
+sensors
+actuators
 body cameras: sensors
 location sensors: sensors
+alarm sirens: actuators
 
 
 OBJECTS
@@ -24,11 +27,79 @@ actors
 server
 steam-tampering: events
 
-resilience, reliability, privacy, safety, security: trustworthiness elements
+resilience, reliability, privacy, safety, security elements: trustworthiness elements
 
 cyber-security elements, physical security elements: security elements
 confidentiality, integrity, availability: cyber-security elements [HOW ARE THEY LINKED TO "security"???] [WHAT ABOUT PHYSICAL SECURITY???]
 
+
+----------------------------------------------------
+police-view-system
+	comprises body-cam
+	comprises storage-server
+	has-data-flow f1
+		// what about data-stream???
+
+body-cam
+	comprises camera
+	comprises mic
+
+data-flow f1
+	source	body-cam
+	dest	storage-server
+
+"axiom"
+**	if data-flow goes from X to Y and
+           X comprises Z
+	then
+	   exists data-flow' from from Z to Y
+
+**	if X comprises Z and
+	   Z is-affected-by Attack
+	then
+	   X is-affected-by Attack
+	{ in principle, X may have its own defenses, which defeat the attack at the macro-level }
+
+===> attack may cause device to be disabled, which affects AVAILABILITY
+===> attack may cause device's data-stream to be altered or replaced, which affects INTEGRITY
+===> attack may cause device's data-stream to be stolen, which affects CONFIDENTIALITY
+
+
+Cyber Security: CIA of data streams
+	Important if used in court
+	Potential approach: timestamp
+
+data-streams:
+	data-streams generated-by body-cameras
+	data-streams constrained-by cyber-security-elements
+
+FAILURES / FAILURE MODES / VARIATIONS IN FUNCTION (too much, too little, intermittent)
++ got sound but no video
+
+
+
+"(COMPETENCY) QUESTIONS"
++ do I still have audio and video?
++ do I still have trustworthy body-cam functions?
+	parts to body-cam (mic, cam, ...)
++ which body-cam functions are still trustworthy?
+	overheating makes for a thermal hazard, but it's still producing trustworthy data stream
+	...Q's from Marcello here...
+	 what is a body-cam function???
+	 what is overheating???
+	 what is thermal hazard???
+	 what is "producing data stream"???
+	 when is data stream trustworthy???
+	...Q's from Marcello here...
++ which ways of tampering with the trustworthiness of the system can be detected?
++ are the interactions typical of the system authorized or unauthorized?
+	i.e. is there some command that proves authenticity?
+        ex2: intruders may attempt to replace A/V with fake ones
+	     we would like to monitor that authorization measures have been respected
+	     if we find a violation, that's an indication that the system has been manipulated
+
+
+----------------------------------------------------
 
 
 % AI connected to a body camera
