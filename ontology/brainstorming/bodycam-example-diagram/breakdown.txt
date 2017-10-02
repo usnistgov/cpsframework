@@ -1,0 +1,75 @@
+Business Case
+=============
+	Integrated body security system
+
+	Monitors the activity of safety personnel in the course 
+	of the response to an incident.
+	Provides some kind of alarm capability that can be triggered
+	by the person wearing the integrated body security system.
+	Enables the transfer of A/V/Data/Info to a storage system
+	in a trustworthy way.
+	If trustworthy, it may be used in litigation.
+
+Use case
+========
+	(enumerates scenarios (aka features)
+	 finite number of steps that describe 
+	 interactions between the actors)
+
+	Realtime awareness scenario 1 (of safety person's status when responding)
+		pick up audio and video
+		provide awareness by alerting a remote operator
+	Realtime awareness scenario 2 (of safety person's status when responding)
+		pick up audio and video
+		capture information about the situation for later analysis
+	Situation is out-of-hand
+		Safety person has an opportunity to sound an alarm siren
+
+	Actors: (they become blackboxes)
+		camera
+		mic
+		siren
+		processor
+		server
+		storage
+		operator (receiving the warning)
+		environment
+
+CPS
+===
+	integrated camera-mic-siren
+
+Physical (interactions)
+=======================
+	siren produces an audible signal
+		influence: audible signal
+		energy: vibrations in the air
+	
+	cellular network that processes the call
+		establishes connection between dispatcher and injured party
+
+Logical (interactions)
+======================
+	siren (if it is a digital warning sent to the station)
+	camera sends videofeed to processor
+		messaging: AES-encoded sequence of bytes
+		info: videofeed (digitalized video signal)
+
+Questions (first take)
+======================
+Does the avfeed stored by server have high integrity?
+  (integrity = not been compromised; may refer to failure or being worn out)
+	it can refer to cybersecurity or to physical security (walking into the room where data is stored)
+
+Question Type 1
+	asked at a high level of abstraction of the decomposition
+	describe (in English) how it is mapped to statements at the low-level 
+	of the decomposition, which can be automatically checked
+
+Question Type 2
+	mid-level question, competence of the low-level of the 
+	system that is handling the CPS-level interactions
+
+Question Type 3
+	low-level question, involves exchanges of information (messaging, signals)
+	and technical expertise
