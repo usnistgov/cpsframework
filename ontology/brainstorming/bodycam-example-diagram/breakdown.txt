@@ -10,10 +10,10 @@ Business Case
 	in a trustworthy way.
 	If trustworthy, it may be used in litigation.
 
+
 Use case
 ========
-	(enumerates scenarios (aka features)
-	 finite number of steps that describe 
+	(enumerates scenarios (aka features), finite number of steps that describe 
 	 interactions between the actors)
 
 	Realtime awareness scenario 1 (of safety person's status when responding)
@@ -24,39 +24,81 @@ Use case
 		capture information about the situation for later analysis
 	Situation is out-of-hand
 		Safety person has an opportunity to sound an alarm siren
+	Forensics
+		have a log of when camera/mic fail or of when office shuts them off
+		having a log would enable forensic audit
+
+	System governance between logical and physical
+		if you have reason to doubt logical info from the system
+		you may do a second measurement on the system
+		to make sure the signal is coming through properly
 
 	Actors: (they become blackboxes)
+		environment
 		camera
 		mic
 		siren
-		processor
-		server
+		SAM (Situational Awareness Module)
 		storage
-		operator (receiving the warning)
-		environment
+		command center (receiving the warning)
+		// note:
+		//   [EG] command center & storage should be separate to avoid compromising investigations, e.g. into officer's conduct
+		//   [MB] Can we formulate this as a question? That is, do not separate command center & storage and ask whether a certain key property is/isn't satisfied
+
 
 CPS
 ===
-	integrated camera-mic-siren
+	Integrated body security system (integrated camera-mic-siren)
 
-Physical (interactions)
-=======================
+
+Physical interactions
+=====================
+	camera receives video signal from environment
+		influence: video signal
+		energy: electromagnetic waves (visible part of the spectrum)
+
+	mic receives video signal from environment
+		influence: audio signal
+		energy: sound waves (vibrations in the air)
+
 	siren produces an audible signal
 		influence: audible signal
-		energy: vibrations in the air
+		energy: sound waves (vibrations in the air)
 	
-	cellular network that processes the call
+	cellular network that processes the call [TBD]
 		establishes connection between dispatcher and injured party
+		influence: wireless signal
+		energy: electromagnetic waves
 
-Logical (interactions)
-======================
-	siren (if it is a digital warning sent to the station)
-	camera sends videofeed to processor
-		messaging: AES-encoded sequence of bytes
-		info: videofeed (digitalized video signal)
 
-Questions (first take)
-======================
+Logical interactions
+====================
+	camera sends videofeed to SAM
+		messaging: sequence of bytes
+			- example refinement: AES-encoded 
+		information: videofeed (digitalized video signal)
+
+	mic sends audiofeed to SAM
+		messaging: sequence of bytes
+			- example refinement: AES-encoded 
+		information: audiofeed (digitalized audio signal)
+
+	SAM sends alarm to command center (if it is a digital warning sent to the command center)
+		messaging: alarm packet
+		information: type of alarm, timestamp, location, officer ID
+
+	SAM sends sound command to siren
+		messaging: command packet
+		information: type of sound, volume
+
+	SAM sends multimedia feed to storage
+		messaging: sequence of bytes
+			- example refinement: AES-encoded 
+		information: combined videofeed from camera and audiofeed from mic
+
+
+Questions (first take, to be revised later)
+===========================================
 Does the avfeed stored by server have high integrity?
   (integrity = not been compromised; may refer to failure or being worn out)
 	it can refer to cybersecurity or to physical security (walking into the room where data is stored)
