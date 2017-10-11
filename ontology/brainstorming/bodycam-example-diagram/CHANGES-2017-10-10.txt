@@ -1,0 +1,24 @@
+CHANGES PERFORMED DURING 2017-10-05 CALL
+========================================
+* Removed environment as actor
+* Added targeting mechanism
+* Added physical interaction between targeting mechanism and camera
+  - Useful example because it is within the CPS
+* Identified stand-alone part of the CPS
+* Discussed potential questions
+  - Decided to introduce notion of mission, which is a higher level notion than scenarios
+  - Created example missions
+  - Formulated questions about executability of missions in a given CPS state
+    = Assumption: components of the system have been assessed w.r.t. concerns, e.g. security
+
+
+CHANGES PERFORMED AS A FOLLOW-UP OF 2017-10-05 CALL (through 2017-10-10)
+========================================================================
+* Refined functional decomposition of integrated body security system
+* Incorporated further suggestions from Ed
+* Created (draft) "Realtime Operator Awareness" (ROA) function, based on "Realtime 
+  awareness scenario 1" from previous discussions and inspired by Communicating Smart 
+  Thermostat example
+* Created (draft) breakdown of Reliability "properties" according to 
+  functional decomposition
+* Created (draft) high-level diagram of Reliability "properties" of ROA function
