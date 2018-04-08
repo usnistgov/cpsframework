@@ -1,0 +1,1201 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.asklab.tk/ontologies/CPS-Framework#"
+     xml:base="http://www.asklab.tk/ontologies/CPS-Framework"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:CPS-Framework="http://www.asklab.tk/ontologies/CPS-Framework#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.asklab.tk/ontologies/CPS-Framework"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#addressedByActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#addressedByActivity">
+        <rdfs:domain rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <rdfs:range rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Activity"/>
+        <rdfs:comment>CPS-specific</rdfs:comment>
+        <rdfs:comment>pg 15</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#addressedByProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#addressedByProperty">
+        <rdfs:domain rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <rdfs:range rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <rdfs:comment>CPS-specific</rdfs:comment>
+        <rdfs:comment>pg 15</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#hasType">
+        <rdfs:domain rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <rdfs:range rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#includesActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#includesActivity">
+        <rdfs:domain rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Facet"/>
+        <rdfs:range rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Activity"/>
+        <rdfs:comment>CPS-specific</rdfs:comment>
+        <rdfs:comment>pg 16</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#includesArtifact -->
+
+    <owl:ObjectProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#includesArtifact">
+        <rdfs:domain rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Facet"/>
+        <rdfs:range rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Artifact"/>
+        <rdfs:comment>CPS-specific</rdfs:comment>
+        <rdfs:comment>pg 16</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#includesConcern -->
+
+    <owl:ObjectProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#includesConcern">
+        <rdfs:domain rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <rdfs:range rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <rdfs:comment>CPS-independent</rdfs:comment>
+        <rdfs:comment>pg 15</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#atomicStatement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#atomicStatement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Activity -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Activity">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Artifact -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Artifact">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Aspect -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Aspect">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <rdfs:comment>all instances are CPS-independent</rdfs:comment>
+        <rdfs:comment>pg 15</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Concern -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Concern">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+        <rdfs:comment>all instances are CPS-independent</rdfs:comment>
+        <rdfs:comment>pg 15</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DesignElement -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DesignElement">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Facet -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Facet">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+        <rdfs:comment>all instances are CPS-independent</rdfs:comment>
+        <rdfs:comment>pg 16</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Judgment -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Judgment">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Property -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Property">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+        <rdfs:comment>pg 15</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#PropertyType -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#CPSFrameworkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Requirement -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Requirement">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Test -->
+
+    <owl:Class rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Test">
+        <rdfs:subClassOf rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Actuation -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Actuation">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Adaptability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Adaptability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Aggregation_Disaggregation -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Aggregation_Disaggregation">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Analytics -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Analytics">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#AssuranceFacet -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#AssuranceFacet">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Facet"/>
+        <rdfs:comment>CPS-independent</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Authentication -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Authentication">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Authorization -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Authorization">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Availability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Availability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Behavioral -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Behavioral">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Boundaries -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Boundaries">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Behavioral"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Networkability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Responsibility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Business -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Business">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Cost"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Enterprise"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Environment"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Planning"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Policy"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Quality"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Regulatory"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#TimeToMarket"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Utility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ClassIdentification -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ClassIdentification">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Communication -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Communication">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Complexity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Complexity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ComponentInventory -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ComponentInventory">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Composition -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Composition">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Adaptability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Complexity"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Constructivity"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Discoverability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ConceptualizationFacet -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ConceptualizationFacet">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Facet"/>
+        <rdfs:comment>CPS-independent</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Confidentiality -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Confidentiality">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <addressedByProperty rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Input1EncryptedMem"/>
+        <addressedByProperty rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#SAMEncryptedMem"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Configuration -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Configuration">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ConfigurationForLeastFFunctionality -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ConfigurationForLeastFFunctionality">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ConfigurationManagement -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ConfigurationManagement">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Constructivity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Constructivity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Controllability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Controllability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Cost -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Cost">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Cybersecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Cybersecurity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Availability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Confidentiality"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Integrity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Data -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Data">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#DataSemantics"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Identity"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#OperationsOnData"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#RelationshipBetweenData"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Velocity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DataIntegrity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DataIntegrity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DataModels -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DataModels">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DataQuality -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DataQuality">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DataSemantics -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DataSemantics">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#DataModels"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Granularity"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Meaning"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Deployability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Deployability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DeviceIdentification -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DeviceIdentification">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#DirectionalityOfRelationships -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#DirectionalityOfRelationships">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Discoverability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Discoverability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Disposability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Disposability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Engineerability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Engineerability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Enterprise -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Enterprise">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Environment -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Environment">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Functional -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Functional">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Actuation"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Communication"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Controllability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Functionality"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Manageability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Measurability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Monitorability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Performance"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Physical"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PhysicalContext"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Sensing"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#StatesAndModes"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Uncertainty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Functionality -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Functionality">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <addressedByProperty rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Input1ConsistentReadingFreq"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Fusion -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Fusion">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Granularity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Granularity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Human -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Human">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#HumanFactors"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#HumanFactors -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#HumanFactors">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Identity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Identity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Authentication"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Authorization"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Configuration"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#DataIntegrity"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Provenance"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ResourceIdentification"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Verification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Inheritance -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Inheritance">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Input1ConsistentReadingFreq -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Input1ConsistentReadingFreq">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <hasType rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion"/>
+        <atomicStatement>consist_reading_freq_input1</atomicStatement>
+        <rdfs:comment>The camera records at constant frame-rate</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Input1EncryptedMem -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Input1EncryptedMem">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <hasType rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion"/>
+        <atomicStatement>encrypted_mem_input1</atomicStatement>
+        <rdfs:comment>The camera uses encrypted memory</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Input1Modes -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Input1Modes">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <hasType rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Capability"/>
+        <atomicStatement>slow_mode_input1</atomicStatement>
+        <rdfs:comment>The camera should be capable of recording at 25fps and at 50fps</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Input1SecBoot -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Input1SecBoot">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <hasType rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion"/>
+        <atomicStatement>sec_boot_input1</atomicStatement>
+        <rdfs:comment>The camera uses secure boot</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Integrity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Integrity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <addressedByProperty rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Input1SecBoot"/>
+        <addressedByProperty rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#SAMSecBoot"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Lifecycle -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Lifecycle">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Deployability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Disposability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Engineerability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Maintainability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Operatability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Procureability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Producibility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#LocationOfData -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#LocationOfData">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#LogicalTime -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#LogicalTime">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Maintainability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Maintainability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ComponentInventory"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ConfigurationForLeastFFunctionality"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ConfigurationManagement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Manageability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Manageability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ManagingTimingAndLatency -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ManagingTimingAndLatency">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Meaning -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Meaning">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Measurability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Measurability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Monitorability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Monitorability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Networkability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Networkability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ObjectIdentification -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ObjectIdentification">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Operatability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Operatability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#OperationsOnData -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#OperationsOnData">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aggregation_Disaggregation"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Analytics"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Fusion"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Storage"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Transformation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Performance -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Performance">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Physical -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Physical">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#PhysicalContext -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#PhysicalContext">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#PhysicalSecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#PhysicalSecurity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Planning -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Planning">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Policy -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Policy">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Polymorphism -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Polymorphism">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Privacy -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Privacy">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Procureability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Procureability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Producibility -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Producibility">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Capability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Capability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Provenance -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Provenance">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Quality -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Quality">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#RealizationFacet -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#RealizationFacet">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Facet"/>
+        <rdfs:comment>CPS-independent</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Regulatory -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Regulatory">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#RelatedData -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#RelatedData">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#RelationshipBetweenData -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#RelationshipBetweenData">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#DataQuality"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#DirectionalityOfRelationships"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Inheritance"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#LocationOfData"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Polymorphism"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#RelatedData"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#TimeOfData"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Reliability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Reliability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Resilience -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Resilience">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#ResourceIdentification -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#ResourceIdentification">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ClassIdentification"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#DeviceIdentification"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ObjectIdentification"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#UserIdentification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Responsibility -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Responsibility">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#SAMEncryptedMem -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#SAMEncryptedMem">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <hasType rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion"/>
+        <atomicStatement>encrypted_mem_sam</atomicStatement>
+        <rdfs:comment>SAM uses encrypted memory</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#SAMSecBoot -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#SAMSecBoot">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Property"/>
+        <hasType rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PropertyType_Assertion"/>
+        <atomicStatement>sec_boot_sam</atomicStatement>
+        <rdfs:comment>SAM uses secure boot</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Safety -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Safety">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Security -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Security">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Cybersecurity"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#PhysicalSecurity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Sensing -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Sensing">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#StatesAndModes -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#StatesAndModes">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Storage -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Storage">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Synchronization -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Synchronization">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#TimeAwareness -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#TimeAwareness">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#TimeIntervalAndLatencyControl -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#TimeIntervalAndLatencyControl">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+        <addressedByProperty rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Input1Modes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#TimeOfData -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#TimeOfData">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#TimeToMarket -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#TimeToMarket">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Timing -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Timing">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#LogicalTime"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#ManagingTimingAndLatency"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Synchronization"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#TimeAwareness"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#TimeIntervalAndLatencyControl"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Transformation -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Transformation">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Trustworthiness -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Trustworthiness">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Aspect"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Privacy"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Reliability"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Resilience"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Safety"/>
+        <includesConcern rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Uncertainty -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Uncertainty">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Usability -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Usability">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#UserIdentification -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#UserIdentification">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Utility -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Utility">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Velocity -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Velocity">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.asklab.tk/ontologies/CPS-Framework#Verification -->
+
+    <owl:NamedIndividual rdf:about="http://www.asklab.tk/ontologies/CPS-Framework#Verification">
+        <rdf:type rdf:resource="http://www.asklab.tk/ontologies/CPS-Framework#Concern"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

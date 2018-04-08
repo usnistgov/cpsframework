@@ -1,0 +1,2 @@
+Please use *static* linux binaries only for mkatoms.
+ They can be created with "make static" in the mkatoms distribution.
