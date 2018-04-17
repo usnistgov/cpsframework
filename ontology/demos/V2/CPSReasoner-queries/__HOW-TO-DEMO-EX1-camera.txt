@@ -2,13 +2,13 @@ WHICH FILES TO LOAD IN THE DEMO SYSTEM FOR EX1-camera
 =====================================================
 
 STEPS:
-0. Ensure that Java 1.8.x is installed
 1. Copy folder CPSReasoner-v2 to your computer
 2. Copy folder CPSReasoner-queries to your computer
 3. Make sure cpsframework-v2-bodycamCPS.owl is in:
 	CPSReasoner-v2\asklab\ui\ONTOLOGY\
 4. Run the system by executing:
 	CPSReasoner-v2\runUI.bat
+   for Mac: CPSReasoner-v2\runUI-macos.command
 5. To execute one of the cases below:
    a. Paste the listed file(s) into the "ASP Query" window of the prototype
    b. Click "Run query"
@@ -18,14 +18,14 @@ AVAILABLE CASES AND FILES
 -------------------------
 
 Case 1:
-FILE: EX1-camera/step1-FULL.lp
+FILE: V4/EX1-camera/step1-FULL.lp
 (Alternatively, combine:
-  * EX0-general/theory-3.lp
-  * EX0-general/step1.lp
-  * EX1-camera/output.lp
+  * V4/EX0-general/theory-3.lp
+  * V4/EX0-general/step1.lp
+  * V4/EX1-camera/output.lp
 )
 DESCRIPTION
-% The SAM and camer are configured to use encrypted 
+% The SAM and camera are configured to use encrypted 
 % memory and secure boot. 
 % The basic camera is used.
 % The SAM sets the camera to record at 25 fps.
@@ -38,14 +38,14 @@ DESCRIPTION
 % Output: empty table, meaning yes to all
 
 Case 1 ALTERNATE:
-FILE: EX1-camera/step1-FULL-satisfied.lp
+FILE: V4/EX1-camera/step1-FULL-satisfied.lp
 (Alternatively, combine:
-  * EX0-general/theory-3.lp
-  * EX0-general/step1.lp
-  * EX1-camera/output.lp
+  * V4/EX0-general/theory-3.lp
+  * V4/EX0-general/step1.lp
+  * V4/EX1-camera/output.lp
 )
 DESCRIPTION
-% The SAM and camer are configured to use encrypted 
+% The SAM and camera are configured to use encrypted 
 % memory and secure boot. 
 % The basic camera is used.
 % The SAM sets the camera to record at 25 fps.
@@ -57,10 +57,10 @@ DESCRIPTION
 
 
 Case 2:
-FILE: EX1-camera/step2-FULL.lp
+FILE: V4/EX1-camera/step2-FULL.lp
 (Alternatively, combine:
 * All files from Step 1
-* EX0-general/step2.lp
+* V4/EX0-general/step2.lp
 )
 DESCRIPTION
 % In the same configuration of Case 1,
@@ -88,10 +88,10 @@ DESCRIPTION
 
 
 Case 3:
-FILE: EX1-camera/step3-FULL.lp
+FILE: V4/EX1-camera/step3-FULL.lp
 (Alternatively, combine:
   * All files from Step 2
-  * EX0-general/step3.lp
+  * V4/EX0-general/step3.lp
 )
 DESCRIPTION
 % We use the same configuration of Case 2.
