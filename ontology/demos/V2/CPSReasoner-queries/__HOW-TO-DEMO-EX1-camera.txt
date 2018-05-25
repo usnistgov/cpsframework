@@ -1,0 +1,154 @@
+WHICH FILES TO LOAD IN THE DEMO SYSTEM FOR EX1-camera
+=====================================================
+
+STEPS:
+1. Copy folder CPSReasoner-v2 to your computer
+2. Copy folder CPSReasoner-queries to your computer
+3. Make sure cpsframework-v2-bodycamCPS.owl is in:
+	CPSReasoner-v2\asklab\ui\ONTOLOGY\
+4. Run the system by executing:
+	CPSReasoner-v2\runUI.bat
+   for Mac: CPSReasoner-v2\runUI-macos.command
+5. To execute one of the cases below:
+   a. Paste the listed file(s) into the "ASP Query" window of the prototype
+   b. Click "Run query"
+
+
+AVAILABLE CASES AND FILES
+-------------------------
+
+Case 1:
+FILE: V4/EX1-camera/step1-FULL.lp
+(Alternatively, combine:
+  * V4/EX0-general/theory-3.lp
+  * V4/EX0-general/step1.lp
+  * V4/EX1-camera/output.lp
+)
+DESCRIPTION
+% The SAM and camera are configured to use encrypted 
+% memory and secure boot. 
+% The basic camera is used.
+% The SAM sets the camera to record at 25 fps.
+%
+% Questions:
+%   1. Is the functionality concern satisfied?
+%   2. Is the functional aspect satisfied?
+%   3. Are all aspects satisfied?
+%
+% Output: empty table, meaning yes to all
+
+Case 1 ALTERNATE:
+FILE: V4/EX1-camera/step1-FULL-satisfied.lp
+(Alternatively, combine:
+  * V4/EX0-general/theory-3.lp
+  * V4/EX0-general/step1.lp
+  * V4/EX1-camera/output.lp
+)
+DESCRIPTION
+% The SAM and camera are configured to use encrypted 
+% memory and secure boot. 
+% The basic camera is used.
+% The SAM sets the camera to record at 25 fps.
+%
+% Questions:
+%   1. Which properties, concerns and aspects are satisfied?
+%
+% Output: complete list, meaning all of them are satisfied
+
+
+Case 2:
+FILE: V4/EX1-camera/step2-FULL.lp
+(Alternatively, combine:
+* All files from Step 1
+* V4/EX0-general/step2.lp
+)
+DESCRIPTION
+% In the same configuration of Case 1,
+% a cyberattack occurs and hacks the SAM to switch 
+% the camera to recording at 50 fps.
+%
+% Questions:
+%   1. Which properties, concerns, aspects are not satisfied?
+%   2. What events are triggered?
+%
+% Answers:
+%   1. - Functionality is violated if the basic camera
+%        is recording at 50 fps with encrypted memory enabled
+%      - The functional aspect is not satisfied because functionality 
+%        is violated
+%      - The full concern tree is not satisfied because the functional
+%        aspect is violated
+%   2. The recording is thrown out of court (because functional aspect
+%      is violated)
+%
+% Output: + list of violated properties, concerns, aspects
+%         + list of events triggered
+%         Note: the last column indicates the time step in the evolution
+%               of the example. Of interest is the LAST step.
+
+
+Case 3:
+FILE: V4/EX1-camera/step3-FULL.lp
+(Alternatively, combine:
+  * All files from Step 2
+  * V4/EX0-general/step3.lp
+)
+DESCRIPTION
+% We use the same configuration of Case 2.
+% The attack affects the SAM and its effect cannot be directly reversed 
+% in order to lower the recording rate of the camera.
+% We want to know if there is a mitigation and, if so, which one.
+%
+% Questions:
+%   1. What is the mitigation, if there is one?
+%   2. Which properties, concerns, aspects are not satisfied?
+%   3. What events are triggered?
+%
+% Answers:
+%   1. The mitigation is to replace the basic camera with 
+%      the advanced one
+%   2. All properties, concerns, aspects are satisfied
+%   3. No events are triggered. The recording is no longer thrown 
+%      out of court
+%
+% Output: + list of violated properties, concerns, aspects
+%         + list of events triggered
+%         + mitigation actions
+%         Note: the last column indicates the time step in the evolution
+%               of the example. Of interest is the LAST step.
+
+
+Case 3 (Extended):
+FILE: EX1-camera/step3-ext-FULL.lp
+(Alternatively, combine:
+  * All files from Step 3
+  * EX0-general/step3-ext.lp
+)
+DESCRIPTION
+% In the same configuration of Case 1,
+% a cyberattack occurs and hacks the SAM to switch 
+% the camera to recording at 50 fps.
+% The attack affects the SAM and its effect cannot 
+% be reversed unless a patch is applied to the SAM. The patch
+% forces the SAM to switch the camera to 25 fps.
+%
+% Questions:
+%   1. What are the mitigations, if there are any?
+%   2. Which properties, concerns, aspects are not satisfied?
+%   3. What events are triggered?
+%
+% Answers:
+%   1. - One mitigation is to replace the basic camera with 
+%        the advanced one
+%      - Another mitigation is to patch the SAM
+%   2. All properties, concerns, aspects are satisfied with both
+%      mitigations
+%   3. No events are triggered. The recording is no longer thrown 
+%      out of court
+%
+% Output: two separate outputs, one for each mitigation, including:
+%         + the list of violated properties, concerns, aspects
+%         + list of events triggered
+%         + mitigation actions
+%         Note: the last column indicates the time step in the evolution
+%               of the example. Of interest is the LAST step.

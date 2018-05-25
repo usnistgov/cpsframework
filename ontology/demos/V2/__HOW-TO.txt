@@ -1,0 +1,7 @@
+To run a demo, see 
+    CPSReasoner-queries/__HOW-TO-DEMO-EX1-camera.txt
+
+To create new examples/demos, see 
+    CPSReasoner-queries/V4/encoding.pptx
+and
+    CPSReasoner-v2/README.docx
