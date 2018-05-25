@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:annotation>
+		<xs:documentation>This package contains definitions for the realization facet.</xs:documentation>
+	</xs:annotation>
 	<xs:include schemaLocation="assurance.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
 	<xs:include schemaLocation="cpsframework.xsd"/>
-	<xs:element name="Design" type="Design"/>
 	<xs:complexType name="Design">
+		<xs:annotation>
+			<xs:documentation>This class contains the design of the system, including the design requirements and design elements such as drawings of the physical elements of the system and source and implementation code of the logical elements of the system.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Realization" type="Realization"/>
 	<xs:complexType name="Realization">
+		<xs:annotation>
+			<xs:documentation>The realization facet is the set of activities, including design requirements generation, prototyping, verification and validation, that produce as an output the system itself.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="Facet">
 				<xs:sequence>
@@ -21,8 +28,10 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TestCase" type="TestCase"/>
 	<xs:complexType name="TestCase">
+		<xs:annotation>
+			<xs:documentation>The Test Case class consists of the test cases, including test, inspection, analysis or demonstration, that relate to one or more of design requirement.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="kind" type="VerificationKind" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Design" type="Design" minOccurs="1" maxOccurs="unbounded"/>

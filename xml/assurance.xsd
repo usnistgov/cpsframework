@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:annotation>
+		<xs:documentation>This package contains definitions for the assurance facet.</xs:documentation>
+	</xs:annotation>
 	<xs:include schemaLocation="realization.xsd"/>
 	<xs:include schemaLocation="cpsframework.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
 	<xs:simpleType name="ArgumentationKind">
+		<xs:annotation>
+			<xs:documentation>ArgumentationKind is an enumeration type that consists of the kinds of argumentation used in an assurance judgement, including standard, best practice, formal method, regulation and expertise.</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="standard"/>
 			<xs:enumeration value="best practice"/>
@@ -12,8 +18,10 @@
 			<xs:enumeration value="expertise"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:element name="Assurance" type="Assurance"/>
 	<xs:complexType name="Assurance">
+		<xs:annotation>
+			<xs:documentation>The assurance facet is the set of activities, including evidence management and definition of argumentation required to assert that the system produced during the realization facet satisfies the properties defined by the conceptualization facet with a sufficient level of confidence.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="Facet">
 				<xs:sequence>
@@ -23,26 +31,34 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="AssuranceCase" type="AssuranceCase"/>
 	<xs:complexType name="AssuranceCase">
+		<xs:annotation>
+			<xs:documentation>The Assurance Case aggregates the judgements that the evidences and argumentation, are sufficient to establish that the properties hold of the system, with a sufficient level of certainty.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Judgement" type="Judgement" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Claim" type="Claim"/>
 	<xs:complexType name="Claim">
+		<xs:annotation>
+			<xs:documentation>The Claim class consists of one or more references to properties of a system. A claim asserts that a system has the properties referred to.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Evidence" type="Evidence"/>
 	<xs:complexType name="Evidence">
+		<xs:annotation>
+			<xs:documentation>The Evidence in assurance judgements can consist of  test, inspection, analysis or demonstration.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="TestCase" type="TestCase" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Judgement" type="Judgement"/>
 	<xs:complexType name="Judgement">
+		<xs:annotation>
+			<xs:documentation>A Judgement is an assertion that the argumentation establishes that the evidence is sufficient to show that the claim/property holds of the system with a sufficient level of confidence. Argumentation can take different forms, including reference to a standard, best practice, formal method, regulation or expertise.</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="claim" type="Claim" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="evidence" type="Evidence" minOccurs="1" maxOccurs="1"/>
@@ -52,6 +68,9 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="VerificationKind">
+		<xs:annotation>
+			<xs:documentation>VerificationKind is an enumeration type that consists of test, inspection, analysis and demonstration. It describes the desired form of test procedure and artifact produced.</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="test"/>
 			<xs:enumeration value="inspection"/>

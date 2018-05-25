@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+	<xs:annotation>
+		<xs:documentation>This package contains definitions for the conceptualization facet.</xs:documentation>
+	</xs:annotation>
 	<xs:include schemaLocation="cpsframework.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
-	<xs:element name="Actuation" type="Actuation"/>
 	<xs:complexType name="Actuation">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to effect change in the physical world.</xs:documentation>
@@ -13,7 +15,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Adaptability" type="Adaptability"/>
 	<xs:complexType name="Adaptability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ability of the CPS to achieve an intended purpose in the face of changing external conditions such as the need to upgrade or otherwise reconfigure a CPS to meet new conditions, needs, or objectives.</xs:documentation>
@@ -24,7 +25,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Aggregation" type="Aggregation"/>
 	<xs:complexType name="Aggregation">
 		<xs:annotation>
 			<xs:documentation>Concerns about the aggregation of data to form summaries or collections from multiple source</xs:documentation>
@@ -35,7 +35,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Analytics" type="Analytics"/>
 	<xs:complexType name="Analytics">
 		<xs:annotation>
 			<xs:documentation>Concerns about analytics</xs:documentation>
@@ -46,7 +45,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Authentication" type="Authentication"/>
 	<xs:complexType name="Authentication">
 		<xs:annotation>
 			<xs:documentation>Concerns about the authenticity of data</xs:documentation>
@@ -57,7 +55,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Authorization" type="Authorization"/>
 	<xs:complexType name="Authorization">
 		<xs:annotation>
 			<xs:documentation>Concerns about the authorizations constraining access to data</xs:documentation>
@@ -68,7 +65,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Availability" type="Availability"/>
 	<xs:complexType name="Availability">
 		<xs:annotation>
 			<xs:documentation>Concerns about ensuring timely and reliable access to and use of a system.</xs:documentation>
@@ -79,7 +75,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="BasicConnectivity" type="BasicConnectivity"/>
 	<xs:complexType name="BasicConnectivity">
 		<xs:annotation>
 			<xs:documentation>Concerns about connectivity of CPSDevices</xs:documentation>
@@ -93,7 +88,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Behavioral" type="Behavioral"/>
 	<xs:complexType name="Behavioral">
 		<xs:annotation>
 			<xs:documentation>Concerns about interdependence among behavioral domains. Concerns related to the ability to successfully operate a CPS in multiple application areas.</xs:documentation>
@@ -104,7 +98,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="BOL" type="BOL"/>
 	<xs:complexType name="BOL">
 		<xs:complexContent>
 			<xs:extension base="Concern">
@@ -117,7 +110,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="BoundariesAspect" type="BoundariesAspect"/>
 	<xs:complexType name="BoundariesAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about the demarcations of topological, functional, organizational, or other forms of interactions.</xs:documentation>
@@ -132,7 +124,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="BusinessAspect" type="BusinessAspect"/>
 	<xs:complexType name="BusinessAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about enterprise, time to market, environment, regulation, cost, etc.</xs:documentation>
@@ -153,7 +144,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ClassIdentification" type="ClassIdentification"/>
 	<xs:complexType name="ClassIdentification">
 		<xs:annotation>
 			<xs:documentation>Concerns about identification of data representing classes</xs:documentation>
@@ -164,7 +154,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Communication" type="Communication"/>
 	<xs:complexType name="Communication">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the exchange of information internal to the CPS and between the CPS and other entities.</xs:documentation>
@@ -179,7 +168,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Complexity" type="Complexity"/>
 	<xs:complexType name="Complexity">
 		<xs:annotation>
 			<xs:documentation>Concerns about our understanding of the behavior of CPS due to the richness and heterogeneity of interactions among its components, such as existence of legacy and the variety of interfaces.</xs:documentation>
@@ -190,7 +178,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ComponentInventory" type="ComponentInventory"/>
 	<xs:complexType name="ComponentInventory">
 		<xs:annotation>
 			<xs:documentation>Concerns about component inventory or 'bill of materials' (BoM) and versioning.</xs:documentation>
@@ -201,7 +188,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="CompositionAspect" type="CompositionAspect"/>
 	<xs:complexType name="CompositionAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ability to compute selected properties of a component assembly from the properties of its components. Compositionality requires components that are composable: they do not change their properties in an assembly. Timing composability is particularly difficult.</xs:documentation>
@@ -217,8 +203,10 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Conceptualization" type="Conceptualization"/>
 	<xs:complexType name="Conceptualization">
+		<xs:annotation>
+			<xs:documentation>The conceptualization facet is the set of activities, including requirements development and requirements analysis and others, that produce as an output the set of properties of the system under consideration, or the Model of the CPS.</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="Facet">
 				<xs:sequence>
@@ -228,7 +216,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Concern" type="Concern"/>
 	<xs:complexType name="Concern" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Dimensions of conceiving, realizing and assuring a CPS through the lifecycle.</xs:documentation>
@@ -237,7 +224,6 @@
 			<xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Confidentiality" type="Confidentiality"/>
 	<xs:complexType name="Confidentiality">
 		<xs:annotation>
 			<xs:documentation>Concerns about preserving authorized restrictions on access and disclosure. </xs:documentation>
@@ -248,7 +234,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Configuration" type="Configuration"/>
 	<xs:complexType name="Configuration">
 		<xs:annotation>
 			<xs:documentation>Concerns about the management of the configuration of data producing entities</xs:documentation>
@@ -259,7 +244,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ConfigurationForLeastFunctionality" type="ConfigurationForLeastFunctionality"/>
 	<xs:complexType name="ConfigurationForLeastFunctionality">
 		<xs:annotation>
 			<xs:documentation>Concerns about minimizing the configuration needed.</xs:documentation>
@@ -270,7 +254,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ConfigurationManagement" type="ConfigurationManagement"/>
 	<xs:complexType name="ConfigurationManagement">
 		<xs:annotation>
 			<xs:documentation>Concerns about managing of configuration, versions, etc., including identifying these and their relationships.</xs:documentation>
@@ -281,7 +264,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Constructivity" type="Constructivity"/>
 	<xs:complexType name="Constructivity">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ability to combine CPS modular components (hardware, software, and data) to satisfy user requirements.</xs:documentation>
@@ -292,7 +274,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Controllability" type="Controllability"/>
 	<xs:complexType name="Controllability">
 		<xs:annotation>
 			<xs:documentation>Ability of a CPS to control a property of a physical thing. There are many challenges to implementing control systems with CPS including the non-determinism of cyber systems, the uncertainty of location, time and observations or actions, their reliability and security, and complexity. Concerns related to the ability to modify a CPS or its function, if necessary.</xs:documentation>
@@ -303,7 +284,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Cost" type="Cost"/>
 	<xs:complexType name="Cost">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the direct and indirect investment or monetary flow or other resources required by the CPS throughout its lifecycle. </xs:documentation>
@@ -314,7 +294,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Cybersecurity" type="Cybersecurity"/>
 	<xs:complexType name="Cybersecurity">
 		<xs:annotation>
 			<xs:documentation>Concerns about cyber-security, which encompasses confidentiality, integrity and availability.</xs:documentation>
@@ -329,7 +308,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DataAspect" type="DataAspect"/>
 	<xs:complexType name="DataAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about data interoperability including data semantics, identity, operations on data, relationships between data, and velocity of data.</xs:documentation>
@@ -346,7 +324,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DataIntegrity" type="DataIntegrity"/>
 	<xs:complexType name="DataIntegrity">
 		<xs:annotation>
 			<xs:documentation>Concerns about the integrity of the data elements</xs:documentation>
@@ -357,7 +334,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DataModels" type="DataModels"/>
 	<xs:complexType name="DataModels">
 		<xs:annotation>
 			<xs:documentation>Concerns about the structure of data/information</xs:documentation>
@@ -368,7 +344,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DataQuality" type="DataQuality"/>
 	<xs:complexType name="DataQuality">
 		<xs:annotation>
 			<xs:documentation>Concerns about associated quality metrics of data</xs:documentation>
@@ -379,7 +354,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DataSemantics" type="DataSemantics"/>
 	<xs:complexType name="DataSemantics">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the agreed and shared meaning(s) of data held within, generated by, and transiting a system. </xs:documentation>
@@ -394,7 +368,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Deployability" type="Deployability"/>
 	<xs:complexType name="Deployability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which a CPS can be brought into productive use.</xs:documentation>
@@ -405,7 +378,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="DeviceIdentification" type="DeviceIdentification"/>
 	<xs:complexType name="DeviceIdentification">
 		<xs:annotation>
 			<xs:documentation>Concerns about identification of data representing devices</xs:documentation>
@@ -416,7 +388,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Directionality" type="Directionality"/>
 	<xs:complexType name="Directionality">
 		<xs:annotation>
 			<xs:documentation>Concerns about directional/non-directional relationships between data</xs:documentation>
@@ -427,7 +398,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Discoverability" type="Discoverability"/>
 	<xs:complexType name="Discoverability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which a CPS component can be observed and understood (for purposes of leveraging the component’s functionality) by an entity (human, machines). Concerns related to the ease and reliability with which a CPS component’s functions can be ascertained (for purposes of leveraging that functionality) by an entity (human, machines).</xs:documentation>
@@ -438,7 +408,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Disposability" type="Disposability"/>
 	<xs:complexType name="Disposability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the impacts that may occur when the CPS is taken physically out of service.</xs:documentation>
@@ -449,7 +418,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Engineerability" type="Engineerability"/>
 	<xs:complexType name="Engineerability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which a CPS design concept can successfully be realized via a structured engineering process.</xs:documentation>
@@ -460,7 +428,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Enterprise" type="Enterprise"/>
 	<xs:complexType name="Enterprise">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the economic aspects of CPS throughout their lifecycle.</xs:documentation>
@@ -471,7 +438,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Environment" type="Environment"/>
 	<xs:complexType name="Environment">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the impacts of the engineering and operation of a CPS on the physical world.</xs:documentation>
@@ -482,7 +448,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="EOL" type="EOL"/>
 	<xs:complexType name="EOL">
 		<xs:complexContent>
 			<xs:extension base="Concern">
@@ -493,11 +458,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Functional" type="Functional"/>
 	<xs:complexType name="Functional">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="FunctionalAspect" type="FunctionalAspect"/>
 	<xs:complexType name="FunctionalAspect">
 		<xs:annotation>
 			<xs:documentation>The Functional Aspect is a set of concerns related to the sensing, computational and actuation functions of the CPS.</xs:documentation>
@@ -522,7 +485,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Functionality" type="Functionality"/>
 	<xs:complexType name="Functionality">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the function that a CPS provides.</xs:documentation>
@@ -533,7 +495,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Fusion" type="Fusion"/>
 	<xs:complexType name="Fusion">
 		<xs:annotation>
 			<xs:documentation>Concerns about the fusion and aggregation of data.</xs:documentation>
@@ -544,7 +505,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Granularity" type="Granularity"/>
 	<xs:complexType name="Granularity">
 		<xs:annotation>
 			<xs:documentation>Concerns about the granularity of data</xs:documentation>
@@ -555,7 +515,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="HumanAspect" type="HumanAspect"/>
 	<xs:complexType name="HumanAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about human interaction with and as part of a CPS.</xs:documentation>
@@ -569,7 +528,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="HumanFactors" type="HumanFactors"/>
 	<xs:complexType name="HumanFactors">
 		<xs:annotation>
 			<xs:documentation>Concern about the characteristics of CPS with respect to how they are used by humans.</xs:documentation>
@@ -580,7 +538,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Identity" type="Identity"/>
 	<xs:complexType name="Identity">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ability to accurately recognize entities (people, machines, and data) when interacting with or being leveraged by a CPS.</xs:documentation>
@@ -599,7 +556,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Inheritance" type="Inheritance"/>
 	<xs:complexType name="Inheritance">
 		<xs:annotation>
 			<xs:documentation>Concerns about inheritance relationships of data</xs:documentation>
@@ -610,7 +566,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Integrity" type="Integrity"/>
 	<xs:complexType name="Integrity">
 		<xs:annotation>
 			<xs:documentation>Concerns about guarding against improper modification or destruction of system, and includes ensuring non-repudiation and authenticity.</xs:documentation>
@@ -621,7 +576,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="IntervalAndLatencyControl" type="IntervalAndLatencyControl"/>
 	<xs:complexType name="IntervalAndLatencyControl">
 		<xs:annotation>
 			<xs:documentation>Concerns about time intervals. A time-interval is the duration between two instants read on the same timescale. CPS timing requirements are generally expressed as constraints on the time intervals (TI) between pairs of system significant events. There can be more general constraints on TIs that can be categorized based on their degree of time awareness in terms of bounded TIs or latency, deterministic TIs, and accurate TIs. </xs:documentation>
@@ -632,7 +586,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="LifecyscleAspect" type="LifecyscleAspect"/>
 	<xs:complexType name="LifecyscleAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about the lifecycle of CPS including its components.</xs:documentation>
@@ -647,7 +600,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="LocationOfData" type="LocationOfData"/>
 	<xs:complexType name="LocationOfData">
 		<xs:annotation>
 			<xs:documentation>Concerns about location of data</xs:documentation>
@@ -658,7 +610,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="LogicalTime" type="LogicalTime"/>
 	<xs:complexType name="LogicalTime">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the order in which things happen (causal order relation). </xs:documentation>
@@ -669,7 +620,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Maintainability" type="Maintainability"/>
 	<xs:complexType name="Maintainability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which the CPS can be kept in working order.</xs:documentation>
@@ -680,7 +630,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Manageability" type="Manageability"/>
 	<xs:complexType name="Manageability">
 		<xs:annotation>
 			<xs:documentation>Concerns about managing a CPS through its life cycle.</xs:documentation>
@@ -695,7 +644,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Meaning" type="Meaning"/>
 	<xs:complexType name="Meaning">
 		<xs:annotation>
 			<xs:documentation>Concerns about the semantic meaning of data elements</xs:documentation>
@@ -706,7 +654,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Measurability" type="Measurability"/>
 	<xs:complexType name="Measurability">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability to measure the characteristics of the CPS.</xs:documentation>
@@ -717,7 +664,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="MOL" type="MOL"/>
 	<xs:complexType name="MOL">
 		<xs:complexContent>
 			<xs:extension base="Concern">
@@ -728,7 +674,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Monitorability" type="Monitorability"/>
 	<xs:complexType name="Monitorability">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ease and reliability with which authorized entities can gain and maintain awareness of the state of a CPS and its operations. Includes logging and audit functionality.</xs:documentation>
@@ -739,7 +684,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Networkability" type="Networkability"/>
 	<xs:complexType name="Networkability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which a CPS can be incorporated within a (new or existing) network of other systems.</xs:documentation>
@@ -750,7 +694,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="NetworkInteroperability" type="NetworkInteroperability"/>
 	<xs:complexType name="NetworkInteroperability">
 		<xs:annotation>
 			<xs:documentation>Concerns about networked message exchange</xs:documentation>
@@ -765,7 +708,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ObjectIdentification" type="ObjectIdentification"/>
 	<xs:complexType name="ObjectIdentification">
 		<xs:annotation>
 			<xs:documentation>Concerns about identification of data representing objects</xs:documentation>
@@ -776,7 +718,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Operatability" type="Operatability"/>
 	<xs:complexType name="Operatability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the operation of the CPS when deployed.</xs:documentation>
@@ -787,7 +728,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OperationsOnData" type="OperationsOnData"/>
 	<xs:complexType name="OperationsOnData">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ability to create/read/update/delete system data and how the integrity of CPS data and behaviors may be affected.</xs:documentation>
@@ -804,11 +744,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OperationView" type="OperationView"/>
 	<xs:complexType name="OperationView">
 		<xs:sequence/>
 	</xs:complexType>
-	<xs:element name="OSIApplication" type="OSIApplication"/>
 	<xs:complexType name="OSIApplication">
 		<xs:annotation>
 			<xs:documentation>Concerns about application layer exchange patterns</xs:documentation>
@@ -819,7 +757,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OSIDataLink" type="OSIDataLink"/>
 	<xs:complexType name="OSIDataLink">
 		<xs:annotation>
 			<xs:documentation>Concerns about data links</xs:documentation>
@@ -830,7 +767,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OSINetwork" type="OSINetwork"/>
 	<xs:complexType name="OSINetwork">
 		<xs:annotation>
 			<xs:documentation>Concerns about networked exchange</xs:documentation>
@@ -841,7 +777,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OSIPhysical" type="OSIPhysical"/>
 	<xs:complexType name="OSIPhysical">
 		<xs:annotation>
 			<xs:documentation>Concerns about physical communication links</xs:documentation>
@@ -852,7 +787,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OSIPresentation" type="OSIPresentation"/>
 	<xs:complexType name="OSIPresentation">
 		<xs:annotation>
 			<xs:documentation>Concerns about the syntax of message encoding</xs:documentation>
@@ -863,7 +797,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OSISession" type="OSISession"/>
 	<xs:complexType name="OSISession">
 		<xs:annotation>
 			<xs:documentation>Concerns about session creation, maintenance, and tear-down</xs:documentation>
@@ -874,7 +807,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="OSITransport" type="OSITransport"/>
 	<xs:complexType name="OSITransport">
 		<xs:annotation>
 			<xs:documentation>Concerns about information transport</xs:documentation>
@@ -885,7 +817,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Performance" type="Performance"/>
 	<xs:complexType name="Performance">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of a CPS to meet required operational targets.</xs:documentation>
@@ -896,7 +827,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="PhysicalContext" type="PhysicalContext"/>
 	<xs:complexType name="PhysicalContext">
 		<xs:annotation>
 			<xs:documentation>Concerns relating to the need to understand a specific observation or a desired action relative to its physical position (and uncertainty.) While this information is often implied and not explicit in traditional physical systems, the distributed, mobile nature of CPS makes this a critical concern.</xs:documentation>
@@ -907,7 +837,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="PhysicalProperties" type="PhysicalProperties"/>
 	<xs:complexType name="PhysicalProperties">
 		<xs:annotation>
 			<xs:documentation>Concerns about purely physical properties of CPS including seals, locks, safety, and EMI.</xs:documentation>
@@ -918,7 +847,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="PhysicalSecurity" type="PhysicalSecurity"/>
 	<xs:complexType name="PhysicalSecurity">
 		<xs:annotation>
 			<xs:documentation>Concerns about physical security.</xs:documentation>
@@ -929,7 +857,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Planning" type="Planning"/>
 	<xs:complexType name="Planning">
 		<xs:annotation>
 			<xs:documentation>Concerns about planning.</xs:documentation>
@@ -940,7 +867,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Policy" type="Policy"/>
 	<xs:complexType name="Policy">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the impacts of treaties, statutes, and doctrines on a CPS throughout its lifecycle.</xs:documentation>
@@ -951,7 +877,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Polymorphism" type="Polymorphism"/>
 	<xs:complexType name="Polymorphism">
 		<xs:annotation>
 			<xs:documentation>Concerns about polymorphism of data</xs:documentation>
@@ -962,7 +887,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Preservability" type="Preservability"/>
 	<xs:complexType name="Preservability">
 		<xs:complexContent>
 			<xs:extension base="Concern">
@@ -970,7 +894,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Privacy" type="Privacy"/>
 	<xs:complexType name="Privacy">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to prevent entities (people, machines) from gaining access to data stored in, created by, or transiting a CPS or its components such that individuals or groups cannot seclude themselves or information about themselves from others. Privacy is a condition that results from the establishment and maintenance of a collection of methods to support the mitigation of risks to individuals arising from the processing of their personal information within or among systems or through the manipulation of physical environments.</xs:documentation>
@@ -981,7 +904,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Procurability" type="Procurability"/>
 	<xs:complexType name="Procurability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which a CPS can be obtained.</xs:documentation>
@@ -992,7 +914,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Producibility" type="Producibility"/>
 	<xs:complexType name="Producibility">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ease and reliability with which a CPS design can be successfully manufactured. </xs:documentation>
@@ -1003,10 +924,9 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Property" type="Property"/>
 	<xs:complexType name="Property">
 		<xs:annotation>
-			<xs:documentation>Property of a CPS, included in the Model of a CPS based on a concern.</xs:documentation>
+			<xs:documentation>Property of a CPS, included in the Model of a CPS, that is the result of applying one or more of the concerns of the CPS Framework.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="statement" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -1036,7 +956,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:element name="Provenance" type="Provenance"/>
 	<xs:complexType name="Provenance">
 		<xs:annotation>
 			<xs:documentation>Concerns about the provenance of the source of data</xs:documentation>
@@ -1047,7 +966,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Quality" type="Quality"/>
 	<xs:complexType name="Quality">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ease and reliability of assessing whether a CPS meets stakeholder (especially customer) expectations.</xs:documentation>
@@ -1058,7 +976,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Regulatory" type="Regulatory"/>
 	<xs:complexType name="Regulatory">
 		<xs:annotation>
 			<xs:documentation>Concerns related to regulatory requirements and certifications.</xs:documentation>
@@ -1069,7 +986,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="RelatedData" type="RelatedData"/>
 	<xs:complexType name="RelatedData">
 		<xs:annotation>
 			<xs:documentation>Concerns about metadata and other related data</xs:documentation>
@@ -1080,7 +996,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="RelationshipsBetweenData" type="RelationshipsBetweenData"/>
 	<xs:complexType name="RelationshipsBetweenData">
 		<xs:annotation>
 			<xs:documentation>Concerns about how and why sets of data must, may, or may not be associated with each other and the value or harm that can be derived from those associations.</xs:documentation>
@@ -1099,7 +1014,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Reliability" type="Reliability"/>
 	<xs:complexType name="Reliability">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to deliver stable and predictable performance in expected conditions.</xs:documentation>
@@ -1110,7 +1024,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Resiliance" type="Resiliance"/>
 	<xs:complexType name="Resiliance">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to withstand instability, unexpected conditions, and gracefully return to predictable, but possibly degraded, performance.</xs:documentation>
@@ -1121,7 +1034,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="ResourceIdentification" type="ResourceIdentification"/>
 	<xs:complexType name="ResourceIdentification">
 		<xs:annotation>
 			<xs:documentation>Concerns about identification of data.</xs:documentation>
@@ -1137,7 +1049,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Responsibility" type="Responsibility"/>
 	<xs:complexType name="Responsibility">
 		<xs:annotation>
 			<xs:documentation>Concerns about the ability to identify the entity or entities authorized to control the operation of a CPS.</xs:documentation>
@@ -1148,7 +1059,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Safety" type="Safety"/>
 	<xs:complexType name="Safety">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to ensure the absence of catastrophic consequences on the life, health, property, or data of CPS stakeholders and the physical environment.</xs:documentation>
@@ -1159,7 +1069,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Security" type="Security"/>
 	<xs:complexType name="Security">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to ensure that all of its processes, mechanisms, physical and data, and services are afforded internal or external protection from unintended and unauthorized access, change, damage, destruction, or use. Security encompasses both cyber-security and physical security.  </xs:documentation>
@@ -1173,7 +1082,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Sensing" type="Sensing"/>
 	<xs:complexType name="Sensing">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of a CPS to develop the situational awareness required to perform to its function.</xs:documentation>
@@ -1184,7 +1092,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="StatesAndModes" type="StatesAndModes"/>
 	<xs:complexType name="StatesAndModes">
 		<xs:annotation>
 			<xs:documentation>Concerns about states and modes of a CPS.</xs:documentation>
@@ -1195,7 +1102,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Storage" type="Storage"/>
 	<xs:complexType name="Storage">
 		<xs:annotation>
 			<xs:documentation>Concerns about the volume and storage of data.</xs:documentation>
@@ -1206,7 +1112,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Synchronization" type="Synchronization"/>
 	<xs:complexType name="Synchronization">
 		<xs:annotation>
 			<xs:documentation>Concerns about whether all associated nodes have access to the same reference timing signals. There are three kinds of synchronization: time, phase, and frequency synchronization, although frequency synchronization is also called syntonization. </xs:documentation>
@@ -1217,7 +1122,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="SyntacticInteroperability" type="SyntacticInteroperability"/>
 	<xs:complexType name="SyntacticInteroperability">
 		<xs:annotation>
 			<xs:documentation>Concerns about the presentation and exchange patterns of data</xs:documentation>
@@ -1231,7 +1135,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TimeAwareness" type="TimeAwareness"/>
 	<xs:complexType name="TimeAwareness">
 		<xs:annotation>
 			<xs:documentation>Concerns about enabling time correctness by design. The presence or absence of explicit time in the models used to describe, analyze, and design CPS and in the actual operation of the components.</xs:documentation>
@@ -1242,7 +1145,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TimeOfData" type="TimeOfData"/>
 	<xs:complexType name="TimeOfData">
 		<xs:annotation>
 			<xs:documentation>Concerns about time stamping of data through its life cycle</xs:documentation>
@@ -1253,7 +1155,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TimeToMarket" type="TimeToMarket"/>
 	<xs:complexType name="TimeToMarket">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the time period required to bring a CPS from need realization through deployment.</xs:documentation>
@@ -1264,7 +1165,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TimingAndLatency" type="TimingAndLatency"/>
 	<xs:complexType name="TimingAndLatency">
 		<xs:annotation>
 			<xs:documentation>Control and measurement applications in CPS generally require specific management of timing and latency. General important concerns for managing timing and latency include the coordination of timing domains and multiple timing references; latency management and control, including scheduling of network timing guarantees; and the mixing of time-sensitive and best-effort data in both networks and CPS nodes. </xs:documentation>
@@ -1275,7 +1175,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TimingAspect" type="TimingAspect"/>
 	<xs:complexType name="TimingAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about time and frequency in CPS, including the generation and transport of time and frequency signals, timestamping, managing latency, timing composability, etc.</xs:documentation>
@@ -1292,7 +1191,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Transformation" type="Transformation"/>
 	<xs:complexType name="Transformation">
 		<xs:annotation>
 			<xs:documentation>Concerns about the transformation of data from one form/semantic to another</xs:documentation>
@@ -1303,7 +1201,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="TrustworthinessAspect" type="TrustworthinessAspect"/>
 	<xs:complexType name="TrustworthinessAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about trustworthiness of CPS including cybersecurity, privacy, safety, reliability, and resilience.</xs:documentation>
@@ -1320,7 +1217,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Uncertainty" type="Uncertainty"/>
 	<xs:complexType name="Uncertainty">
 		<xs:annotation>
 			<xs:documentation>Managing the effects of uncertainties is a fundamental challenge in CPS. Sources of uncertainty in CPS can be grouped into statistical (aleatoric), lack of knowledge (epistemic) uncertainty, or systematic uncertainty. In CPS statistical uncertainty is caused by randomness of accuracy of sensing and actuation, often caused by uncertainty of manufacturing processes. Systematic uncertainty is caused by incomplete knowledge either due to limits of acquired knowledge or due to simplification in modeling. Typical manifestations of epistemic uncertainty are limited validity of models of physical processes or limits of computability of properties of mathematical models.</xs:documentation>
@@ -1331,7 +1227,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Usability" type="Usability"/>
 	<xs:complexType name="Usability">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of CPS to be used to achieve its functional objectives effectively, efficiently, and to the satisfaction of users (adapted from ISO 9241-210.) The combination of physical and cyber into complex systems creates challenges in meeting usability goals. Complexity is a major issue. The diversity of interfaces creates a significant learning curve for human interaction.</xs:documentation>
@@ -1342,7 +1237,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="UserIdentification" type="UserIdentification"/>
 	<xs:complexType name="UserIdentification">
 		<xs:annotation>
 			<xs:documentation>Concerns about identification of data representing users.</xs:documentation>
@@ -1353,7 +1247,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Utility" type="Utility"/>
 	<xs:complexType name="Utility">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of a CPS to provide benefit or satisfaction through its operation. Utility reflects a business concern, especially when considered as the numerator when computing value, which equals utility divided by costs.</xs:documentation>
@@ -1364,7 +1257,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Velociy" type="Velociy"/>
 	<xs:complexType name="Velociy">
 		<xs:annotation>
 			<xs:documentation>Concerns about the velocity of data.</xs:documentation>
@@ -1375,7 +1267,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Verification" type="Verification"/>
 	<xs:complexType name="Verification">
 		<xs:annotation>
 			<xs:documentation>Concerns about the verification of the identity of data</xs:documentation>
