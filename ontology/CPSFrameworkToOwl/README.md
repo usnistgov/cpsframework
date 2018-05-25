@@ -1,3 +1,16 @@
+# NIST use of xsd2owl and ontomalizer
+This software, under Apache License 2.0 is being modified for use in a National Institute of Standards and Technology project:
+	[https://github.com/usnistgov/cpsframework](https://github.com/usnistgov/cpsframework "NIST CPSFramework Github Project")
+
+NIST values the contributions of the authors.
+
+Since these projects are modified for local purposes, they were not forked from the originals and just modified as is. The versions used were:
+
+ontmalizer: commit 2dcaa705648acefab181a1026e6ec5f3b6ab9f04
+
+xsd2owl: commit 166c6c609433108e013787477266796c7e37a2d3
+
+
 # xsd2owl
 A tool for generating OWL from XSD and XML.
 
