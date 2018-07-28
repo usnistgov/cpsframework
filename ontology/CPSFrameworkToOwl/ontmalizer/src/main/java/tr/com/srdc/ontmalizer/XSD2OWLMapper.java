@@ -176,7 +176,7 @@ public class XSD2OWLMapper {
 
         ontology.setNsPrefix("", mainURI + "#");
 
-        hasValue = ontology.createOntProperty(Constants.ONTMALIZER_VALUE_PROP_NAME);
+        //hasValue = ontology.createOntProperty(Constants.ONTMALIZER_VALUE_PROP_NAME);
 
         abstractClasses = new ArrayList<>();
         mixedClasses = new ArrayList<>();
@@ -425,6 +425,9 @@ public class XSD2OWLMapper {
 
         if (complex.isGlobal()) {
             complexClass = ontology.createClass(getURI(complex));
+            LOGGER.debug("Emit Complex Class: " + complexClass.getLocalName());
+            LOGGER.debug("--- Complex Class: " + complexClass.toString());
+        	LOGGER.debug("--- Ontology: " + ontology.toString());
             if (parentURI != null) {
                 OntClass element = ontology.createClass(parentURI);
                 element.addSuperClass(complexClass);
@@ -644,6 +647,9 @@ public class XSD2OWLMapper {
 
                 } else if (element.getType().isComplexType()) {
                     prop = ontology.createObjectProperty(mainURI + "#" + NamingUtil.createPropertyName(opprefix, element.getName()));
+                    LOGGER.debug("Emit ObjectProperty: " + prop.getLocalName());
+                	LOGGER.debug("--- Ontology: " + ontology.toString());
+
 
                     // TODO: Mustafa: How will this be possible?
                     if (element.getType().getTargetNamespace().equals(XSDDatatype.XSD)) {
@@ -657,9 +663,12 @@ public class XSD2OWLMapper {
                                     XSDUtil.getXSDResource(element.getType().getName())));
                         }
                     } else if (element.getType().isGlobal()) {
+                    	LOGGER.debug("--- AllValuesFromRestriction: " + getURI(element.getType()));
                         parent.addSuperClass(ontology.createAllValuesFromRestriction(null,
                                 prop,
                                 ontology.createResource(getURI(element.getType()))));
+                    	LOGGER.debug("--- Ontology: " + ontology.toString());
+
                     } else if (element.getType().isLocal()) {
                         OntClass anonClass = ontology.createClass(mainURI
                                 + "#"
