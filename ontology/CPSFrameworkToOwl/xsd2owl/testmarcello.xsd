@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by Martin Burns (NIST) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="https://cpsframework.nist.gov/v1_1/" targetNamespace="https://cpsframework.nist.gov/v1_1/">
+	<xs:annotation>
+		<xs:documentation>This package contains definitions for the conceptualization facet.</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Safety">
+		<xs:annotation>
+			<xs:documentation>Concerns related to the ability of the CPS to ensure the absence of catastrophic consequences on the life, health, property, or data of CPS stakeholders and the physical environment.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Concern"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Privacy">
+		<xs:annotation>
+			<xs:documentation>Concerns related to the ability of the CPS to prevent entities (people, machines) from gaining access to data stored in, created by, or transiting a CPS or its components such that individuals or groups cannot seclude themselves or information about themselves from others. Privacy is a condition that results from the establishment and maintenance of a collection of methods to support the mitigation of risks to individuals arising from the processing of their personal information within or among systems or through the manipulation of physical environments.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Concern"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Aspect" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Aspects are high level concerns or collections of concerns whose relationships and tradeoffs are more fully understood.</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:complexType name="Aspects">
+		<xs:annotation>
+			<xs:documentation>This is the set of aspects or high-level concerns of the CPS Framework. They may be applicable at the levels of the decomposition of the CPS that takes place in the conceptualization facet of the CPS Framework.
+
+The decomposition of a CPS in the CPS Framework proceeds from the Business Case, Use Case, CPS's (in the case of a system of systems) and Allocation to the Logical and the Physical.
+
+These aspects, nine of them in the CPS Framework, are the high-level concerns or 'categories of concerns' of the CPS Framework. Applying a concern to a level of the decomposition of a CPS results in a set of 'properties' (or requirements), designed to assure that the concern is addressed by the CPS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="trustworthiness" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Property">
+		<xs:annotation>
+			<xs:documentation>Property of a CPS, included in the Model of a CPS, that is the result of applying one or more of the concerns of the CPS Framework.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="statement" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Property value statement.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="trace" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Trace is here to enable tracing of one property or requirement to another (typically capturing the relationships 'satisfies', 'tests', 'complies with'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="priority" type="xs:float" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Priority is included to enable a case where properties can be weighted or prioritized.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reference" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Reference such as standard, regulatory best practice, .... See ArgumentationKind.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description of the property</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Concern" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Dimensions of conceiving, realizing and assuring a CPS through the lifecycle.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TrustworthinessAspect">
+		<xs:annotation>
+			<xs:documentation>Concerns about trustworthiness of CPS including cybersecurity, privacy, safety, reliability, and resilience.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="hasPrivacy" type="Privacy" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="hasSafety" type="Safety" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
