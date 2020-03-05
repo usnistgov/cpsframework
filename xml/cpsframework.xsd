@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework" targetNamespace="cpsframework">
 	<xs:annotation>
 		<xs:documentation>NIST CPS Framework.</xs:documentation>
 	</xs:annotation>
@@ -34,6 +34,7 @@ These aspects, nine of them in the CPS Framework, are the high-level concerns or
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CPSFramework" type="CPSFramework"/>
 	<xs:complexType name="CPSFramework">
 		<xs:annotation>
 			<xs:documentation>The CPS Framework class denotes the CPS Framework UML Model. All the class objects in this model inherit Maturity attributes such as effective date, maturity level, responsible party, revision level and maturity status.
