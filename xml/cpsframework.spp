@@ -18,4 +18,9 @@
 		<File FilePath="realization.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>
+	<Folder FolderName="cpsframework">
+		<File FilePath="cpsframework\cpsframework.xsd" HomeFolder="Yes"/>
+		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
+		<File FilePath="cpsframework\IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
+	</Folder>
 </Project>
