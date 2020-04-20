@@ -38,14 +38,14 @@
 			<xs:documentation>May be used to define further, general assumption for a use case, such as: which systems already exist, which contractual relations exist, and which configurations of systems are probably in place. Initial states of information exchanged shall also be identified.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of the assumption</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="content" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the assumption</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Name of the assumption</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -96,9 +96,9 @@
 			<xs:documentation>Represents a glossary term and its definition.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -107,14 +107,14 @@
 This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -136,14 +136,14 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Describes either a precondition or a postcondition.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of the condition.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="content" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the condition.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Name of the condition.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -154,9 +154,9 @@ This identifier is unique among several exchange of information. A global reposi
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -165,14 +165,14 @@ These actors can include people, software applications, systems, databases, and 
 This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -180,8 +180,8 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Type of the actor (business, system, ....)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="CPSGrouping">
@@ -189,9 +189,14 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Group of actors used to organize an actor list.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="CPS" type="UseCase_Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>list of grouped Actors</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -200,14 +205,9 @@ This identifier is unique among several exchange of information. A global reposi
 This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CPS" type="UseCase_Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>list of grouped Actors</xs:documentation>
+					<xs:documentation>A short name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -245,14 +245,14 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Use case wide unique key for identification purposes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Provides the corresponding information for the provided key.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="reference" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>This field refers to relevant template section.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Provides the corresponding information for the provided key.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -262,6 +262,11 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>A domain is an area of knowledge or activity characterized by a set of concepts and terminology understood by the practitioners in that area. Examples include transportation, medical, energy, etc.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A short name.</xs:documentation>
@@ -270,11 +275,6 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -296,14 +296,14 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>For clarification, in general it is recommended to provide drawing(s) by hand, by a graphic or as UML graphics (preferred in this clause). The drawing should show interactions which identify the steps where possible.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of the drawing.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="drawingType" type="DrawingClassification" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Type of drawing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Name of the drawing.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="URI" type="Resource_String" minOccurs="1" maxOccurs="1">
@@ -322,9 +322,9 @@ path to an XMI file with a relative diagram path from the root of the UML model.
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -333,14 +333,14 @@ These actors can include people, software applications, systems, databases, and 
 This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -356,24 +356,24 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Information model exchanged in detailed activity step.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>can be used to define requirements referring to the information and not to the step as in the step by step analysis</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
@@ -399,24 +399,24 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			<xs:documentation>Key Performance Indicator (KPI) related to the objectives of the Use Case.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="Objective" type="Ref_Objective" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>the related objective</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -426,14 +426,24 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			<xs:documentation>Macro-activity.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="ChildMacroActivity" type="MacroActivity" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>The list of sub macro activities</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>the list of associated drawing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
@@ -444,16 +454,6 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>the associated requirements</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ChildMacroActivity" type="MacroActivity" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>The list of sub macro activities</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>the list of associated drawing.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Step" type="Step" minOccurs="0" maxOccurs="unbounded">
@@ -473,17 +473,17 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			<xs:documentation>Describes the narrative of the use case.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="shortDescription" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Short text intended to summarize the main idea as service for the reader who is searching for a use case or looking for an overview. 
-Recommendation: This short description should have not more than 150 words.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="completeDescription" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Provides a complete narrative of the use case from a user’s point of view, describing what occurs when, why, with what expectation, and under what conditions. This narrative should be written in plain text so that non-domain experts can understand it.
 The length of the complete description can range from a few sentences to a few pages, depending on the complexity and / or newness of the use case. This description often helps the domain expert to reflect about the requirements for the use case before getting into the details in the next sections of the use case template.
 The description may include drawings for explanation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="shortDescription" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Short text intended to summarize the main idea as service for the reader who is searching for a use case or looking for an overview. 
+Recommendation: This short description should have not more than 150 words.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -493,6 +493,11 @@ The description may include drawings for explanation.</xs:documentation>
 			<xs:documentation>Objective of the use case.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A short name.</xs:documentation>
@@ -501,11 +506,6 @@ The description may include drawings for explanation.</xs:documentation>
 			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -632,25 +632,15 @@ These actors can include people, software applications, systems, databases, and 
 			<xs:documentation>Any references shall be identified that might restrict or affect the design, understanding, and requirements of the use case, including contracts, regulations, policies, financial considerations, engineering constraints, pollution constraints, and other environmental quality issues.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Unique global identifier for the object.
-This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>There are different reference types (e.g. standards, regulation, contract, others like publications).</xs:documentation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="impact" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -658,19 +648,29 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>This information describe the nature of the influence of the document on the use case.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="status" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Status of the referenced document.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="link" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>If available, a public link to the document can be provided.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="originatorOrganisation" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>This describes the name of the organisation publishing the document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Status of the referenced document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>There are different reference types (e.g. standards, regulation, contract, others like publications).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -692,6 +692,17 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Requirement of a part of the use case.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="identifier" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Unique global identifier for the object.
+This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A short name.</xs:documentation>
@@ -702,17 +713,6 @@ This identifier is unique among several exchange of information. A global reposi
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="identifier" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Unique global identifier for the object.
-This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="RequirementCategory">
@@ -720,9 +720,9 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Requirements can be sorted in categories. For complex categories the category name can be "dot-delimited".</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>Description of the object.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -731,9 +731,9 @@ This identifier is unique among several exchange of information. A global reposi
 This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
+					<xs:documentation>A short name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Requirement" type="Requirement" minOccurs="0" maxOccurs="unbounded">
@@ -772,24 +772,14 @@ This identifier is unique among several exchange of information. A global reposi
 		<xs:complexContent>
 			<xs:extension base="Function">
 				<xs:sequence>
-					<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describes which actor  triggers this scenario.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>the list of associated drawing.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="TriggeringEvent" type="TriggeringEvent" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="MacroActivity" type="MacroActivity" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>list of triggering events for the scenario</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Precondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Describes which condition(s) should prevail after this scenario happens The post conditions may also define "success" or "failure" conditions for each use case.</xs:documentation>
+							<xs:documentation>list of macro activities for the scenario</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Postcondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
@@ -797,14 +787,24 @@ This identifier is unique among several exchange of information. A global reposi
 							<xs:documentation>Describes which condition(s) should have been met before this scenario happens.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="Precondition" type="Condition" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes which condition(s) should prevail after this scenario happens The post conditions may also define "success" or "failure" conditions for each use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes which actor  triggers this scenario.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>information about the requirement</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="MacroActivity" type="MacroActivity" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="TriggeringEvent" type="TriggeringEvent" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>list of macro activities for the scenario</xs:documentation>
+							<xs:documentation>list of triggering events for the scenario</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -816,9 +816,24 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:documentation>Elementary step within a scenario representing the finest-grained description level of interactions in the use case.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="BusinessObject" type="Ref_InformationModel" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>This describes briefly the information to be exchanged between the two actors – information producer and information receiver. It is possible to several information in one step, comma separated.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Description of the object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>the list of associated drawing.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="event" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The event that triggers the step. This might be completion of previous steps (in that case the event is the comma-separated list of their numbers) or the condition to exit a loop.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="identifier" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -827,14 +842,25 @@ This identifier is unique among several exchange of information. A global reposi
 This identifier is unique among several exchange of information. A global repository has to maintain the uniqueness.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="InformationProducer" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Description of the object.</xs:documentation>
+					<xs:documentation>This identifies the producer or source of the information. This should be one of the actors defined in the repository.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="event" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="InformationReceiver" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>The event that triggers the step. This might be completion of previous steps (in that case the event is the comma-separated list of their numbers) or the condition to exit a loop.</xs:documentation>
+					<xs:documentation>This identifies the receiver of the information. This should be one of the actors defined in the repository.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interaction" type="Ref_Message" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A short name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Requirement(s) for the step. It is allowed to list several requirement in one step, comma separated.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="service" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -853,32 +879,6 @@ Additionally, REPORT, TIMER and REPEAT are suggested.
 These common service definitions are related to automation / information or communication systems. In case the use case template is applied in other domains, further services might be used and described.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>the list of associated drawing.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Requirement" type="Ref_Requirement" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Requirement(s) for the step. It is allowed to list several requirement in one step, comma separated.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="InformationReceiver" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>This identifies the receiver of the information. This should be one of the actors defined in the repository.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="InformationProducer" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>This identifies the producer or source of the information. This should be one of the actors defined in the repository.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BusinessObject" type="Ref_InformationModel" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>This describes briefly the information to be exchanged between the two actors – information producer and information receiver. It is possible to several information in one step, comma separated.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="interaction" type="Ref_Message" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -887,14 +887,14 @@ These common service definitions are related to automation / information or comm
 			<xs:documentation>Describes which event triggers a scenario.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Name of the triggering event.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="content" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of the triggering event.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Name of the triggering event.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -906,14 +906,44 @@ These common service definitions are related to automation / information or comm
 		<xs:complexContent>
 			<xs:extension base="Function">
 				<xs:sequence>
-					<xs:element name="nature" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element name="Assumption" type="Assumption" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>Classifies the main focus of the use case.</xs:documentation>
+							<xs:documentation>set of assumptions related to the use case</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="BusinessCase" type="Ref_BusinessCase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>list of business cases associated to the use case</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="classification" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>On international level the use case description might be generic enough to describe a use case in a more general way independently from the national or regional market design. But use cases might be used to describe regional or national specific circumstances like laws or even project specific details. If the use case reflects to those circumstances, it should be characterized accordingly.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CommonTerm" type="Ref_CommonTerm" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>the associated common terms.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CPSGrouping" type="CPSGrouping" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>a Use Case references several set of Actors</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CustomInformation" type="CustomInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Related additional information</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>the list of associated drawing.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="KeyPerformanceIndicator" type="KeyPerformanceIndicator" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>information about the KPI related to the use case</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="keywords" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -926,40 +956,14 @@ These common service definitions are related to automation / information or comm
 							<xs:documentation>Use cases can be described on different levels, for example high-level use case, detailed use case, specialised use case, ...</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="prioritisation" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element name="Narrative" type="Narrative" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Considering a larger number of use cases it might be interesting to cluster them according to priority.
-This prioritisation might be different from country to country.</xs:documentation>
+							<xs:documentation>the information about the narrative part of the use case.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="scope" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element name="nature" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>The scope defines the limits of the use case.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="RelatedUseCase" type="Ref_UseCase" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Known relations to other use cases can be provided here if e.g. the use case is a more detailed one related to a high level use case, or it is an alternative to an existing use case. </xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="CPSGrouping" type="CPSGrouping" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>a Use Case references several set of Actors</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Identification of the PrimaryActor linked by the use case.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="RelatedObjective" type="Objective" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>List of objectives of the use case.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Assumption" type="Assumption" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>set of assumptions related to the use case</xs:documentation>
+							<xs:documentation>Classifies the main focus of the use case.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Prerequisite" type="Condition" minOccurs="0" maxOccurs="unbounded">
@@ -967,19 +971,15 @@ This prioritisation might be different from country to country.</xs:documentatio
 							<xs:documentation>Describes what condition(s) should have been met before initiation of the use case, such as prior state of the actors and activities.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="KeyPerformanceIndicator" type="KeyPerformanceIndicator" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="PrimaryCPS" type="Ref_CPS" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>information about the KPI related to the use case</xs:documentation>
+							<xs:documentation>Identification of the PrimaryActor linked by the use case.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="BusinessCase" type="Ref_BusinessCase" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="prioritisation" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>list of business cases associated to the use case</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Narrative" type="Narrative" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>the information about the narrative part of the use case.</xs:documentation>
+							<xs:documentation>Considering a larger number of use cases it might be interesting to cluster them according to priority.
+This prioritisation might be different from country to country.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Reference" type="Reference" minOccurs="0" maxOccurs="unbounded">
@@ -987,34 +987,34 @@ This prioritisation might be different from country to country.</xs:documentatio
 							<xs:documentation>information about referenced documents.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="RelatedObjective" type="Objective" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>List of objectives of the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RelatedUseCase" type="Ref_UseCase" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Known relations to other use cases can be provided here if e.g. the use case is a more detailed one related to a high level use case, or it is an alternative to an existing use case. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="Remark" type="Remark" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>remark associated to the use case.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Drawing" type="Drawing" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="Scenario" type="Scenario" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
-							<xs:documentation>the list of associated drawing.</xs:documentation>
+							<xs:documentation>reference to the scenarios belonging to the use case.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="scope" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The scope defines the limits of the use case.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="Version" type="Version" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>list of versions describing changes about the use case</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="CustomInformation" type="CustomInformation" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>Related additional information</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="CommonTerm" type="Ref_CommonTerm" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>the associated common terms.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="Scenario" type="Scenario" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>reference to the scenarios belonging to the use case.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -1027,6 +1027,11 @@ This prioritisation might be different from country to country.</xs:documentatio
 These actors can include people, software applications, systems, databases, and even the power system itself.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="furtherInformation" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Individual or additional information that relates to the use case can be provided.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A short name.</xs:documentation>
@@ -1035,11 +1040,6 @@ These actors can include people, software applications, systems, databases, and 
 			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="furtherInformation" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Individual or additional information that relates to the use case can be provided.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1061,14 +1061,24 @@ These actors can include people, software applications, systems, databases, and 
 			<xs:documentation>Database, based on a given use cases template, for editing, maintenance and administration of use cases, actors and requirements including their interrelations.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="ActorLibrary" type="CPSLibrary" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A short name.</xs:documentation>
+					<xs:documentation>Library of actors</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="BusinessCaseLibrary" type="BusinessCaseLibrary" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
+					<xs:documentation>the library associated to the repository</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BusinessObjectLibrary" type="InformationModelLibrary" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>the library of business objects</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CommonTermLibrary" type="CommonTermLibrary" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>the associated library of common terms</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -1081,9 +1091,9 @@ These actors can include people, software applications, systems, databases, and 
 					<xs:documentation>the associated library of domains</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="BusinessObjectLibrary" type="InformationModelLibrary" minOccurs="0" maxOccurs="1">
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>the library of business objects</xs:documentation>
+					<xs:documentation>A short name.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="RequirementLibrary" type="RequirementLibrary" minOccurs="0" maxOccurs="1">
@@ -1091,19 +1101,9 @@ These actors can include people, software applications, systems, databases, and 
 					<xs:documentation>The associated library</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ActorLibrary" type="CPSLibrary" minOccurs="0" maxOccurs="1">
+			<xs:element name="technicalId" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Library of actors</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="CommonTermLibrary" type="CommonTermLibrary" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>the associated library of common terms</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BusinessCaseLibrary" type="BusinessCaseLibrary" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>the library associated to the repository</xs:documentation>
+					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="UseCaseLibrary" type="UseCaseLibrary" minOccurs="0" maxOccurs="1">
@@ -1118,22 +1118,6 @@ These actors can include people, software applications, systems, databases, and 
 			<xs:documentation>Version of the use case(s) description.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="versionNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Sequential number to identify the version of the document.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="date" type="xs:dateTime" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Date of creation of the version, in format YYYY-MM-DD.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="changes" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Differences with the previous version.
-Multiple changes are separated with paragraphs.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="approvalStatus" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Information used within the standardization process.</xs:documentation>
@@ -1142,6 +1126,22 @@ Multiple changes are separated with paragraphs.</xs:documentation>
 			<xs:element name="Author" type="Author" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>list of authors participating in the changes of this version</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="changes" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Differences with the previous version.
+Multiple changes are separated with paragraphs.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="date" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Date of creation of the version, in format YYYY-MM-DD.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="versionNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Sequential number to identify the version of the document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

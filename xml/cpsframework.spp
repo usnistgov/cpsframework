@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
 	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml">
-		<File FilePath="IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
+		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
+		<File FilePath="ODDAspects.xml" HomeFolder="Yes"/>
 		<File FilePath="testusecase.xml" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XSL Files" ExtStr="xsl;xslt">
@@ -20,7 +21,7 @@
 	<Folder FolderName="Entities" ExtStr="ent"/>
 	<Folder FolderName="cpsframework">
 		<File FilePath="cpsframework\cpsframework.xsd" HomeFolder="Yes"/>
-		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
+		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml"/>
 		<File FilePath="cpsframework\IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
 	</Folder>
 </Project>

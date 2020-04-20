@@ -11,8 +11,8 @@
 			<xs:documentation>This class contains the design of the system, including the design requirements and design elements such as drawings of the physical elements of the system and source and implementation code of the logical elements of the system.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Realization">
@@ -35,8 +35,8 @@
 		<xs:sequence>
 			<xs:element name="kind" type="VerificationKind" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Design" type="Design" minOccurs="1" maxOccurs="unbounded"/>
-			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Ref_Property" type="Ref_Property" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

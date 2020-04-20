@@ -131,15 +131,15 @@
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
-					<xs:element name="Enterprise" type="Enterprise" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Cost" type="Cost" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Enterprise" type="Enterprise" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Environment" type="Environment" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Planning" type="Planning" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Policy" type="Policy" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Quality" type="Quality" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Regulatory" type="Regulatory" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="TimeToMarket" type="TimeToMarket" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Utility" type="Utility" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Planning" type="Planning" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -161,9 +161,9 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
-					<xs:element name="SyntacticInteroperability" type="SyntacticInteroperability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="NetworkInteroperability" type="NetworkInteroperability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="BasicConnectivity" type="BasicConnectivity" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="NetworkInteroperability" type="NetworkInteroperability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="SyntacticInteroperability" type="SyntacticInteroperability" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -221,6 +221,7 @@
 			<xs:documentation>Dimensions of conceiving, realizing and assuring a CPS through the lifecycle.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="Concern" type="Concern" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Property" type="Property" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -301,9 +302,9 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
+					<xs:element name="Availability" type="Availability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Confidentiality" type="Confidentiality" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Integrity" type="Integrity" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Availability" type="Availability" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -319,7 +320,7 @@
 					<xs:element name="Identity" type="Identity" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="OperationsOnData" type="OperationsOnData" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="RelationshipsBetweenData" type="RelationshipsBetweenData" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Velociy" type="Velociy" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Velocity" type="Velocity" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -472,15 +473,15 @@
 					<xs:element name="Communication" type="Communication" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Controllability" type="Controllability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Functionality" type="Functionality" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Manageability" type="Manageability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Measurability" type="Measurability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Monitorability" type="Monitorability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Performance" type="Performance" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="PhysicalProperties" type="PhysicalProperties" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="PhysicalContext" type="PhysicalContext" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="PhysicalProperties" type="PhysicalProperties" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Sensing" type="Sensing" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Uncertainty" type="Uncertainty" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="StatesAndModes" type="StatesAndModes" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Manageability" type="Manageability" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Uncertainty" type="Uncertainty" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -545,13 +546,13 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
-					<xs:element name="ResourceIdentification" type="ResourceIdentification" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Authentication" type="Authentication" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Authorization" type="Authorization" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Verification" type="Verification" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="DataIntegrity" type="DataIntegrity" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Configuration" type="Configuration" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="DataIntegrity" type="DataIntegrity" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Provenance" type="Provenance" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="ResourceIdentification" type="ResourceIdentification" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Verification" type="Verification" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -594,8 +595,8 @@
 			<xs:extension base="Aspect">
 				<xs:sequence>
 					<xs:element name="BOL" type="BOL" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="MOL" type="MOL" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="EOL" type="EOL" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="MOL" type="MOL" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -637,9 +638,9 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
-					<xs:element name="ConfigurationManagement" type="ConfigurationManagement" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="ConfigurationForLeastFunctionality" type="ConfigurationForLeastFunctionality" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="ComponentInventory" type="ComponentInventory" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="ConfigurationForLeastFunctionality" type="ConfigurationForLeastFunctionality" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="ConfigurationManagement" type="ConfigurationManagement" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -701,9 +702,9 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
+					<xs:element name="OSINetwork" type="OSINetwork" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="OSISession" type="OSISession" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="OSITransport" type="OSITransport" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="OSINetwork" type="OSINetwork" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -735,10 +736,10 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
+					<xs:element name="Aggregation" type="Aggregation" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Analytics" type="Analytics" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Fusion" type="Fusion" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Storage" type="Storage" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Aggregation" type="Aggregation" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Transformation" type="Transformation" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
@@ -929,14 +930,9 @@
 			<xs:documentation>Property of a CPS, included in the Model of a CPS, that is the result of applying one or more of the concerns of the CPS Framework.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="statement" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Property value statement.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="trace" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Trace is here to enable tracing of one property or requirement to another (typically capturing the relationships 'satisfies', 'tests', 'complies with'</xs:documentation>
+					<xs:documentation>Description of the property</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="priority" type="xs:float" minOccurs="0" maxOccurs="1">
@@ -949,9 +945,14 @@
 					<xs:documentation>Reference such as standard, regulatory best practice, .... See ArgumentationKind.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="statement" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Description of the property</xs:documentation>
+					<xs:documentation>Property value statement.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="trace" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Trace is here to enable tracing of one property or requirement to another (typically capturing the relationships 'satisfies', 'tests', 'complies with'</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -1003,13 +1004,13 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
-					<xs:element name="TimeOfData" type="TimeOfData" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="RelatedData" type="RelatedData" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="LocationOfData" type="LocationOfData" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Inheritance" type="Inheritance" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Polymorphism" type="Polymorphism" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Directionality" type="Directionality" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DataQuality" type="DataQuality" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Directionality" type="Directionality" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Inheritance" type="Inheritance" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="LocationOfData" type="LocationOfData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Polymorphism" type="Polymorphism" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="RelatedData" type="RelatedData" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="TimeOfData" type="TimeOfData" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1041,10 +1042,10 @@
 		<xs:complexContent>
 			<xs:extension base="Concern">
 				<xs:sequence>
-					<xs:element name="UserIdentification" type="UserIdentification" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="ClassIdentification" type="ClassIdentification" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="DeviceIdentification" type="DeviceIdentification" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="ObjectIdentification" type="ObjectIdentification" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="ClassIdentification" type="ClassIdentification" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="UserIdentification" type="UserIdentification" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1182,11 +1183,11 @@
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
+					<xs:element name="IntervalAndLatencyControl" type="IntervalAndLatencyControl" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="LogicalTime" type="LogicalTime" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="TimingAndLatency" type="TimingAndLatency" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Synchronization" type="Synchronization" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="TimeAwareness" type="TimeAwareness" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="IntervalAndLatencyControl" type="IntervalAndLatencyControl" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="TimingAndLatency" type="TimingAndLatency" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1208,11 +1209,11 @@
 		<xs:complexContent>
 			<xs:extension base="Aspect">
 				<xs:sequence>
-					<xs:element name="Security" type="Security" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Privacy" type="Privacy" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Reliability" type="Reliability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Resiliance" type="Resiliance" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Safety" type="Safety" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Security" type="Security" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1257,7 +1258,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="Velociy">
+	<xs:complexType name="Velocity">
 		<xs:annotation>
 			<xs:documentation>Concerns about the velocity of data.</xs:documentation>
 		</xs:annotation>

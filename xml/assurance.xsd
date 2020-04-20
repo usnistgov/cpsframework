@@ -60,10 +60,10 @@
 			<xs:documentation>A Judgement is an assertion that the argumentation establishes that the evidence is sufficient to show that the claim/property holds of the system with a sufficient level of confidence. Argumentation can take different forms, including reference to a standard, best practice, formal method, regulation or expertise.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="claim" type="Claim" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="evidence" type="Evidence" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="argumenation" type="ArgumentationKind" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="claim" type="Claim" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="confidence" type="xs:float" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="evidence" type="Evidence" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2020 sp1 (http://www.altova.com) by Martin Burns (National Institute of Standards and Technology) -->
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Martin Burns (NIST) -->
 <?xml-stylesheet type="text/xsl" href="IntermediateToXHTMLNew.xslt"?>
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework cpsframework.xsd">
 	<BusinessCase>
-		<description>Build a smart thermostat that has heating, cooling and automatic control modes to maintain room temperature near a user’s set point and uses a WiFi local area network (LAN) to interact with a temperature sensor and an HVAC system in a home. The thermostat should be able to retail for less or equal to $79.  It must be intrinsically safe, reliable, secure, protect privacy, easy to use and upgradable.</description>
-		<identifier>222</identifier>
 		<name>Design a Communicating Smart Thermostat</name>
+		<identifier>222</identifier>
 		<technicalId>String</technicalId>
+		<description>Build a smart thermostat that has heating, cooling and automatic control modes to maintain room temperature near a user’s set point and uses a WiFi local area network (LAN) to interact with a temperature sensor and an HVAC system in a home. The thermostat should be able to retail for less or equal to $79.  It must be intrinsically safe, reliable, secure, protect privacy, easy to use and upgradable.</description>
 		<Aspects>
 			<functional>
 				<Actuation>
@@ -21,6 +21,13 @@
 				</Communication>
 			</functional>
 			<trustworthiness>
+				<Security>
+					<Cybersecurity>
+						<Property>
+							<statement>Smart Thermostat shall be secure</statement>
+						</Property>
+					</Cybersecurity>
+				</Security>
 				<Privacy>
 					<Property>
 						<statement>Smart Thermostat shall protect privacy</statement>
@@ -36,13 +43,6 @@
 						<statement>Smart Thermostat shall be safe. (no unacceptable risk)</statement>
 					</Property>
 				</Safety>
-				<Security>
-					<Cybersecurity>
-						<Property>
-							<statement>Smart Thermostat shall be secure</statement>
-						</Property>
-					</Cybersecurity>
-				</Security>
 			</trustworthiness>
 		</Aspects>
 		<Domain>
@@ -54,326 +54,67 @@
 			<technicalId>String</technicalId>
 		</Domain>
 	</BusinessCase>
-	<CPSLibrary>
-		<cps>
-			<description>A wireless communicating thermostat</description>
-			<identifier>TSTAT_01</identifier>
-			<name>Thermostat</name>
-			<technicalId>12345677</technicalId>
-			<type>device</type>
-			<Aspects>
-				<functional>
-					<Communication>
-						<Property>
-							<statement>Thermostat shall be able to communitate with HVAC System</statement>
-						</Property>
-						<Property>
-							<statement>Thermostat shall be able to communicate with the Sensor</statement>
-						</Property>
-					</Communication>
-				</functional>
-				<trustworthiness>
-					<Privacy>
-						<Property>
-							<statement>The smart thermostat shall protect privacy</statement>
-						</Property>
-					</Privacy>
-					<Security>
-						<Cybersecurity>
-							<Property>
-								<statement>The smart thermostat shall use secure messaging</statement>
-							</Property>
-						</Cybersecurity>
-						<PhysicalSecurity>
-							<Property>
-								<statement>The smart thermostat shall have tamper-resistant housing</statement>
-							</Property>
-						</PhysicalSecurity>
-					</Security>
-				</trustworthiness>
-			</Aspects>
-			<Logical>
-				<description>This logical component implements the thermostat algorithms</description>
-				<identifier>1234</identifier>
-				<name>ThermostatAlgorithm</name>
-				<technicalId>12345</technicalId>
-				<type>java code</type>
-				<Aspects>
-					<functional>
-						<Communication>
-							<Property>
-								<statement>Thermostat shall provide desired relay state to HVAC System</statement>
-							</Property>
-							<Property>
-								<statement>Thermostat shall obtain the temperature from the sensor</statement>
-							</Property>
-						</Communication>
-					</functional>
-					<trustworthiness>
-						<Privacy>
-							<Property>
-								<statement>The smart thermostat algorithm shall protect privacy</statement>
-							</Property>
-						</Privacy>
-						<Security>
-							<Property>
-								<statement>The smart thermostat algorithm shall be secure</statement>
-							</Property>
-						</Security>
-					</trustworthiness>
-				</Aspects>
-				<state>online</state>
-			</Logical>
-			<Physical>
-				<description>This physical component is a WiFi interface adapter</description>
-				<identifier/>
-				<name>WiFiAdapter</name>
-				<technicalId/>
-				<Aspects>
-					<functional>
-						<Communication>
-							<Property>
-								<statement>Thermostat messaging shall use WiFi adaptor to HVAC system and from the temperature sensor</statement>
-							</Property>
-						</Communication>
-					</functional>
-					<trustworthiness>
-						<Security>
-							<PhysicalSecurity>
-								<Property>
-									<statement>Thermostat enclosure shall employ tamper-resistant assembly method</statement>
-								</Property>
-								<Property>
-									<statement>Thermostat enclosure shall assemble with blind fastener that can't be removed</statement>
-								</Property>
-							</PhysicalSecurity>
-						</Security>
-					</trustworthiness>
-				</Aspects>
-				<state>active</state>
-			</Physical>
-		</cps>
-	</CPSLibrary>
-	<InformationModelLibrary>
-		<InformationModel>
-			<description>The currently sensed temperature</description>
-			<name>Temperature</name>
-			<technicalId>1232231</technicalId>
-			<Aspects>
-				<functional>
-					<Sensing>
-						<Property>
-							<statement>the temperature model shall have a temperature</statement>
-						</Property>
-					</Sensing>
-				</functional>
-			</Aspects>
-		</InformationModel>
-		<InformationModel>
-			<description>Floating point setting for comfort temperature</description>
-			<name>TemperatureSetPoint</name>
-			<technicalId>1234</technicalId>
-			<Aspects>
-				<functional>
-					<Sensing>
-						<Property>
-							<statement>the temperature setting model shall have a temperature</statement>
-						</Property>
-					</Sensing>
-				</functional>
-			</Aspects>
-		</InformationModel>
-		<InformationModel>
-			<description>Control of HVAC System. 1=on, 0=off {cool,fan,heat}</description>
-			<name>Control</name>
-			<technicalId>1234</technicalId>
-			<Aspects>
-				<functional>
-					<Actuation>
-						<Property>
-							<statement>Relay control message shall have states of relays - on control, off control of heat,fan, and cooling</statement>
-						</Property>
-					</Actuation>
-				</functional>
-				<trustworthiness>
-					<Privacy>
-						<Property>
-							<statement>The information for control shall protect privacy</statement>
-						</Property>
-						<Property>
-							<statement>No PII shall be contained in information model</statement>
-						</Property>
-					</Privacy>
-				</trustworthiness>
-			</Aspects>
-		</InformationModel>
-		<InformationModel>
-			<description>Status of HVAC System: 1=on, 0=off {cool,fan,heat}</description>
-			<name>Status</name>
-			<technicalId>1234</technicalId>
-		</InformationModel>
-	</InformationModelLibrary>
-	<InteractionLibrary>
-		<Maturity>
-			<effective>20170920T00:00:00Z</effective>
-			<maturity>submitted</maturity>
-			<responsibleParty>Dr. Edward Griffor</responsibleParty>
-			<revision>1.0.0</revision>
-			<status>asDeveloped</status>
-		</Maturity>
-		<Messages>
-			<message>
-				<description>This is a message template for general rest messaging on the WiFi network</description>
-				<name>restmessage</name>
-				<technicalId>msg1234</technicalId>
-				<Aspects>
-					<functional>
-						<Communication>
-							<BasicConnectivity>
-								<OSIDataLink>
-									<Property>
-										<statement>Thermostat messaging shall use Ethernet</statement>
-									</Property>
-								</OSIDataLink>
-								<OSIPhysical>
-									<Property>
-										<statement>Thermostat messaging shall use WiFi</statement>
-									</Property>
-								</OSIPhysical>
-							</BasicConnectivity>
-							<NetworkInteroperability>
-								<OSINetwork>
-									<Property>
-										<statement>Thermostat messaging shall use IP</statement>
-									</Property>
-								</OSINetwork>
-								<OSISession>
-									<Property>
-										<statement>Thermostat messaging shall have no session</statement>
-									</Property>
-								</OSISession>
-								<OSITransport>
-									<Property>
-										<statement>Thermostat messaging shall use TCP</statement>
-									</Property>
-								</OSITransport>
-							</NetworkInteroperability>
-							<SyntacticInteroperability>
-								<OSIApplication>
-									<Property>
-										<statement>Thermostat messaging shall use REST</statement>
-									</Property>
-								</OSIApplication>
-								<OSIPresentation>
-									<Property>
-										<statement>Thermostat messaging shall use JSON for payloads</statement>
-									</Property>
-								</OSIPresentation>
-							</SyntacticInteroperability>
-						</Communication>
-					</functional>
-					<trustworthiness>
-						<Privacy>
-							<Property>
-								<statement>The control message shall protect privacy</statement>
-							</Property>
-							<Property>
-								<statement>no PII is contained in message syntax</statement>
-							</Property>
-						</Privacy>
-						<Security>
-							<Property>
-								<statement>The Relay control message shall be secure</statement>
-							</Property>
-							<Cybersecurity>
-								<Confidentiality>
-									<Property>
-										<statement>Transport layer messages from the thermostat shall be confidential</statement>
-									</Property>
-									<Property>
-										<statement>Use TLS 1.2</statement>
-									</Property>
-									<Property>
-										<statement>Encryption shall use AES-256</statement>
-									</Property>
-									<Property>
-										<statement>Require mutual certificate authentication</statement>
-									</Property>
-								</Confidentiality>
-							</Cybersecurity>
-						</Security>
-					</trustworthiness>
-				</Aspects>
-			</message>
-		</Messages>
-	</InteractionLibrary>
-	<Maturity>
-		<effective/>
-		<maturity>submitted</maturity>
-		<responsibleParty/>
-		<revision>0.1</revision>
-		<status>asDeveloped</status>
-	</Maturity>
 	<UseCase>
-		<identifier>CPS-T-1</identifier>
-		<levelOfDepth>Detailed</levelOfDepth>
-		<keywords>User, thermostat, thermostat controller, temperature sensor, HVAC controller, WLAN</keywords>
 		<name>Maintain room temperature near a user’s set point </name>
-		<nature>Technical</nature>
-		<prioritisation>High</prioritisation>
-		<classification>Generic</classification>
-		<scope>A  thermostat to remotely control the HVAC system through a local area network (LAN) in the home</scope>
+		<identifier>CPS-T-1</identifier>
 		<technicalId>CPS-T-1 UUID</technicalId>
-		<Assumption>
-			<content>String</content>
-			<name>String</name>
-		</Assumption>
-		<BusinessCase>
-			<technicalId>String</technicalId>
-		</BusinessCase>
-		<CommonTerm>
-			<technicalId>String</technicalId>
-		</CommonTerm>
+		<nature>Technical</nature>
+		<classification>Generic</classification>
+		<keywords>User, thermostat, thermostat controller, temperature sensor, HVAC controller, WLAN</keywords>
+		<levelOfDepth>Detailed</levelOfDepth>
+		<prioritisation>High</prioritisation>
+		<scope>A  thermostat to remotely control the HVAC system through a local area network (LAN) in the home</scope>
+		<RelatedUseCase>
+			<name>None</name>
+			<technicalId>None</technicalId>
+		</RelatedUseCase>
 		<CPSGrouping>
-			<description>A  thermostat to remotely control the HVAC system through a local area network (LAN) in the home</description>
-			<identifier>None</identifier>
 			<name>Home Energy System</name>
+			<identifier>None</identifier>
+			<description>A  thermostat to remotely control the HVAC system through a local area network (LAN) in the home</description>
 			<CPS>
-				<furtherInformation>A controller in the thermostat to send and receive messages as well as control to the HVAC system</furtherInformation>
 				<name>Thermostat Controller</name>
 				<technicalId>Thermostat Controller UUID</technicalId>
+				<furtherInformation>A controller in the thermostat to send and receive messages as well as control to the HVAC system</furtherInformation>
 			</CPS>
 			<CPS>
-				<furtherInformation>A controller in the HVAC to send and receive messages from the thermostat, as well as triggering the HVAC operations</furtherInformation>
 				<name>HVAC Controller</name>
 				<technicalId>HVAC Controller UUID</technicalId>
+				<furtherInformation>A controller in the HVAC to send and receive messages from the thermostat, as well as triggering the HVAC operations</furtherInformation>
 			</CPS>
 			<CPS>
-				<furtherInformation>Thermostat reads data from temperature sensor</furtherInformation>
 				<name>Sensor</name>
 				<technicalId>Sensor UUID</technicalId>
+				<furtherInformation>Thermostat reads data from temperature sensor</furtherInformation>
 			</CPS>
 		</CPSGrouping>
 		<CPSGrouping>
-			<description>These are the users of the system</description>
-			<identifier/>
 			<name>Home Automation Users</name>
+			<identifier/>
+			<description>These are the users of the system</description>
 			<CPS>
-				<furtherInformation>The owner of the thermostat. A User would provide the inputs or set points for the operation of the thermostat</furtherInformation>
 				<name>User</name>
 				<technicalId>User UUID</technicalId>
+				<furtherInformation>The owner of the thermostat. A User would provide the inputs or set points for the operation of the thermostat</furtherInformation>
 			</CPS>
 		</CPSGrouping>
-		<CustomInformation>
-			<key>String</key>
-			<value>String</value>
-			<reference>String</reference>
-		</CustomInformation>
-		<Drawing>
+		<PrimaryCPS>
+			<name>Thermostat Controller</name>
+			<technicalId>Thermostat Controller UUID</technicalId>
+		</PrimaryCPS>
+		<RelatedObjective>
 			<name>String</name>
-			<drawingType>MacroActivities Flowchart</drawingType>
-			<URI type="UMLDiagram">String</URI>
-		</Drawing>
+			<technicalId>String</technicalId>
+			<description>String</description>
+		</RelatedObjective>
+		<Assumption>
+			<name>String</name>
+			<content>String</content>
+		</Assumption>
+		<Prerequisite>
+			<name>String</name>
+			<content>String</content>
+		</Prerequisite>
 		<KeyPerformanceIndicator>
 			<name>String</name>
 			<technicalId>String</technicalId>
@@ -382,6 +123,9 @@
 				<technicalId>String</technicalId>
 			</Objective>
 		</KeyPerformanceIndicator>
+		<BusinessCase>
+			<technicalId>String</technicalId>
+		</BusinessCase>
 		<Narrative>
 			<shortDescription>This use case describes the operations of a thermostat to control an HVAC system.  The thermostat has three operational modes – heating, cooling, and automatic control.</shortDescription>
 			<completeDescription>This use case describes the operations of a thermostat to control an HVAC system.  The thermostat has three operational modes – heating, cooling, and automatic control.  
@@ -390,19 +134,6 @@ User can set the temperature set point for thermostat locally. Thermostat contr
 
 The thermostat communicates over the network and is globally reachable from the WLAN. This allows remote client applications to read the status of the thermostat and manipulate its set points. </completeDescription>
 		</Narrative>
-		<Prerequisite>
-			<content>String</content>
-			<name>String</name>
-		</Prerequisite>
-		<PrimaryCPS>
-			<name>Thermostat Controller</name>
-			<technicalId>Thermostat Controller UUID</technicalId>
-		</PrimaryCPS>
-		<RelatedObjective>
-			<description>String</description>
-			<name>String</name>
-			<technicalId>String</technicalId>
-		</RelatedObjective>
 		<Reference>
 			<identifier>1</identifier>
 			<name>Framework for Cyber-Physical System</name>
@@ -426,10 +157,28 @@ The thermostat communicates over the network and is globally reachable from the 
 		<Remark>
 			<content>String</content>
 		</Remark>
-		<RelatedUseCase>
-			<name>None</name>
-			<technicalId>None</technicalId>
-		</RelatedUseCase>
+		<Drawing>
+			<name>String</name>
+			<drawingType>MacroActivities Flowchart</drawingType>
+			<URI type="UMLDiagram">String</URI>
+		</Drawing>
+		<Version>
+			<versionNumber>0.7</versionNumber>
+			<date>2016-04-06T09:30:47Z</date>
+			<changes>Initial</changes>
+			<approvalStatus>Initial</approvalStatus>
+			<Author>
+				<name>Eugene/Cuong</name>
+			</Author>
+		</Version>
+		<CustomInformation>
+			<key>String</key>
+			<value>String</value>
+			<reference>String</reference>
+		</CustomInformation>
+		<CommonTerm>
+			<technicalId>String</technicalId>
+		</CommonTerm>
 		<Scenario>
 			<name>Heating Mode (The commands and statuses reference to both heat pump and fan )</name>
 			<identifier>4.1</identifier>
@@ -1058,14 +807,271 @@ The thermostat communicates over the network and is globally reachable from the 
 				<technicalId>String</technicalId>
 			</MacroActivity>
 		</Scenario>
-		<Version>
-			<versionNumber>0.7</versionNumber>
-			<date>2016-04-06T09:30:47Z</date>
-			<changes>Initial</changes>
-			<approvalStatus>Initial</approvalStatus>
-			<Author>
-				<name>Eugene/Cuong</name>
-			</Author>
-		</Version>
 	</UseCase>
+	<CPSLibrary>
+		<cps>
+			<name>Thermostat</name>
+			<identifier>TSTAT_01</identifier>
+			<technicalId>12345677</technicalId>
+			<description>A wireless communicating thermostat</description>
+			<type>device</type>
+			<Aspects>
+				<functional>
+					<Communication>
+						<Property>
+							<statement>Thermostat shall be able to communitate with HVAC System</statement>
+						</Property>
+						<Property>
+							<statement>Thermostat shall be able to communicate with the Sensor</statement>
+						</Property>
+					</Communication>
+				</functional>
+				<trustworthiness>
+					<Security>
+						<Cybersecurity>
+							<Property>
+								<statement>The smart thermostat shall use secure messaging</statement>
+							</Property>
+						</Cybersecurity>
+						<PhysicalSecurity>
+							<Property>
+								<statement>The smart thermostat shall have tamper-resistant housing</statement>
+							</Property>
+						</PhysicalSecurity>
+					</Security>
+					<Privacy>
+						<Property>
+							<statement>The smart thermostat shall protect privacy</statement>
+						</Property>
+					</Privacy>
+				</trustworthiness>
+			</Aspects>
+			<Logical>
+				<name>ThermostatAlgorithm</name>
+				<identifier>1234</identifier>
+				<technicalId>12345</technicalId>
+				<description>This logical component implements the thermostat algorithms</description>
+				<type>java code</type>
+				<Aspects>
+					<functional>
+						<Communication>
+							<Property>
+								<statement>Thermostat shall provide desired relay state to HVAC System</statement>
+							</Property>
+							<Property>
+								<statement>Thermostat shall obtain the temperature from the sensor</statement>
+							</Property>
+						</Communication>
+					</functional>
+					<trustworthiness>
+						<Security>
+							<Property>
+								<statement>The smart thermostat algorithm shall be secure</statement>
+							</Property>
+						</Security>
+						<Privacy>
+							<Property>
+								<statement>The smart thermostat algorithm shall protect privacy</statement>
+							</Property>
+						</Privacy>
+					</trustworthiness>
+				</Aspects>
+				<state>online</state>
+			</Logical>
+			<Physical>
+				<name>WiFiAdapter</name>
+				<identifier/>
+				<technicalId/>
+				<description>This physical component is a WiFi interface adapter</description>
+				<Aspects>
+					<functional>
+						<Communication>
+							<Property>
+								<statement>Thermostat messaging shall use WiFi adaptor to HVAC system and from the temperature sensor</statement>
+							</Property>
+						</Communication>
+					</functional>
+					<trustworthiness>
+						<Security>
+							<PhysicalSecurity>
+								<Property>
+									<statement>Thermostat enclosure shall employ tamper-resistant assembly method</statement>
+								</Property>
+								<Property>
+									<statement>Thermostat enclosure shall assemble with blind fastener that can't be removed</statement>
+								</Property>
+							</PhysicalSecurity>
+						</Security>
+					</trustworthiness>
+				</Aspects>
+				<state>active</state>
+			</Physical>
+		</cps>
+	</CPSLibrary>
+	<InformationModelLibrary>
+		<InformationModel>
+			<name>Temperature</name>
+			<technicalId>1232231</technicalId>
+			<description>The currently sensed temperature</description>
+			<Aspects>
+				<functional>
+					<Sensing>
+						<Property>
+							<statement>the temperature model shall have a temperature</statement>
+						</Property>
+					</Sensing>
+				</functional>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<name>TemperatureSetPoint</name>
+			<technicalId>1234</technicalId>
+			<description>Floating point setting for comfort temperature</description>
+			<Aspects>
+				<functional>
+					<Sensing>
+						<Property>
+							<statement>the temperature setting model shall have a temperature</statement>
+						</Property>
+					</Sensing>
+				</functional>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<name>Control</name>
+			<technicalId>1234</technicalId>
+			<description>Control of HVAC System. 1=on, 0=off {cool,fan,heat}</description>
+			<Aspects>
+				<functional>
+					<Actuation>
+						<Property>
+							<statement>Relay control message shall have states of relays - on control, off control of heat,fan, and cooling</statement>
+						</Property>
+					</Actuation>
+				</functional>
+				<trustworthiness>
+					<Privacy>
+						<Property>
+							<statement>The information for control shall protect privacy</statement>
+						</Property>
+						<Property>
+							<statement>No PII shall be contained in information model</statement>
+						</Property>
+					</Privacy>
+				</trustworthiness>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<name>Status</name>
+			<technicalId>1234</technicalId>
+			<description>Status of HVAC System: 1=on, 0=off {cool,fan,heat}</description>
+		</InformationModel>
+	</InformationModelLibrary>
+	<InteractionLibrary>
+		<Maturity>
+			<maturity>submitted</maturity>
+			<effective>20170920T00:00:00Z</effective>
+			<responsibleParty>Dr. Edward Griffor</responsibleParty>
+			<revision>1.0.0</revision>
+			<status>asDeveloped</status>
+		</Maturity>
+		<Messages>
+			<message>
+				<name>restmessage</name>
+				<technicalId>msg1234</technicalId>
+				<description>This is a message template for general rest messaging on the WiFi network</description>
+				<Aspects>
+					<functional>
+						<Communication>
+							<Property>
+								<statement>Thermostat shall be able to communicate control state message to HVAC system</statement>
+							</Property>
+							<Property>
+								<statement>Thermostat shall be able to receive a termperature message from the sensor</statement>
+							</Property>
+							<SyntacticInteroperability>
+								<OSIApplication>
+									<Property>
+										<statement>Thermostat messaging shall use REST</statement>
+									</Property>
+								</OSIApplication>
+								<OSIPresentation>
+									<Property>
+										<statement>Thermostat messaging shall use JSON for payloads</statement>
+									</Property>
+								</OSIPresentation>
+							</SyntacticInteroperability>
+							<NetworkInteroperability>
+								<OSISession>
+									<Property>
+										<statement>Thermostat messaging shall have no session</statement>
+									</Property>
+								</OSISession>
+								<OSITransport>
+									<Property>
+										<statement>Thermostat messaging shall use TCP</statement>
+									</Property>
+								</OSITransport>
+								<OSINetwork>
+									<Property>
+										<statement>Thermostat messaging shall use IP</statement>
+									</Property>
+								</OSINetwork>
+							</NetworkInteroperability>
+							<BasicConnectivity>
+								<OSIDataLink>
+									<Property>
+										<statement>Thermostat messaging shall use Ethernet</statement>
+									</Property>
+								</OSIDataLink>
+								<OSIPhysical>
+									<Property>
+										<statement>Thermostat messaging shall use WiFi</statement>
+									</Property>
+								</OSIPhysical>
+							</BasicConnectivity>
+						</Communication>
+					</functional>
+					<trustworthiness>
+						<Security>
+							<Property>
+								<statement>The Relay control message shall be secure</statement>
+							</Property>
+							<Cybersecurity>
+								<Confidentiality>
+									<Property>
+										<statement>Transport layer messages from the thermostat shall be confidential</statement>
+									</Property>
+									<Property>
+										<statement>Use TLS 1.2</statement>
+									</Property>
+									<Property>
+										<statement>Encryption shall use AES-256</statement>
+									</Property>
+									<Property>
+										<statement>Require mutual certificate authentication</statement>
+									</Property>
+								</Confidentiality>
+							</Cybersecurity>
+						</Security>
+						<Privacy>
+							<Property>
+								<statement>The control message shall protect privacy</statement>
+							</Property>
+							<Property>
+								<statement>no PII is contained in message syntax</statement>
+							</Property>
+						</Privacy>
+					</trustworthiness>
+				</Aspects>
+			</message>
+		</Messages>
+	</InteractionLibrary>
+	<Maturity>
+		<maturity>submitted</maturity>
+		<effective/>
+		<responsibleParty/>
+		<revision>0.1</revision>
+		<status>asDeveloped</status>
+	</Maturity>
 </n1:CPSFramework>

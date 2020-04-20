@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework" targetNamespace="cpsframework">
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework">
 	<xs:annotation>
 		<xs:documentation>NIST CPS Framework.</xs:documentation>
 	</xs:annotation>
@@ -22,15 +22,15 @@ The decomposition of a CPS in the CPS Framework proceeds from the Business Case,
 These aspects, nine of them in the CPS Framework, are the high-level concerns or 'categories of concerns' of the CPS Framework. Applying a concern to a level of the decomposition of a CPS results in a set of 'properties' (or requirements), designed to assure that the concern is addressed by the CPS.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="functional" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="business" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="human" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="trustworthiness" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="timing" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="data" type="DataAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="boundaries" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="business" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="composition" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="data" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="functional" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="human" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="lifecylce" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="timing" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="trustworthiness" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -42,15 +42,15 @@ These aspects, nine of them in the CPS Framework, are the high-level concerns or
 It's presence here guarantees that all of the elements of the CPS Framework inherit values of the attributes associated with the Maturity Class Object.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BusinessCase" type="BusinessCase" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="UseCase" type="UseCase" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Conceptualization" type="Conceptualization" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="CPSLibrary" type="CPSLibrary" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Assurance" type="Assurance" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="InformationModelLibrary" type="InformationModelLibrary" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="InteractionLibrary" type="InteractionLibrary" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Realization" type="Realization" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="UseCase" type="UseCase" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Energy">
@@ -66,8 +66,8 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 		<xs:complexContent>
 			<xs:extension base="Domain">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -117,6 +117,7 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 			<xs:documentation>An interaction is re-usable description of a message or an influence. An interaction is governed by a set of properties.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>A short name.</xs:documentation>
@@ -127,7 +128,6 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 					<xs:documentation>Technical unique identifier for the object for the scope of a specific exchange of information (i.e This is unique only for the exchanged file). This identifier is used to create technical references of information within the exchange of information. Even if the global identifier has a global scope, the technicalId is always used instead when the purpose is to create reference information within the current exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -136,9 +136,9 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 			<xs:documentation>A library of interactions that define the messaging patterns between the logical elements of the CPS and the influences between physical elements of the CPS as well as the cyber-physical interactions between the logical and physical elements of the CPS.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="Influences" type="Influences" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Messages" type="Messages" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Influences" type="Influences" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IrreducibleCPS">
@@ -162,12 +162,12 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 		<xs:complexContent>
 			<xs:extension base="Function">
 				<xs:sequence>
-					<xs:element name="state" type="xs:string" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_msgs" type="Ref_Message" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>reference to messages (peer to influences)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="state" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -177,12 +177,12 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 			<xs:documentation>Describes the maturity level of a component of the CPSFramework model.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="maturity" type="maturityLevels" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="effective" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Effective date. ISO 8601 string.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="maturity" type="maturityLevels" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="responsibleParty" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>responsible party</xs:documentation>
@@ -252,12 +252,12 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 		<xs:complexContent>
 			<xs:extension base="Function">
 				<xs:sequence>
-					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_Influences" type="Ref_Influence" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -309,14 +309,14 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 			<xs:documentation>An external reference to a schematic, document, model, plan, etc....</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="reference" type="xs:string" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>external reference to document, etc...</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Description of what is being referred to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reference" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>external reference to document, etc...</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -328,8 +328,8 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 		<xs:complexContent>
 			<xs:extension base="CPS">
 				<xs:sequence>
-					<xs:element name="IrreducibleCPS" type="IrreducibleCPS" minOccurs="2" maxOccurs="unbounded"/>
 					<xs:element name="Human" type="Human" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="IrreducibleCPS" type="IrreducibleCPS" minOccurs="2" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -353,8 +353,8 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 		<xs:complexContent>
 			<xs:extension base="Domain">
 				<xs:sequence>
-					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
