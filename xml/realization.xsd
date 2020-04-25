@@ -6,6 +6,7 @@
 	<xs:include schemaLocation="assurance.xsd"/>
 	<xs:include schemaLocation="activities.xsd"/>
 	<xs:include schemaLocation="cpsframework.xsd"/>
+	<xs:element name="Design" type="Design"/>
 	<xs:complexType name="Design">
 		<xs:annotation>
 			<xs:documentation>This class contains the design of the system, including the design requirements and design elements such as drawings of the physical elements of the system and source and implementation code of the logical elements of the system.</xs:documentation>
@@ -15,6 +16,7 @@
 			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Realization" type="Realization"/>
 	<xs:complexType name="Realization">
 		<xs:annotation>
 			<xs:documentation>The realization facet is the set of activities, including design requirements generation, prototyping, verification and validation, that produce as an output the system itself.</xs:documentation>
@@ -28,6 +30,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="TestCase" type="TestCase"/>
 	<xs:complexType name="TestCase">
 		<xs:annotation>
 			<xs:documentation>The Test Case class consists of the test cases, including test, inspection, analysis or demonstration, that relate to one or more of design requirement.</xs:documentation>

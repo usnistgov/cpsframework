@@ -3,6 +3,7 @@
 	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml">
 		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
 		<File FilePath="ODDAspects.xml" HomeFolder="Yes"/>
+		<File FilePath="Test20200420.xml" HomeFolder="Yes"/>
 		<File FilePath="testusecase.xml" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XSL Files" ExtStr="xsl;xslt">
@@ -16,6 +17,7 @@
 		<File FilePath="conceptualization.xsd" HomeFolder="Yes"/>
 		<File FilePath="cpsframework.xsd" HomeFolder="Yes"/>
 		<File FilePath="IEC62559-3.xsd" HomeFolder="Yes"/>
+		<File FilePath="ODDAspects.xsd" HomeFolder="Yes"/>
 		<File FilePath="realization.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>

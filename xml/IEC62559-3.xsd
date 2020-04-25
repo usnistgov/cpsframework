@@ -33,6 +33,7 @@
 			<xs:enumeration value="UMLDiagram"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:element name="Assumption" type="Assumption"/>
 	<xs:complexType name="Assumption">
 		<xs:annotation>
 			<xs:documentation>May be used to define further, general assumption for a use case, such as: which systems already exist, which contractual relations exist, and which configurations of systems are probably in place. Initial states of information exchanged shall also be identified.</xs:documentation>
@@ -50,6 +51,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Author" type="Author"/>
 	<xs:complexType name="Author">
 		<xs:annotation>
 			<xs:documentation>This field is used to document who has provided the current version. It can be a person, organisation or e.g. standardization committee like TC or WG.</xs:documentation>
@@ -62,6 +64,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="BusinessCase" type="BusinessCase"/>
 	<xs:complexType name="BusinessCase">
 		<xs:annotation>
 			<xs:documentation>Provides a description or reference with some rationale for the suggested use case. Usually the business case is related to several use cases.</xs:documentation>
@@ -78,6 +81,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="BusinessCaseLibrary" type="BusinessCaseLibrary"/>
 	<xs:complexType name="BusinessCaseLibrary">
 		<xs:annotation>
 			<xs:documentation>The Business Case Library contains the business cases of the repository. These are high-level descriptions of the value proposition of the CPS, i.e., a high-level statement of what the CPS 'does' as well as a description of the desired level of effort to deliver that function, i.e., direct and indirect costs, etc.</xs:documentation>
@@ -91,6 +95,7 @@
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CommonTerm" type="CommonTerm"/>
 	<xs:complexType name="CommonTerm">
 		<xs:annotation>
 			<xs:documentation>Represents a glossary term and its definition.</xs:documentation>
@@ -119,6 +124,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CommonTermLibrary" type="CommonTermLibrary"/>
 	<xs:complexType name="CommonTermLibrary">
 		<xs:annotation>
 			<xs:documentation>Common glossary defining terms for all use cases.</xs:documentation>
@@ -131,6 +137,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Condition" type="Condition"/>
 	<xs:complexType name="Condition">
 		<xs:annotation>
 			<xs:documentation>Describes either a precondition or a postcondition.</xs:documentation>
@@ -148,6 +155,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CPS" type="CPS"/>
 	<xs:complexType name="CPS" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
@@ -184,6 +192,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="Domain" type="Domain" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CPSGrouping" type="CPSGrouping"/>
 	<xs:complexType name="CPSGrouping">
 		<xs:annotation>
 			<xs:documentation>Group of actors used to organize an actor list.</xs:documentation>
@@ -212,6 +221,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CPSLibrary" type="CPSLibrary"/>
 	<xs:complexType name="CPSLibrary">
 		<xs:annotation>
 			<xs:documentation>This repository contains all of these actors or 'subsystems' of the CPS, that may interact logically, physically or cyber-physically.</xs:documentation>
@@ -235,6 +245,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="CustomInformation" type="CustomInformation"/>
 	<xs:complexType name="CustomInformation">
 		<xs:annotation>
 			<xs:documentation>Provides a flexible option to include miscellaneous custom, semi-structured information which does not fit into other parts of the template.</xs:documentation>
@@ -257,6 +268,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Domain" type="Domain"/>
 	<xs:complexType name="Domain" abstract="true">
 		<xs:annotation>
 			<xs:documentation>A domain is an area of knowledge or activity characterized by a set of concepts and terminology understood by the practitioners in that area. Examples include transportation, medical, energy, etc.</xs:documentation>
@@ -279,6 +291,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="DomainLibrary" type="DomainLibrary"/>
 	<xs:complexType name="DomainLibrary">
 		<xs:annotation>
 			<xs:documentation>Domains of the repository.</xs:documentation>
@@ -291,6 +304,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Drawing" type="Drawing"/>
 	<xs:complexType name="Drawing">
 		<xs:annotation>
 			<xs:documentation>For clarification, in general it is recommended to provide drawing(s) by hand, by a graphic or as UML graphics (preferred in this clause). The drawing should show interactions which identify the steps where possible.</xs:documentation>
@@ -316,6 +330,7 @@ path to an XMI file with a relative diagram path from the root of the UML model.
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Function" type="Function"/>
 	<xs:complexType name="Function" abstract="true">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
@@ -351,6 +366,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="InformationModel" type="InformationModel"/>
 	<xs:complexType name="InformationModel">
 		<xs:annotation>
 			<xs:documentation>Information model exchanged in detailed activity step.</xs:documentation>
@@ -379,6 +395,7 @@ This identifier is unique among several exchange of information. A global reposi
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="InformationModelLibrary" type="InformationModelLibrary"/>
 	<xs:complexType name="InformationModelLibrary">
 		<xs:annotation>
 			<xs:documentation>Recall that a 'use case' of a CPS contains one or more actions, 'scenarios' or features, each of which consists of a finite number of steps. These steps consist of interactions between the actors of the scenario. 
@@ -394,6 +411,7 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			<xs:element name="Maturity" type="Maturity" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="KeyPerformanceIndicator" type="KeyPerformanceIndicator"/>
 	<xs:complexType name="KeyPerformanceIndicator">
 		<xs:annotation>
 			<xs:documentation>Key Performance Indicator (KPI) related to the objectives of the Use Case.</xs:documentation>
@@ -421,6 +439,7 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="MacroActivity" type="MacroActivity"/>
 	<xs:complexType name="MacroActivity">
 		<xs:annotation>
 			<xs:documentation>Macro-activity.</xs:documentation>
@@ -468,6 +487,7 @@ The elements of the Interaction Library can be either logical or physical or cyb
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Narrative" type="Narrative"/>
 	<xs:complexType name="Narrative">
 		<xs:annotation>
 			<xs:documentation>Describes the narrative of the use case.</xs:documentation>
@@ -488,6 +508,7 @@ Recommendation: This short description should have not more than 150 words.</xs:
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Objective" type="Objective"/>
 	<xs:complexType name="Objective">
 		<xs:annotation>
 			<xs:documentation>Objective of the use case.</xs:documentation>
@@ -510,6 +531,7 @@ Recommendation: This short description should have not more than 150 words.</xs:
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_BusinessCase" type="Ref_BusinessCase"/>
 	<xs:complexType name="Ref_BusinessCase">
 		<xs:annotation>
 			<xs:documentation>Provides a description or reference with some rationale for the suggested use case. Usually the business case is related to several use cases.</xs:documentation>
@@ -522,6 +544,7 @@ Recommendation: This short description should have not more than 150 words.</xs:
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_CommonTerm" type="Ref_CommonTerm"/>
 	<xs:complexType name="Ref_CommonTerm">
 		<xs:annotation>
 			<xs:documentation>Represents a glossary term and its definition.</xs:documentation>
@@ -534,6 +557,7 @@ Recommendation: This short description should have not more than 150 words.</xs:
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_CPS" type="Ref_CPS"/>
 	<xs:complexType name="Ref_CPS">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
@@ -552,6 +576,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_Domain" type="Ref_Domain"/>
 	<xs:complexType name="Ref_Domain">
 		<xs:annotation>
 			<xs:documentation>Area of knowledge or activity characterized by a set of concepts and terminology understood by the practitioners in that area .</xs:documentation>
@@ -569,6 +594,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_InformationModel" type="Ref_InformationModel"/>
 	<xs:complexType name="Ref_InformationModel">
 		<xs:annotation>
 			<xs:documentation>Reference to an information model exchanged in detailed activity step.</xs:documentation>
@@ -586,6 +612,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_Objective" type="Ref_Objective"/>
 	<xs:complexType name="Ref_Objective">
 		<xs:annotation>
 			<xs:documentation>Objective of the use case.</xs:documentation>
@@ -598,6 +625,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_Requirement" type="Ref_Requirement"/>
 	<xs:complexType name="Ref_Requirement">
 		<xs:annotation>
 			<xs:documentation>Requirement of a part of the use case.</xs:documentation>
@@ -610,6 +638,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Ref_UseCase" type="Ref_UseCase"/>
 	<xs:complexType name="Ref_UseCase">
 		<xs:annotation>
 			<xs:documentation>Specification of a set of actions performed by a system, which yields an observable result that is, typically, of value for one or more actors or other stakeholders of the system </xs:documentation>
@@ -627,6 +656,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Reference" type="Reference"/>
 	<xs:complexType name="Reference">
 		<xs:annotation>
 			<xs:documentation>Any references shall be identified that might restrict or affect the design, understanding, and requirements of the use case, including contracts, regulations, policies, financial considerations, engineering constraints, pollution constraints, and other environmental quality issues.</xs:documentation>
@@ -675,6 +705,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Remark" type="Remark"/>
 	<xs:complexType name="Remark">
 		<xs:annotation>
 			<xs:documentation>Used for further comments which are not considered elsewhere.</xs:documentation>
@@ -687,6 +718,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Requirement" type="Requirement"/>
 	<xs:complexType name="Requirement">
 		<xs:annotation>
 			<xs:documentation>Requirement of a part of the use case.</xs:documentation>
@@ -715,6 +747,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RequirementCategory" type="RequirementCategory"/>
 	<xs:complexType name="RequirementCategory">
 		<xs:annotation>
 			<xs:documentation>Requirements can be sorted in categories. For complex categories the category name can be "dot-delimited".</xs:documentation>
@@ -743,6 +776,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="RequirementLibrary" type="RequirementLibrary"/>
 	<xs:complexType name="RequirementLibrary">
 		<xs:annotation>
 			<xs:documentation>Requirements of the repository.</xs:documentation>
@@ -755,6 +789,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Resource_String" type="Resource_String"/>
 	<xs:complexType name="Resource_String">
 		<xs:annotation>
 			<xs:documentation>String Primitive type.</xs:documentation>
@@ -765,6 +800,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	<xs:element name="Scenario" type="Scenario"/>
 	<xs:complexType name="Scenario">
 		<xs:annotation>
 			<xs:documentation>A possible sequence of interactions.</xs:documentation>
@@ -811,6 +847,7 @@ This identifier is unique among several exchange of information. A global reposi
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="Step" type="Step"/>
 	<xs:complexType name="Step">
 		<xs:annotation>
 			<xs:documentation>Elementary step within a scenario representing the finest-grained description level of interactions in the use case.</xs:documentation>
@@ -882,6 +919,7 @@ These common service definitions are related to automation / information or comm
 			<xs:element name="Aspects" type="Aspects" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="TriggeringEvent" type="TriggeringEvent"/>
 	<xs:complexType name="TriggeringEvent">
 		<xs:annotation>
 			<xs:documentation>Describes which event triggers a scenario.</xs:documentation>
@@ -899,6 +937,7 @@ These common service definitions are related to automation / information or comm
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="UseCase" type="UseCase"/>
 	<xs:complexType name="UseCase">
 		<xs:annotation>
 			<xs:documentation>Specification of a set of actions performed by a system, which yields an observable result that is, typically, of value for one or more actors or other stakeholders of the system </xs:documentation>
@@ -1021,6 +1060,7 @@ This prioritisation might be different from country to country.</xs:documentatio
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:element name="UseCase_Ref_CPS" type="UseCase_Ref_CPS"/>
 	<xs:complexType name="UseCase_Ref_CPS">
 		<xs:annotation>
 			<xs:documentation>Entity that communicates and interacts.
@@ -1044,6 +1084,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="UseCaseLibrary" type="UseCaseLibrary"/>
 	<xs:complexType name="UseCaseLibrary">
 		<xs:annotation>
 			<xs:documentation>Use cases of the repository.</xs:documentation>
@@ -1056,6 +1097,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="UseCaseRepository_Type" type="UseCaseRepository_Type"/>
 	<xs:complexType name="UseCaseRepository_Type">
 		<xs:annotation>
 			<xs:documentation>Database, based on a given use cases template, for editing, maintenance and administration of use cases, actors and requirements including their interrelations.</xs:documentation>
@@ -1113,6 +1155,7 @@ These actors can include people, software applications, systems, databases, and 
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:element name="Version" type="Version"/>
 	<xs:complexType name="Version">
 		<xs:annotation>
 			<xs:documentation>Version of the use case(s) description.</xs:documentation>
