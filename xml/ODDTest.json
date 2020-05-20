@@ -1,0 +1,21 @@
+{
+	"n1:CPSFramework": {
+		"BusinessCase": [
+			{
+				"description": " \n\t\t\tODD Aspects and Elements for ADS Safety Requiremens\n\t\t",
+				"identifier": "2020",
+				"name": "\n\t\t\tODD Aspects and Elements\n\t\t",
+				"technicalId": "String",
+				"Aspects": {
+					"functional": {
+						"Transportation-Infrastructure": {
+							"RoadType": {
+								"statement": " Gravel "
+							}
+						}
+					}
+				}
+			}
+		]
+	}
+}
