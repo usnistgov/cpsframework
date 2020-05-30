@@ -50,7 +50,7 @@
 			<xs:complexContent>
 				<xs:extension base="TrustworthinessAspect">
 					<xs:sequence>
-						<xs:element name="SafetySigns" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="SafetySigns" type="Property" minOccurs="0" maxOccurs="1"/>
 						<xs:element name="OperationalSecurityCapabilities" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
 						<xs:element name="Safety-EmergencyResponseProcedures" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
 						<xs:element name="CriticalFunctionRedundancy" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
@@ -131,25 +131,32 @@
 				</xs:extension>
 			</xs:complexContent>
 		</xs:complexType>
-		<xs:complexType name="Aspect">
+		<xs:complexType name="Aspects">
 			<xs:complexContent>
-				<xs:extension base="Aspect">
+				<xs:extension base="Aspects">
 					<xs:sequence>
-						<xs:element name="communicationsAspect" minOccurs="0" maxOccurs="1">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Communication-on-off-vehicle" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="Connectivity" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="V2VCommunications" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="V2ICommunications" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="VehicleBus" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
-									<xs:element name="WirelessLinks" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element name="communications" type="communicationsAspect" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:extension>
 			</xs:complexContent>
 		</xs:complexType>
 	</xs:redefine>
+	<!-- Introducing Communication Aspect -->
+	<xs:complexType name="communicationsAspect">
+		<xs:annotation>
+			<xs:documentation>The Communication Aspect is a set of concerns related to the communication between the CPS components.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Aspect">
+				<xs:sequence>
+					<xs:element name="Communication-on-off-vehicle" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Connectivity" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="V2VCommunications" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="V2ICommunications" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="VehicleBus" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="WirelessLinks" type="cpsframework:Communication" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>
