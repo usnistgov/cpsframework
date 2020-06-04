@@ -4,9 +4,6 @@
 		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
 		<File FilePath="ODDTest.json" HomeFolder="Yes"/>
 		<File FilePath="ODDTest.xml" HomeFolder="Yes"/>
-		<File FilePath="ODDTest1.xml" HomeFolder="Yes"/>
-		<File FilePath="Test20200420.xml" HomeFolder="Yes"/>
-		<File FilePath="testusecase.xml" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XSL Files" ExtStr="xsl;xslt">
 		<File FilePath="IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
@@ -28,6 +25,6 @@
 		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml"/>
 		<File FilePath="cpsframework\IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
 		<File FilePath="ODDAspects.xsd"/>
-		<File FilePath="ODDTest.xml" HomeFolder="Yes"/>
+		<File FilePath="ODDTest.xml"/>
 	</Folder>
 </Project>

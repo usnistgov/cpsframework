@@ -8,13 +8,259 @@
 				"technicalId": "String",
 				"Aspects": {
 					"functional": {
-						"Transportation-Infrastructure": {
-							"RoadType": {
-								"statement": " Gravel "
-							}
+						"TransportationInfrastructure": {
+							"Property": [
+								{
+									"statement": " TBD "
+								}
+							]
+						},
+						"RoadType": {
+							"Property": [
+								{
+									"statement": " Should capture the road surface type. e.g. Gravel/Asphalt/Concrete etc. "
+								}
+							]
+						},
+						"RoadCondition": {
+							"Property": [
+								{
+									"statement": " Should capture the current condition of the road surface. e.g. Slippery/Dry/Cracked etc. "
+								}
+							]
+						},
+						"Obstacles": {
+							"Property": [
+								{
+									"statement": " Should capture the type and location of the obstacle object. e.g. Debris on right? Animal at front etc. "
+								}
+							]
+						},
+						"EnvironmentCondition": {
+							"Property": [
+								{
+									"statement": " Should capture the weather condition. e.g. Light/Heavy Rain/Snow etc. "
+								}
+							]
+						},
+						"VehicleStatus": {
+							"Property": [
+								{
+									"statement": " Should capture the vehicle status. e.g. Engine Light On/Low tire pressure etc. "
+								}
+							]
 						}
 					}
 				}
+			}
+		],
+		"InformationModelLibrary": {
+			"InformationModel": [
+				{
+					"name": "",
+					"technicalId": ""
+				}
+			]
+		},
+		"InteractionLibrary": {
+			"Messages": {
+				"message": [
+					{
+						"technicalId": ""
+					}
+				]
+			}
+		},
+		"UseCase": [
+			{
+				"identifier": "ADS-T-1 UUID",
+				"name": "Safety Features for ODD",
+				"technicalId": "ADS-T-1",
+				"classification": "Generic",
+				"CPSGrouping": [
+					{
+						"CPS": [
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about function including transportaion infrustructure, road type and condition, Obstacle type and location, environmental condition, vehicle status etc.\n\t\t\t\t",
+								"name": "Functional Aspects",
+								"technicalId": "Functional UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about operational constraints, traffic/right-of-way rules, infrastructure standards, vehicle type and classification, etc.\n\t\t\t\t",
+								"name": "Business Aspects",
+								"technicalId": "Business UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about human interaction with and as part of a CPS, fallback driver presence, owner rules, passenger presence etc.\n\t\t\t\t",
+								"name": "Human Aspects",
+								"technicalId": "Human UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about trustworthiness of CPS including security, privacy, safety, reliability, resilience, Critical function redundancy, DDT Fallback, MRC capability/competence etc.\n\t\t\t\t",
+								"name": "Trustworthiness Aspects",
+								"technicalId": "Trustworthiness UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about time and frequency, including the generation and transport of time and frequency signals, timestamping, managing latency, V2V and V2I synchronization, etc.\n\t\t\t\t",
+								"name": "Timing Aspects",
+								"technicalId": "Timing UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about data interoperability including Operational Data such as real-time traffic/historical traffic patterns data, V2V and V2I communication and connectivity etc.\n\t\t\t\t",
+								"name": "Data Aspects",
+								"technicalId": "Data UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about function including communication among on and off-vehicle, infrastrucutre Connectivity e.g. V2V and V2I communications, vehicle bus, Wireless Links etc.\n\t\t\t\t",
+								"name": "Communications Aspects",
+								"technicalId": "Communications UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns related to demarcations of topological, geolocation, zones, weather restrictions, jurisdictions, Sensing/Actuation Operating Ranges etc.\n\t\t\t\t",
+								"name": "Boundaries Aspects",
+								"technicalId": "Boundaries UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns related to the traffic management systems, cross-infrastructure integration, connected and co-ordinated vehicles, safety protocols in platoons etc.\n\t\t\t\t",
+								"name": "Composition Aspects",
+								"technicalId": "Composition UUID"
+							},
+							{
+								"furtherInformation": "\n\t\t\t\t\tConcerns about the lifecycle of CPS including vehicle component lifetime limits, infrastructure lifetime limits, infrastructure wear status, Vehicle Reflash/FOTA, durability etc.\n\t\t\t\t",
+								"name": "Lifecycle Aspects",
+								"technicalId": "Lifecycle UUID"
+							}
+						],
+						"description": "Aspects of the safety of Autonomous Vehicle system.\n\t\t\t",
+						"identifier": "None",
+						"name": "Autonomous Driving Safety"
+					}
+				],
+				"keywords": "User, federate, ODD, sensor, path planner, path segment, HLA, vehicle physics, monitor, analysis",
+				"levelOfDepth": "Detailed",
+				"nature": "Technical",
+				"prioritisation": "High",
+				"RelatedUseCase": [
+					{
+						"name": "",
+						"technicalId": ""
+					}
+				],
+				"Scenario": [
+					{
+						"identifier": "0.1",
+						"name": "Functional Aspects of ADS",
+						"technicalId": "String",
+						"Aspects": {
+							"functional": {
+								"TransportationInfrastructure": {
+									"Property": [
+										{
+											"statement": " TBD "
+										}
+									]
+								}
+							}
+						},
+						"MacroActivity": [
+							{
+								"Step": [
+									{
+										"BusinessObject": [
+											{
+												"name": "TripPlan",
+												"technicalId": "String"
+											}
+										],
+										"description": "Trip Planner creates segment plan.",
+										"event": "Initital Data",
+										"identifier": "1",
+										"InformationProducer": [
+											{
+												"name": "Trip Planner",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Response",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1234"
+										},
+										"name": "Segment Plan",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "Torque Request",
+												"technicalId": "String"
+											}
+										],
+										"description": "Response generates Torque Request.",
+										"event": "Segment Change",
+										"identifier": "2",
+										"InformationProducer": [
+											{
+												"name": "Response",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Vehicle Physics Engine",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1234"
+										},
+										"name": "Torque Request",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "Vehicle Physics State",
+												"technicalId": "String"
+											}
+										],
+										"description": "Vehicle Physics Engine measure vehicle physics state.",
+										"event": "Torque Request Change",
+										"identifier": "3",
+										"InformationProducer": [
+											{
+												"name": "Vehicle Physics Engine",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1234"
+										},
+										"name": "TVehicle Physics State",
+										"service": "REPORT"
+									}
+								],
+								"technicalId": "String"
+							}
+						]
+					}
+				],
+				"scope": "Safety Measurement for Autonomous Vehicle",
+				"Version": [
+					{
+						"date": " 2020-05-31T00:00:00Z "
+					}
+				]
 			}
 		]
 	}
