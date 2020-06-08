@@ -25,6 +25,7 @@
 		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml"/>
 		<File FilePath="cpsframework\IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
 		<File FilePath="ODDAspects.xsd"/>
+		<File FilePath="ODDTest.json"/>
 		<File FilePath="ODDTest.xml"/>
 	</Folder>
 </Project>
