@@ -46,22 +46,22 @@
 			</functional>
 		</Aspects>
 	</BusinessCase>
-	<InformationModelLibrary>
-		<InformationModel>
-			<name/>
-			<technicalId/>
-		</InformationModel>
-	</InformationModelLibrary>
-	<InteractionLibrary>
-		<Messages>
-			<message>
-				<technicalId/>
-			</message>
-		</Messages>
-	</InteractionLibrary>
 	<!-- Specify the USECASE -->
 	<UseCase>
 		<identifier>ADS-T-1 UUID</identifier>
+		<InformationModelLibrary>
+			<InformationModel>
+				<name/>
+				<technicalId/>
+			</InformationModel>
+		</InformationModelLibrary>
+		<InteractionLibrary>
+			<Messages>
+				<message>
+					<technicalId/>
+				</message>
+			</Messages>
+		</InteractionLibrary>
 		<name>Safety Features for ODD</name>
 		<technicalId>ADS-T-1</technicalId>
 		<classification>Generic</classification>
