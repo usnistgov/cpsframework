@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Anirban Bhattacharjee (National Institute of Standards & Technology) -->
 <?xml-stylesheet type="text/xsl" href="IntermediateToXHTMLNew.xslt"?>
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework ODDAspects.xsd">
 	<!-- Specify the BUSINESSCASE -->
@@ -8,7 +9,7 @@
 		</description>
 		<identifier>2020</identifier>
 		<name>
-			ODD Aspects and Elements
+			ODD Aspects and Elements for ADS Safety Requiremens
 		</name>
 		<technicalId>String</technicalId>
 		<Aspects>
@@ -45,22 +46,154 @@
 				</VehicleStatus>
 			</functional>
 		</Aspects>
+		<Domain>
+			<name>ADS</name>
+			<technicalId>String</technicalId>
+		</Domain>
 	</BusinessCase>
 	<!-- InformationModelLibrary> -->
 	<InformationModelLibrary>
 		<InformationModel>
-			<name/>
-			<technicalId/>
+			<description>The currently sensed image</description>
+			<name>Image</name>
+			<technicalId>1232231</technicalId>
+			<Aspects>
+				<functional>
+					<Sensing>
+						<Property>
+							<statement>The deep learning model shall have a mechanism to measure object and its location.</statement>
+						</Property>
+					</Sensing>
+				</functional>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<description>Floating point setting for comfort distance</description>
+			<name>SafetySetDistance</name>
+			<technicalId>1234</technicalId>
+			<Aspects>
+				<functional>
+					<Sensing>
+						<Property>
+							<statement>the Safety setting model shall have a distance and a angle</statement>
+						</Property>
+					</Sensing>
+				</functional>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<description>Control of Acceleration/Deceleration System.</description>
+			<name>Control</name>
+			<technicalId>1234</technicalId>
+			<Aspects>
+				<functional>
+					<Actuation>
+						<Property>
+							<statement>Relay control message shall have states of relays - accleration, deceleration.</statement>
+						</Property>
+					</Actuation>
+				</functional>
+				<trustworthiness>
+					<Privacy>
+						<Property>
+							<statement>The information for control shall protect privacy</statement>
+						</Property>
+						<Property>
+							<statement>No PII shall be contained in information model</statement>
+						</Property>
+					</Privacy>
+				</trustworthiness>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<description>Status of Acceleration System: 1=throttle, 0=brake</description>
+			<name>Status</name>
+			<technicalId>1234</technicalId>
 		</InformationModel>
 	</InformationModelLibrary>
 	<!-- InteractionLibrary -->
 	<InteractionLibrary>
+		<Maturity>
+			<effective>20200615T00:00:00Z</effective>
+			<maturity>submitted</maturity>
+			<responsibleParty/>
+			<revision>1.0.0</revision>
+			<status>asDeveloped</status>
+		</Maturity>
 		<Messages>
 			<message>
-				<technicalId/>
+				<description>This is a message template for general stream messaging on the Ethernet network</description>
+				<name>streammessage</name>
+				<technicalId>msg1234</technicalId>
+				<Aspects>
+					<functional>
+						<Communication>
+							<BasicConnectivity>
+								<OSIDataLink>
+									<Property>
+										<statement>ADS messaging shall use Ethernet</statement>
+									</Property>
+								</OSIDataLink>
+								<OSIPhysical>
+									<Property>
+										<statement>ADS messaging shall use CAN</statement>
+									</Property>
+								</OSIPhysical>
+							</BasicConnectivity>
+							<NetworkInteroperability>
+								<OSINetwork>
+									<Property>
+										<statement>ADS messaging shall use IP</statement>
+									</Property>
+								</OSINetwork>
+							</NetworkInteroperability>
+							<SyntacticInteroperability>
+								<OSIApplication>
+									<Property>
+										<statement>ADS messaging shall use StreamAPI</statement>
+									</Property>
+								</OSIApplication>
+								<OSIPresentation>
+									<Property>
+										<statement>ADS messaging shall use JSON for payloads</statement>
+									</Property>
+								</OSIPresentation>
+							</SyntacticInteroperability>
+						</Communication>
+					</functional>
+					<trustworthiness>
+						<Privacy>
+							<Property>
+								<statement>The control message shall protect privacy</statement>
+							</Property>
+						</Privacy>
+						<Security>
+							<Property>
+								<statement>The Relay control message shall be secure</statement>
+							</Property>
+							<Cybersecurity>
+								<Availability>
+									<Property>
+										<statement>Transport layer messages from the ADS components shall be available and authentic</statement>
+									</Property>
+									<Property>
+										<statement>Encryption shall use HMAC</statement>
+									</Property>
+								</Availability>
+							</Cybersecurity>
+						</Security>
+					</trustworthiness>
+				</Aspects>
 			</message>
 		</Messages>
 	</InteractionLibrary>
+	<Maturity>
+		<effective/>
+		<maturity>submitted</maturity>
+		<responsibleParty/>
+		<revision>0.1</revision>
+		<status>asDeveloped</status>
+	</Maturity>
 	<!-- Specify the USECASE -->
 	<UseCase>
 		<identifier>ADS-T-1 UUID</identifier>
@@ -143,8 +276,29 @@
 			<identifier>None</identifier>
 			<name>Autonomous Driving Safety</name>
 		</CPSGrouping>
+		<CustomInformation>
+			<key>String</key>
+			<reference>String</reference>
+			<value>String</value>
+		</CustomInformation>
+		<Drawing>
+			<drawingType>MacroActivities Flowchart</drawingType>
+			<name>String</name>
+			<URI type="UMLDiagram">String</URI>
+		</Drawing>
+		<KeyPerformanceIndicator>
+			<description>String</description>
+			<name>String</name>
+			<Objective>
+				<technicalId>String</technicalId>
+			</Objective>
+			<technicalId>String</technicalId>
+		</KeyPerformanceIndicator>
 		<keywords>User, federate, ODD, sensor, path planner, path segment, HLA, vehicle physics, monitor, analysis</keywords>
 		<levelOfDepth>Detailed</levelOfDepth>
+		<Narrative>
+			<shortDescription>This use case describes the operations of a AV to follow car.  The thermostat has three operational modes – acceleration, deceleration, and lane following.</shortDescription>
+		</Narrative>
 		<nature>Technical</nature>
 		<prioritisation>High</prioritisation>
 		<RelatedUseCase>
