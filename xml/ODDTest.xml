@@ -2,26 +2,26 @@
 <!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Anirban Bhattacharjee (National Institute of Standards & Technology) -->
 <?xml-stylesheet type="text/xsl" href="IntermediateToXHTMLNew.xslt"?>
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework ODDAspects.xsd">
-	<!-- Specify the BUSINESSCASE -->
+	<!-- BusinessCase: Provides a description or reference with some rationale for the suggested use case. Usually the business case is related to several use cases.-->
 	<BusinessCase>
 		<description> 
-			ODD Aspects and Elements for ADS Safety Requiremens
+			Automated Driver System comprises of advanced driver assistance systems and vehicle guidance systems. Scenario-based approaches can be applied to achieve the defined work products for the development of automated driving functions. A scenario is a common approach to substantiate test cases for functional modules and can be used to detail the functional description of a system.  For the design and test of functional modules (federates) of a simulation-based automated vehicle, it is essential to define interfaces (RTI) for the data transmission among these modules through vehicle bus and WLAN. Modeling of co-simulation based driving environment, as well as vehicle and traffic dynamics, is required to ensure numerical robustness, safety, reliability, security, and usability of the test scenarios. 
 		</description>
 		<identifier>2020</identifier>
 		<name>
-			ODD Aspects and Elements for ADS Safety Requiremens
+			Scenario-based safety verification and validation of Autonomous Driving Systems
 		</name>
 		<technicalId>String</technicalId>
 		<Aspects>
 			<functional>
 				<TransportationInfrastructure>
 					<Property>
-						<statement> TBD </statement>
+						<statement> Should capture the transportation infrastructure type. e.g. Bridge/Tunnel/Highways/CityRoad etc. </statement>
 					</Property>
 				</TransportationInfrastructure>
 				<RoadType>
 					<Property>
-						<statement> Should capture the road surface type. e.g. Gravel/Asphalt/Concrete etc. </statement>
+						<statement> Should capture the road surface type. e.g. CobbleStone/Gravel/Asphalt/Concrete etc. </statement>
 					</Property>
 				</RoadType>
 				<RoadCondition>
@@ -31,7 +31,7 @@
 				</RoadCondition>
 				<Obstacles>
 					<Property>
-						<statement> Should capture the type and location of the obstacle object. e.g. Debris on right? Animal at front etc. </statement>
+						<statement> Should capture the type and location of the obstacle object. e.g. Debris on right/ Animal at front etc. </statement>
 					</Property>
 				</Obstacles>
 				<EnvironmentCondition>
@@ -47,11 +47,35 @@
 			</functional>
 		</Aspects>
 		<Domain>
-			<name>ADS</name>
+			<name>Automated Driving System (ADS)</name>
 			<technicalId>String</technicalId>
 		</Domain>
 	</BusinessCase>
-	<!-- InformationModelLibrary> -->
+	<!-- CPSLibrary - This repository contains all of these actors or 'subsystems' of the CPS, that may interact logically, physically or cyber-physically.-->
+	<CPSLibrary>
+		<cps>
+			<description>Communications among CPS components via vehicle bus</description>
+			<identifier>TSTAT_01</identifier>
+			<name>InterVehicle</name>
+			<technicalId>12345677</technicalId>
+			<Logical>
+				<description> The logical interconnection between different vehicle systems can allow a wide range of safety, economy and convenience features to be implemented using CAN standard</description>
+				<identifier>1234</identifier>
+				<name>ADComm</name>
+				<technicalId>12345</technicalId>
+				<type>java code</type>
+				<state>online</state>
+			</Logical>
+			<Physical>
+				<description> The physical interconnection between different vehicle systems via CAN network, port, and Ethernet. </description>
+				<identifier>1235</identifier>
+				<name>NetworkAdapter</name>
+				<technicalId>12355</technicalId>
+				<state>Active</state>
+			</Physical>
+		</cps>
+	</CPSLibrary>
+	<!-- InformationModelLibrary: Recall that a 'use case' of a CPS contains one or more actions, 'scenarios' or features, each of which consists of a finite number of steps. These steps consist of interactions between the actors of the scenario. -->
 	<InformationModelLibrary>
 		<InformationModel>
 			<description>The currently sensed image</description>
@@ -111,7 +135,10 @@
 			<technicalId>1234</technicalId>
 		</InformationModel>
 	</InformationModelLibrary>
-	<!-- InteractionLibrary -->
+	<!-- InteractionLibrary: InteractionLibrary
+A library of interactions that define the messaging patterns between the logical elements of the CPS and the influences between physical elements of the CPS as well as the cyber-physical interactions between the logical and physical elements of the CPS.
+1.Messages: Logical parts of CPS interact via messages which involve the exchange of information.
+2.Influences: Physical parts of CPS interact through influences which involve the exchange of energy. -->
 	<InteractionLibrary>
 		<Maturity>
 			<effective>20200615T00:00:00Z</effective>
@@ -196,86 +223,13 @@
 	</Maturity>
 	<!-- Specify the USECASE -->
 	<UseCase>
+		<description> TBD </description>
 		<identifier>ADS-T-1 UUID</identifier>
-		<name>Safety Features for ODD</name>
+		<name>Verification and Validation of Safety Features for ADS</name>
 		<technicalId>ADS-T-1</technicalId>
+		<Aspects>
+		</Aspects>
 		<classification>Generic</classification>
-		<CPSGrouping>
-			<CPS>
-				<furtherInformation>
-					Concerns about function including transportaion infrustructure, road type and condition, Obstacle type and location, environmental condition, vehicle status etc.
-				</furtherInformation>
-				<name>Functional Aspects</name>
-				<technicalId>Functional UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about operational constraints, traffic/right-of-way rules, infrastructure standards, vehicle type and classification, etc.
-				</furtherInformation>
-				<name>Business Aspects</name>
-				<technicalId>Business UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about human interaction with and as part of a CPS, fallback driver presence, owner rules, passenger presence etc.
-				</furtherInformation>
-				<name>Human Aspects</name>
-				<technicalId>Human UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about trustworthiness of CPS including security, privacy, safety, reliability, resilience, Critical function redundancy, DDT Fallback, MRC capability/competence etc.
-				</furtherInformation>
-				<name>Trustworthiness Aspects</name>
-				<technicalId>Trustworthiness UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about time and frequency, including the generation and transport of time and frequency signals, timestamping, managing latency, V2V and V2I synchronization, etc.
-				</furtherInformation>
-				<name>Timing Aspects</name>
-				<technicalId>Timing UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about data interoperability including Operational Data such as real-time traffic/historical traffic patterns data, V2V and V2I communication and connectivity etc.
-				</furtherInformation>
-				<name>Data Aspects</name>
-				<technicalId>Data UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about function including communication among on and off-vehicle, infrastrucutre Connectivity e.g. V2V and V2I communications, vehicle bus, Wireless Links etc.
-				</furtherInformation>
-				<name>Communications Aspects</name>
-				<technicalId>Communications UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns related to demarcations of topological, geolocation, zones, weather restrictions, jurisdictions, Sensing/Actuation Operating Ranges etc.
-				</furtherInformation>
-				<name>Boundaries Aspects</name>
-				<technicalId>Boundaries UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns related to the traffic management systems, cross-infrastructure integration, connected and co-ordinated vehicles, safety protocols in platoons etc.
-				</furtherInformation>
-				<name>Composition Aspects</name>
-				<technicalId>Composition UUID</technicalId>
-			</CPS>
-			<CPS>
-				<furtherInformation>
-					Concerns about the lifecycle of CPS including vehicle component lifetime limits, infrastructure lifetime limits, infrastructure wear status, Vehicle Reflash/FOTA, durability etc.
-				</furtherInformation>
-				<name>Lifecycle Aspects</name>
-				<technicalId>Lifecycle UUID</technicalId>
-			</CPS>
-			<description>Aspects of the safety of Autonomous Vehicle system.
-			</description>
-			<identifier>None</identifier>
-			<name>Autonomous Driving Safety</name>
-		</CPSGrouping>
 		<CustomInformation>
 			<key>String</key>
 			<reference>String</reference>
@@ -297,7 +251,11 @@
 		<keywords>User, federate, ODD, sensor, path planner, path segment, HLA, vehicle physics, monitor, analysis</keywords>
 		<levelOfDepth>Detailed</levelOfDepth>
 		<Narrative>
-			<shortDescription>This use case describes the operations of a AV to follow car.  The thermostat has three operational modes – acceleration, deceleration, and lane following.</shortDescription>
+			<completeDescription> 
+This use case describes an automated vehicle's operations to follow another vehicle on a single lane road.  The vehicle has three operational modes – acceleration, deceleration, and lane following. Event Sensors of the vehicle provides the inputs for road-level environment modeling. These inputs are external inputs such as road types, road conditions, environmental conditions such as snow, rainfall, and variations. Vehicle Sensors are responsible for context-/scene modeling concerning the contextual goal. These inputs are vehicle type, class, condition, tire friction in the specific environmental condition, etc. along with the camera image/Lidar scanner input. Based on these inputs the vehicle controller is responsible for detecting events and execution of steering and acceleration/deceleration action to maintain a safe distance. It is also responsible for fallback performance in the safest possible way. All communications among multiple functional modules happen over the vehicle bus. Remote client applications are responsible for monitoring and logging the interaction of the functional modules.
+		</completeDescription>
+			<shortDescription>
+This use case describes an automated vehicle's operations to follow another vehicle on a single lane road.  The vehicle has three operational modes – acceleration, deceleration, and lane following.</shortDescription>
 		</Narrative>
 		<nature>Technical</nature>
 		<prioritisation>High</prioritisation>
@@ -390,7 +348,10 @@
 		</Scenario>
 		<scope>Safety Measurement for Autonomous Vehicle</scope>
 		<Version>
-			<date> 2020-05-31T00:00:00Z </date>
+			<Author>
+				<name> Marty Burns, Anirban Bhattacharjee </name>
+			</Author>
+			<date> 2020-06-30T00:00:00Z </date>
 		</Version>
 	</UseCase>
 </n1:CPSFramework>
