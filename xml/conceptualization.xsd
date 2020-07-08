@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (http://www.altova.com) by Martin Burns (National Institute of Standards and Technology) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" targetNamespace="cpsframework">
 	<xs:annotation>
 		<xs:documentation>This package contains definitions for the conceptualization facet.</xs:documentation>
 	</xs:annotation>
@@ -1030,7 +1031,7 @@
 					<xs:documentation>Reference such as standard, regulatory best practice, .... See ArgumentationKind.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="statement" type="xs:string" minOccurs="1" maxOccurs="1">
+			<xs:element name="statement" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Property value statement.</xs:documentation>
 				</xs:annotation>
