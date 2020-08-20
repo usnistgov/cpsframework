@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2020 rel. 2 sp1 (http://www.altova.com) by Martin Burns (National Institute of Standards and Technology) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" targetNamespace="cpsframework">
+<xs:schema targetNamespace="cpsframework" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework">
 	<xs:annotation>
 		<xs:documentation>This package contains definitions for the conceptualization facet.</xs:documentation>
 	</xs:annotation>
