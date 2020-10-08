@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Anirban Bhattacharjee (National Institute of Standards & Technology) -->
+<?xml-stylesheet type="text/xsl" href="IntermediateToXHTMLNew.xslt"?>
+<n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework ODDAspects.xsd">
+	<!-- BusinessCase: Provides a description or reference with some rationale for the suggested use case. Usually the business case is related to several use cases.-->
+	<BusinessCase>
+		<description> 
+			Automated Driver System comprises of advanced driver assistance systems and vehicle guidance systems. Scenario-based approaches can be applied to achieve the defined work products for the development of automated driving functions. A scenario is a common approach to substantiate test cases for functional modules and can be used to detail the functional description of a system.  For the design and test of functional modules (federates) of a simulation-based automated vehicle, it is essential to define interfaces (RTI) for the data transmission among these modules through vehicle bus and WLAN. Modeling of co-simulation based driving environment, as well as vehicle and traffic dynamics, is required to ensure numerical robustness, safety, reliability, security, and usability of the test scenarios. 
+		</description>
+		<identifier>2020</identifier>
+		<name>
+			Scenario-based safety verification and validation of Autonomous Driving Systems
+		</name>
+		<technicalId>String</technicalId>
+		<Aspects>
+			<functional>
+				<TransportationInfrastructure>
+					<Property>
+						<description> Should capture the transportation infrastructure type. e.g. Bridge/Tunnel/Highways/CityRoad etc. </description>
+					</Property>
+				</TransportationInfrastructure>
+				<RoadType>
+					<Property>
+						<description> Should capture the road surface type. e.g. CobbleStone/Gravel/Asphalt/Concrete etc. </description>
+					</Property>
+				</RoadType>
+				<RoadCondition>
+					<Property>
+						<statement> Should capture the current condition of the road surface. e.g. Slippery/Dry/Cracked etc. </statement>
+					</Property>
+				</RoadCondition>
+				<Obstacles>
+					<Property>
+						<statement> Should capture the type and location of the obstacle object. e.g. Debris on right/ Animal at front etc. </statement>
+					</Property>
+				</Obstacles>
+				<EnvironmentCondition>
+					<Property>
+						<statement> Should capture the weather condition. e.g. Light/Heavy Rain/Snow etc. </statement>
+					</Property>
+				</EnvironmentCondition>
+				<VehicleStatus>
+					<Property>
+						<statement> Should capture the vehicle status. e.g. Engine Light On/Low tire pressure etc. </statement>
+					</Property>
+				</VehicleStatus>
+			</functional>
+		</Aspects>
+		<Domain>
+			<name>Automated Driving System (ADS)</name>
+			<technicalId>String</technicalId>
+		</Domain>
+	</BusinessCase>
+	<!-- CPSLibrary - This repository contains all of these actors or 'subsystems' of the CPS, that may interact logically, physically or cyber-physically.-->
+	<CPSLibrary>
+		<cps>
+			<description>Communications among CPS components via vehicle bus</description>
+			<identifier>TSTAT_01</identifier>
+			<name>InterVehicle</name>
+			<technicalId>12345677</technicalId>
+			<Logical>
+				<description> The logical interconnection between different vehicle systems can allow a wide range of safety, economy and convenience features to be implemented using CAN standard</description>
+				<identifier>1234</identifier>
+				<name>ADComm</name>
+				<technicalId>12345</technicalId>
+				<type>java code</type>
+				<state>online</state>
+			</Logical>
+			<Physical>
+				<description> The physical interconnection between different vehicle systems via CAN network, port, and Ethernet. </description>
+				<identifier>1235</identifier>
+				<name>NetworkAdapter</name>
+				<technicalId>12355</technicalId>
+				<state>Active</state>
+			</Physical>
+		</cps>
+	</CPSLibrary>
+	<!-- InformationModelLibrary: Recall that a 'use case' of a CPS contains one or more actions, 'scenarios' or features, each of which consists of a finite number of steps. These steps consist of interactions between the actors of the scenario. -->
+	<InformationModelLibrary>
+		<InformationModel>
+			<description>The currently sensed image</description>
+			<name>Image</name>
+			<technicalId>1232231</technicalId>
+			<Aspects>
+				<functional>
+					<Sensing>
+						<Property>
+							<statement>The deep learning model shall have a mechanism to measure object and its location.</statement>
+						</Property>
+					</Sensing>
+				</functional>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<description>Floating point setting for comfort distance</description>
+			<name>SafetySetDistance</name>
+			<technicalId>1234</technicalId>
+			<Aspects>
+				<functional>
+					<Sensing>
+						<Property>
+							<statement>the Safety setting model shall have a distance and a angle</statement>
+						</Property>
+					</Sensing>
+				</functional>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<description>Control of Acceleration/Deceleration System.</description>
+			<name>Control</name>
+			<technicalId>1234</technicalId>
+			<Aspects>
+				<functional>
+					<Actuation>
+						<Property>
+							<statement>Relay control message shall have states of relays - accleration, deceleration.</statement>
+						</Property>
+					</Actuation>
+				</functional>
+				<trustworthiness>
+					<Privacy>
+						<Property>
+							<statement>The information for control shall protect privacy</statement>
+						</Property>
+						<Property>
+							<statement>No PII shall be contained in information model</statement>
+						</Property>
+					</Privacy>
+				</trustworthiness>
+			</Aspects>
+		</InformationModel>
+		<InformationModel>
+			<description>Status of Acceleration System: 1=throttle, 0=brake</description>
+			<name>Status</name>
+			<technicalId>1234</technicalId>
+		</InformationModel>
+	</InformationModelLibrary>
+	<!-- InteractionLibrary: InteractionLibrary
+A library of interactions that define the messaging patterns between the logical elements of the CPS and the influences between physical elements of the CPS as well as the cyber-physical interactions between the logical and physical elements of the CPS.
+1.Messages: Logical parts of CPS interact via messages which involve the exchange of information.
+2.Influences: Physical parts of CPS interact through influences which involve the exchange of energy. -->
+	<InteractionLibrary>
+		<Maturity>
+			<effective>20200615T00:00:00Z</effective>
+			<maturity>submitted</maturity>
+			<responsibleParty/>
+			<revision>1.0.0</revision>
+			<status>asDeveloped</status>
+		</Maturity>
+		<Messages>
+			<message>
+				<description>This is a message template for general stream messaging on the Ethernet network</description>
+				<name>streammessage</name>
+				<technicalId>msg1234</technicalId>
+				<Aspects>
+					<functional>
+						<Communication>
+							<BasicConnectivity>
+								<OSIDataLink>
+									<Property>
+										<statement>ADS messaging shall use Ethernet</statement>
+									</Property>
+								</OSIDataLink>
+								<OSIPhysical>
+									<Property>
+										<statement>ADS messaging shall use CAN</statement>
+									</Property>
+								</OSIPhysical>
+							</BasicConnectivity>
+							<NetworkInteroperability>
+								<OSINetwork>
+									<Property>
+										<statement>ADS messaging shall use IP</statement>
+									</Property>
+								</OSINetwork>
+							</NetworkInteroperability>
+							<SyntacticInteroperability>
+								<OSIApplication>
+									<Property>
+										<statement>ADS messaging shall use StreamAPI</statement>
+									</Property>
+								</OSIApplication>
+								<OSIPresentation>
+									<Property>
+										<statement>ADS messaging shall use JSON for payloads</statement>
+									</Property>
+								</OSIPresentation>
+							</SyntacticInteroperability>
+						</Communication>
+					</functional>
+					<trustworthiness>
+						<Privacy>
+							<Property>
+								<statement>The control message shall protect privacy</statement>
+							</Property>
+						</Privacy>
+						<Security>
+							<Property>
+								<statement>The Relay control message shall be secure</statement>
+							</Property>
+							<Cybersecurity>
+								<Availability>
+									<Property>
+										<statement>Transport layer messages from the ADS components shall be available and authentic</statement>
+									</Property>
+									<Property>
+										<statement>Encryption shall use HMAC</statement>
+									</Property>
+								</Availability>
+							</Cybersecurity>
+						</Security>
+					</trustworthiness>
+				</Aspects>
+			</message>
+		</Messages>
+	</InteractionLibrary>
+	<Maturity>
+		<effective/>
+		<maturity>submitted</maturity>
+		<responsibleParty/>
+		<revision>0.1</revision>
+		<status>asDeveloped</status>
+	</Maturity>
+	<!-- Specify the USECASE -->
+	<UseCase>
+		<description> A car following another car in a lane </description>
+		<identifier>ADS-T-1 UUID</identifier>
+		<name>Verification and Validation of Safety Features for ADS</name>
+		<technicalId>ADS-T-1</technicalId>
+		<Aspects>
+		</Aspects>
+		<classification>Generic</classification>
+		<CustomInformation>
+			<key>String</key>
+			<reference>String</reference>
+			<value>String</value>
+		</CustomInformation>
+		<Drawing>
+			<drawingType>MacroActivities Flowchart</drawingType>
+			<name>String</name>
+			<URI type="UMLDiagram">String</URI>
+		</Drawing>
+		<KeyPerformanceIndicator>
+			<description>String</description>
+			<name>String</name>
+			<Objective>
+				<technicalId>String</technicalId>
+			</Objective>
+			<technicalId>String</technicalId>
+		</KeyPerformanceIndicator>
+		<keywords>User, federate, ODD, sensor, path planner, path segment, HLA, vehicle physics, monitor, analysis</keywords>
+		<levelOfDepth>Detailed</levelOfDepth>
+		<Narrative>
+			<completeDescription> 
+This use case describes an automated vehicle's operations to follow another vehicle on a single lane road.  The vehicle has three operational modes – acceleration, deceleration, and lane following. Event Sensors of the vehicle provides the inputs for road-level environment modeling. These inputs are external inputs such as road types, road conditions, environmental conditions such as snow, rainfall, and variations. Vehicle Sensors are responsible for context-/scene modeling concerning the contextual goal. These inputs are vehicle type, class, condition, tire friction in the specific environmental condition, etc. along with the camera image/Lidar scanner input. Based on these inputs the vehicle controller is responsible for detecting events and execution of steering and acceleration/deceleration action to maintain a safe distance. It is also responsible for fallback performance in the safest possible way. All communications among multiple functional modules happen over the vehicle bus. Remote client applications are responsible for monitoring and logging the interaction of the functional modules.
+		</completeDescription>
+			<shortDescription>
+This use case describes an automated vehicle's operations to follow another vehicle on a single lane road.  The vehicle has three operational modes – acceleration, deceleration, and lane following.</shortDescription>
+		</Narrative>
+		<nature>Technical</nature>
+		<prioritisation>High</prioritisation>
+		<RelatedUseCase>
+			<name/>
+			<technicalId/>
+		</RelatedUseCase>
+		<Scenario>
+			<identifier>0.1</identifier>
+			<name>Car following another car on a single-lane road</name>
+			<technicalId>String</technicalId>
+			<Aspects>
+				<functional>
+					<TransportationInfrastructure>
+						<Property>
+							<statement> The transportation infrastructure type is a Single-lane road. </statement>
+						</Property>
+					</TransportationInfrastructure>
+					<RoadType>
+						<Property>
+							<statement> The road surface type is Asphalt. </statement>
+						</Property>
+					</RoadType>
+					<RoadCondition>
+						<Property>
+							<statement> Current condition of the road is Dry. </statement>
+						</Property>
+					</RoadCondition>
+					<Obstacles>
+						<Property>
+							<statement> Following a movable object, which is straight ahead. </statement>
+						</Property>
+					</Obstacles>
+					<EnvironmentCondition>
+						<Property>
+							<statement> Weather condition is sunny and glare angle is at 30 degree on west. </statement>
+						</Property>
+					</EnvironmentCondition>
+					<VehicleStatus>
+						<Property>
+							<statement> Vehicle status is working with no hazard (Engine Light Off). </statement>
+						</Property>
+					</VehicleStatus>
+				</functional>
+			</Aspects>
+			<MacroActivity>
+				<Step>
+					<BusinessObject>
+						<name>TripPlan</name>
+						<technicalId>String</technicalId>
+					</BusinessObject>
+					<description>Trip Planner creates segment plan.</description>
+					<event>Initital Data</event>
+					<identifier>1</identifier>
+					<InformationProducer>
+						<name>Trip Planner</name>
+						<technicalId>String</technicalId>
+					</InformationProducer>
+					<InformationReceiver>
+						<name>Response</name>
+						<technicalId>String</technicalId>
+					</InformationReceiver>
+					<interaction>
+						<refMessage>msg1234</refMessage>
+					</interaction>
+					<name>Segment Plan</name>
+					<service>REPORT</service>
+				</Step>
+				<Step>
+					<BusinessObject>
+						<name>Torque Request</name>
+						<technicalId>String</technicalId>
+					</BusinessObject>
+					<description>Response generates Torque Request.</description>
+					<event>Segment Change</event>
+					<identifier>2</identifier>
+					<InformationProducer>
+						<name>Response</name>
+						<technicalId>String</technicalId>
+					</InformationProducer>
+					<InformationReceiver>
+						<name>Vehicle Physics Engine</name>
+						<technicalId>String</technicalId>
+					</InformationReceiver>
+					<interaction>
+						<refMessage>msg1234</refMessage>
+					</interaction>
+					<name>Torque Request</name>
+					<service>REPORT</service>
+				</Step>
+				<Step>
+					<BusinessObject>
+						<name>Vehicle Physics State</name>
+						<technicalId>String</technicalId>
+					</BusinessObject>
+					<description>Vehicle Physics Engine measure vehicle physics state.</description>
+					<event>Torque Request Change</event>
+					<identifier>3</identifier>
+					<InformationProducer>
+						<name>Vehicle Physics Engine</name>
+						<technicalId>String</technicalId>
+					</InformationProducer>
+					<InformationReceiver>
+						<name>Monitor</name>
+						<technicalId>String</technicalId>
+					</InformationReceiver>
+					<interaction>
+						<refMessage>msg1234</refMessage>
+					</interaction>
+					<name>TVehicle Physics State</name>
+					<service>REPORT</service>
+				</Step>
+				<technicalId>String</technicalId>
+			</MacroActivity>
+		</Scenario>
+		<scope>Safety Measurement for Autonomous Vehicle</scope>
+		<Version>
+			<Author>
+				<name> Marty Burns, Anirban Bhattacharjee </name>
+			</Author>
+			<date> 2020-06-30T00:00:00Z </date>
+		</Version>
+	</UseCase>
+</n1:CPSFramework>

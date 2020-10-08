@@ -8,6 +8,7 @@
 	</Folder>
 	<Folder FolderName="XSL Files" ExtStr="xsl;xslt">
 		<File FilePath="CPSFrameworkXMLToDOC.xsl" HomeFolder="Yes"/>
+		<File FilePath="CPSFrameworkXMLToDOC_v2.xsl" HomeFolder="Yes"/>
 		<File FilePath="IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XQuery Files" ExtStr="xq;xql;xquery;xqu"/>
