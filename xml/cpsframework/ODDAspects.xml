@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Anirban Bhattacharjee (National Institute of Standards & Technology) -->
-<!--<?xml-stylesheet type="text/xsl" href="CPSFrameworkXMLToDOC.xsl"?>-->
 <?xml-stylesheet type="text/xsl" href="CPSFrameworkXMLToDOC_v2.xsl"?>
 <n1:CPSFramework xmlns:n1="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="cpsframework ODDAspects.xsd">
 	<!-- BusinessCase: Provides a description or reference with some rationale for the suggested use case. Usually the business case is related to several use cases.-->

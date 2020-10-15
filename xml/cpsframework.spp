@@ -2,14 +2,11 @@
 <Project>
 	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml">
 		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
-		<File FilePath="ODDTesMJBt.xml" HomeFolder="Yes"/>
 		<File FilePath="ODDTest.json" HomeFolder="Yes"/>
 		<File FilePath="ODDTest.xml" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XSL Files" ExtStr="xsl;xslt">
-		<File FilePath="CPSFrameworkXMLToDOC.xsl" HomeFolder="Yes"/>
 		<File FilePath="CPSFrameworkXMLToDOC_v2.xsl" HomeFolder="Yes"/>
-		<File FilePath="IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="XQuery Files" ExtStr="xq;xql;xquery;xqu"/>
 	<Folder FolderName="HTML Files" ExtStr="html;htm;xhtml;asp"/>
@@ -25,10 +22,8 @@
 	<Folder FolderName="Entities" ExtStr="ent"/>
 	<Folder FolderName="cpsframework">
 		<File FilePath="cpsframework\cpsframework.xsd" HomeFolder="Yes"/>
-		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml"/>
-		<File FilePath="cpsframework\IntermediateToXHTMLNew.xslt" HomeFolder="Yes"/>
+		<File FilePath="CPSFrameworkXMLToDOC_v2.xsl"/>
 		<File FilePath="ODDAspects.xsd"/>
-		<File FilePath="ODDTest.json"/>
 		<File FilePath="ODDTest.xml"/>
 	</Folder>
 </Project>
