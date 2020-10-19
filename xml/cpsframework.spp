@@ -2,6 +2,7 @@
 <Project>
 	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml">
 		<File FilePath="cpsframework\IEC_UseCaseTemplate_Smart_Thermostat-v1_0.xml" HomeFolder="Yes"/>
+		<File FilePath="ODDTest _mjb.xml" HomeFolder="Yes"/>
 		<File FilePath="ODDTest.json" HomeFolder="Yes"/>
 		<File FilePath="ODDTest.xml" HomeFolder="Yes"/>
 	</Folder>
