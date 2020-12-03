@@ -167,13 +167,13 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Communication" type="Communication"/>
-	<xs:complexType name="Communication">
+	<xs:element name="CommunicationAspect" type="CommunicationAspect"/>
+	<xs:complexType name="CommunicationAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the exchange of information internal to the CPS and between the CPS and other entities.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="Concern">
+			<xs:extension base="Aspect">
 				<xs:sequence>
 					<xs:element name="BasicConnectivity" type="BasicConnectivity" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="NetworkInteroperability" type="NetworkInteroperability" minOccurs="0" maxOccurs="1"/>
@@ -512,7 +512,6 @@
 			<xs:extension base="Aspect">
 				<xs:sequence>
 					<xs:element name="Actuation" type="Actuation" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Communication" type="Communication" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Controllability" type="Controllability" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Functionality" type="Functionality" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Manageability" type="Manageability" minOccurs="0" maxOccurs="1"/>
