@@ -30,6 +30,7 @@ These aspects, nine of them in the CPS Framework, are the high-level concerns or
 		<xs:sequence>
 			<xs:element name="boundaries" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="business" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="communication" type="CommunicationAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="composition" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="data" type="DataAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="functional" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
