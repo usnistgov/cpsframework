@@ -21,6 +21,13 @@
 							}
 						]
 					},
+					"communication": {
+						"Property": [
+							{
+								"description": "\n\t\t\t\t\tConcerns about function including communication among on and off-vehicle, infrastrucutre Connectivity e.g. V2V and V2I communications, vehicle bus, Wireless Links etc.\n\t\t\t\t\t"
+							}
+						]
+					},
 					"composition": {
 						"Property": [
 							{
@@ -67,13 +74,6 @@
 						"Property": [
 							{
 								"description": "\n\t\t\t\t\tConcerns about trustworthiness of CPS including security, privacy, safety, reliability, resilience, Critical function redundancy, DDT Fallback, MRC capability/competence etc.\n\t\t\t\t"
-							}
-						]
-					},
-					"communications": {
-						"Property": [
-							{
-								"description": "\n\t\t\t\t\tConcerns about function including communication among on and off-vehicle, infrastrucutre Connectivity e.g. V2V and V2I communications, vehicle bus, Wireless Links etc.\n\t\t\t\t"
 							}
 						]
 					}
@@ -556,48 +556,46 @@
 						"name": "streammessage",
 						"technicalId": "msg1234",
 						"Aspects": {
-							"functional": {
-								"Communication": {
-									"BasicConnectivity": {
-										"OSIDataLink": {
-											"Property": [
-												{
-													"statement": "ADS messaging shall use Ethernet"
-												}
-											]
-										},
-										"OSIPhysical": {
-											"Property": [
-												{
-													"statement": "ADS messaging shall use CAN"
-												}
-											]
-										}
+							"communication": {
+								"BasicConnectivity": {
+									"OSIDataLink": {
+										"Property": [
+											{
+												"statement": "ADS messaging shall use Ethernet"
+											}
+										]
 									},
-									"NetworkInteroperability": {
-										"OSINetwork": {
-											"Property": [
-												{
-													"statement": "ADS messaging shall use IP"
-												}
-											]
-										}
+									"OSIPhysical": {
+										"Property": [
+											{
+												"statement": "ADS messaging shall use CAN"
+											}
+										]
+									}
+								},
+								"NetworkInteroperability": {
+									"OSINetwork": {
+										"Property": [
+											{
+												"statement": "ADS messaging shall use IP"
+											}
+										]
+									}
+								},
+								"SyntacticInteroperability": {
+									"OSIApplication": {
+										"Property": [
+											{
+												"statement": "ADS messaging shall use StreamAPI"
+											}
+										]
 									},
-									"SyntacticInteroperability": {
-										"OSIApplication": {
-											"Property": [
-												{
-													"statement": "ADS messaging shall use StreamAPI"
-												}
-											]
-										},
-										"OSIPresentation": {
-											"Property": [
-												{
-													"statement": "ADS messaging shall use JSON for payloads"
-												}
-											]
-										}
+									"OSIPresentation": {
+										"Property": [
+											{
+												"statement": "ADS messaging shall use JSON for payloads"
+											}
+										]
 									}
 								}
 							},
@@ -698,6 +696,14 @@
 						"name": "Acceleration Mode",
 						"technicalId": "String",
 						"Aspects": {
+							"communication": {
+								"Communication-on-off-vehicle": {
+								},
+								"VehicleBus": {
+								},
+								"WirelessLinks": {
+								}
+							},
 							"functional": {
 								"TransportationInfrastructure": {
 									"Property": [
@@ -740,14 +746,6 @@
 											"statement": " Vehicle status is working with no hazard (Engine Light Off). "
 										}
 									]
-								}
-							},
-							"communications": {
-								"Communication-on-off-vehicle": {
-								},
-								"VehicleBus": {
-								},
-								"WirelessLinks": {
 								}
 							}
 						},
@@ -966,6 +964,14 @@
 						"name": "Deceleration Mode",
 						"technicalId": "String",
 						"Aspects": {
+							"communication": {
+								"Communication-on-off-vehicle": {
+								},
+								"VehicleBus": {
+								},
+								"WirelessLinks": {
+								}
+							},
 							"functional": {
 								"TransportationInfrastructure": {
 									"Property": [
@@ -1008,14 +1014,6 @@
 											"statement": " Vehicle status is working with no hazard (Engine Light Off). "
 										}
 									]
-								}
-							},
-							"communications": {
-								"Communication-on-off-vehicle": {
-								},
-								"VehicleBus": {
-								},
-								"WirelessLinks": {
 								}
 							}
 						},
