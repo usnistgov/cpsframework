@@ -269,7 +269,7 @@ This identifier is unique among several exchange of information. A global reposi
 		</xs:sequence>
 	</xs:complexType>
 	<xs:element name="Domain" type="Domain"/>
-	<xs:complexType name="Domain" abstract="true">
+	<xs:complexType name="Domain">
 		<xs:annotation>
 			<xs:documentation>A domain is an area of knowledge or activity characterized by a set of concepts and terminology understood by the practitioners in that area. Examples include transportation, medical, energy, etc.</xs:documentation>
 		</xs:annotation>
