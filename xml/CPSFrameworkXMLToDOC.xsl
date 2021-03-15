@@ -1060,10 +1060,12 @@
 				</p>
 			</td>
 			<td>
-				<p>
-					<!--LOOKUP: UseCase/description-->
-					<xsl:value-of select="description"/>
-				</p>
+				<xsl:if test="description">
+					<p>
+						<!--LOOKUP: UseCase/description-->
+						<xsl:value-of select="description"/>
+					</p>
+				</xsl:if>
 			</td>
 		</tr>
 	</xsl:template>
@@ -1211,21 +1213,25 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<p>
-						<!--LOOKUP: UseCase/CPSGrouping/identifier-->
-						<xsl:attribute name="id">
-							<xsl:value-of select="identifier"/>
-						</xsl:attribute>
-					
-						<!--LOOKUP: UseCase/CPSGrouping/name-->
-						<xsl:value-of select="name"/>
-					</p>
+					<xsl:if test="identifier">
+						<p>
+							<!--LOOKUP: UseCase/CPSGrouping/identifier-->
+							<xsl:attribute name="id">
+								<xsl:value-of select="identifier"/>
+							</xsl:attribute>
+						
+							<!--LOOKUP: UseCase/CPSGrouping/name-->
+							<xsl:value-of select="name"/>
+						</p>
+					</xsl:if>
 				</td>
 				<td colspan="2">
-					<p>
-						<!--LOOKUP: UseCase/CPSGrouping/description-->
-						<xsl:value-of select="description"/>
-					</p>
+					<xsl:if test="description">
+						<p>
+							<!--LOOKUP: UseCase/CPSGrouping/description-->
+							<xsl:value-of select="description"/>
+						</p>
+					</xsl:if>
 				</td>
 			</tr>
 			<tr>
@@ -1442,10 +1448,12 @@
 				</p>
 			</td>
 			<td>
-				<p>
-					<!--LOOKUP: UseCase/Scenario/description-->
-					<xsl:value-of select="description"/>
-				</p>
+				<xsl:if test="description">
+					<p>
+						<!--LOOKUP: UseCase/Scenario/description-->
+						<xsl:value-of select="description"/>
+					</p>
+				</xsl:if>
 			</td>
 			<td>
 				<!--LOOKUP: UseCase/Scenario/PrimaryCPS-->
@@ -1553,10 +1561,12 @@
 					</p>
 				</th>
 				<td colspan="10">
-					<p>
-						<!--LOOKUP: Macroactivity/description-->
-						<xsl:value-of select="description"/>
-					</p>
+					<xsl:if test="description">
+						<p>
+							<!--LOOKUP: Macroactivity/description-->
+							<xsl:value-of select="description"/>
+						</p>
+					</xsl:if>
 				</td>
 			</tr>
 			
