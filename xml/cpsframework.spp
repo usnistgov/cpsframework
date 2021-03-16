@@ -23,6 +23,7 @@
 	<Folder FolderName="Entities" ExtStr="ent"/>
 	<Folder FolderName="cpsframework">
 		<File FilePath="cpsframework\cpsframework.xsd" HomeFolder="Yes"/>
+		<File FilePath="CPSFrameworkDOCToXML.xsl"/>
 		<File FilePath="cpsframework\CPSFrameworkXMLToDOC.xsl" HomeFolder="Yes"/>
 		<File FilePath="cpsframework\ODD.xml" HomeFolder="Yes"/>
 		<File FilePath="ODDAspects.xsd"/>
