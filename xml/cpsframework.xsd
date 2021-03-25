@@ -164,8 +164,8 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 		<xs:complexContent>
 			<xs:extension base="CPS">
 				<xs:sequence>
-					<xs:element name="Logical" type="Logical" minOccurs="1" maxOccurs="unbounded"/>
-					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="Logical" type="Logical" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Physical" type="Physical" minOccurs="1" maxOccurs="1"/>
 					<xs:element name="Ref_IrreducibleCPS" type="Ref_IrreducibleCPS" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
@@ -184,7 +184,7 @@ It's presence here guarantees that all of the elements of the CPS Framework inhe
 							<xs:documentation>reference to messages (peer to influences)</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="state" type="xs:string" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Message" type="Message" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -278,7 +278,7 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 							<xs:documentation>Reference to other Physical objects that this one influences. E.g. multiphysics influences between electrical and thermal properties.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="state" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="Influence" type="Influence" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
