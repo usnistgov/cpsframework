@@ -95,9 +95,9 @@
 			</head>
 			<body>
 				<h1>
-					0       Description of the Business Case
+					1       Description of the Business Case
 				</h1>
-				<table id="0">
+				<table id="1">
 					<tr>
 						<th>ID</th>
 						<th>Name</th>
@@ -113,12 +113,12 @@
 					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/BusinessCase//Aspects"/>
 				</xsl:call-template>
 				<h1>
-					1       Description of the Use Case
+					2       Description of the Use Case
 				</h1>
 				<h2>
-					1.1    Name of Use Case
+					2.1    Name of Use Case
 				</h2>
-				<table id="1.1">
+				<table id="2.1">
 					<tr>
 						<th colspan="3">Use Case Identification</th>
 					</tr>
@@ -130,9 +130,9 @@
 					<xsl:apply-templates select="cps:CPSFramework/UseCase"/>
 				</table>
 				<h2>
-					1.2    Version Management
+					2.2    Version Management
 				</h2>
-				<table id="1.2">
+				<table id="2.2">
 					<tr>
 						<th colspan="7">Version Management</th>
 					</tr>
@@ -145,32 +145,32 @@
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Version"/>
 				</table>
-				<table id="1.2.1" style="margin-top:16px">
+				<table id="2.2.1" style="margin-top:16px">
 					<tr>
 						<th colspan="5">Maturity</th>
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/Maturity"/>
 				</table>
 				<h2>
-					1.3    Scope and Objectives of Use Case
+					2.3    Scope and Objectives of Use Case
 				</h2>
-				<table id="1.3">
+				<table id="2.3">
 					<tr>
 						<th colspan="2">Scope and Objectives of Use Case</th>
 					</tr>
 					<xsl:call-template name="ScopeAndObjectives"/>
 				</table>
 				<h2>
-					1.4    Narrative of Use Case
+					2.4    Narrative of Use Case
 				</h2>
-				<table id="1.4">
+				<table id="2.4">
 					<tr>
 						<th>Narrative of Use Case</th>
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Narrative"/>
 				</table>
 				<h2>
-					1.5    General Remarks
+					2.5    General Remarks
 				</h2>
 				<table id="1.5">
 					<tr>
@@ -179,9 +179,9 @@
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Remark"/>
 				</table>
 				<h1>
-					2       Diagrams of Use Case
+					3       Diagrams of Use Case
 				</h1>
-				<table id="2">
+				<table id="3">
 					<tr>
 						<th>Diagram of the Use Case</th>
 					</tr>
@@ -192,16 +192,16 @@
 					</tr>
 				</table>
 				<h1>
-					3       Technical Details Use Case
+					4       Technical Details Use Case
 				</h1>
 				<h2>
-					3.1    Actors: People, Systems, Applications, Databases, the Power System, and Other Stakeholders
+					4.1    Actors: People, Systems, Applications, Databases, the Power System, and Other Stakeholders
 				</h2>
 				<xsl:apply-templates select="cps:CPSFramework/UseCase/CPSGrouping"/>
 				<h2>
-					3.2    Preconditions, Assumptions, Post condition, Events
+					4.2    Preconditions, Assumptions, Post condition, Events
 				</h2>
-				<table id="3.2">
+				<table id="4.2">
 					<tr>
 						<th colspan="4">Use Case Conditions</th>
 					</tr>
@@ -211,7 +211,7 @@
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Assumption"/>
 				</table>
-				<table id="3.3">
+				<table id="4.3">
 					<tr>
 						<th>Prerequisite name</th>
 						<th>Prerequisite content</th>
@@ -219,9 +219,9 @@
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Prerequisite"/>
 				</table>
 				<h2>
-					3.3    References / Issues
+					4.3    References / Issues
 				</h2>
-				<table id="3.4">
+				<table id="4.4">
 					<tr>
 						<th colspan="8">References</th>
 					</tr>
@@ -238,9 +238,9 @@
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Reference"/>
 				</table>
 				<h2>
-					3.4    Further Information to the Use Case for Classification / Mapping
+					4.4    Further Information to the Use Case for Classification / Mapping
 				</h2>
-				<table id="3.5">
+				<table id="4.5">
 					<tr>
 						<th colspan="6">Classification Information</th>
 					</tr>
@@ -255,9 +255,9 @@
 					<xsl:call-template name="FurtherInformation"/>
 				</table>
 				<h2>
-					3.5 Custom Information
+					4.5 Custom Information
 				</h2>
-				<table id="3.6">
+				<table id="4.6">
 					<tr>
 						<th>Key</th>
 						<th>Reference</th>
@@ -266,9 +266,9 @@
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/CustomInformation"/>
 				</table>
 				<h2>
-					3.6 Performance Indicators
+					4.6 Performance Indicators
 				</h2>
-				<table id="3.7">
+				<table id="4.7">
 					<tr>
 						<th>Name</th>
 						<th>Description</th>
@@ -276,9 +276,9 @@
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/KeyPerformanceIndicator"/>
 				</table>
-				<h1>4       Step by Step Analysis of Use Case
+				<h1>5       Step by Step Analysis of Use Case
 				</h1>
-				<table id="4">
+				<table id="5">
 					<tr>
 						<th colspan="7">Scenario Conditions</th>
 					</tr>
@@ -295,7 +295,7 @@
 					<xsl:apply-templates select="cps:CPSFramework/UseCase/Scenario" mode="ScenarioTable"/>
 				</table>
 				<xsl:call-template name="GenerateAspectsTable">
-					<xsl:with-param name="id" select="'4.0.1'"/>
+					<xsl:with-param name="id" select="'5.0.1'"/>
 					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/UseCase//Aspects"/>
 				</xsl:call-template>
 				<xsl:apply-templates select="cps:CPSFramework/UseCase/Scenario" mode="ScenarioStepsTable"/>
@@ -325,21 +325,21 @@
 				</xsl:call-template>
 -->
 				<h1>
-					5       Interactions
+					6       Interactions
 				</h1>
 				<h2>
-					5.1 Interaction Libary Maturity
+					6.1 Interaction Libary Maturity
 				</h2>
-				<table id="5.1">
+				<table id="6.1">
 					<tr>
 						<th colspan="5">Interaction Maturity</th>
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Maturity"/>
 				</table>
 				<h2>
-					5.2 Influences
+					6.2 Influences
 				</h2>
-				<table id="5.2">
+				<table id="6.2">
 					<tr>
 						<th colspan="3">Influences</th>
 					</tr>
@@ -355,9 +355,9 @@
 					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InteractionLibrary/Influences//Aspects"/>
 				</xsl:call-template>
 				<h2>
-					5.3 Messages
+					6.3 Messages
 				</h2>
-				<table id="5.3">
+				<table id="6.3">
 					<tr>
 						<th colspan="3">Messages</th>
 					</tr>
@@ -373,12 +373,12 @@
 					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InteractionLibrary/Messages//Aspects"/>
 				</xsl:call-template>
 				<h1>
-					6 CPS Library
+					7 CPS Library
 				</h1>
 				<h2>
-					6.1 CPS List
+					7.1 CPS List
 				</h2>
-				<table id="6.1">
+				<table id="7.1">
 					<tr>
 						<th colspan="8">CPS List</th>
 					</tr>
@@ -395,8 +395,8 @@
 					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/cps"/>
 					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//IrreducibleCPS"/>
 				</table>
-				<h2>6.2 Systems</h2>
-				<table id="6.2">
+				<h2>7.2 Systems</h2>
+				<table id="7.2">
 					<tr>
 						<th>Identifier</th>
 						<th>Name</th>
@@ -410,8 +410,8 @@
 					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/system"/>
 					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//System"/>
 				</table>
-				<h2>6.3 Human Elements</h2>
-				<table id="6.3">
+				<h2>7.3 Human Elements</h2>
+				<table id="7.3">
 					<tr>
 						<th>Identifier</th>
 						<th>Name</th>
@@ -424,8 +424,8 @@
 					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/system/Human"/>
 					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//System/Human"/>
 				</table>
-				<h2>6.4 System of Systems</h2>
-				<table id="6.4">
+				<h2>7.4 System of Systems</h2>
+				<table id="7.4">
 					<tr>
 						<th>Identifier</th>
 						<th>Name</th>
@@ -441,7 +441,7 @@
 					<xsl:with-param name="id" select="'7.0.1'"/>
 					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/CPSLibrary//Aspects"/>
 				</xsl:call-template>
-				<table id="6.5">
+				<table id="7.5">
 					<tr>
 						<th colspan="5">Maturity</th>
 					</tr>

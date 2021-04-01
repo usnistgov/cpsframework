@@ -26,6 +26,6 @@
 		<File FilePath="CPSFrameworkDOCToXML.xsl"/>
 		<File FilePath="cpsframework\CPSFrameworkXMLToDOC.xsl" HomeFolder="Yes"/>
 		<File FilePath="cpsframework\ODD.xml" HomeFolder="Yes"/>
-		<File FilePath="ODDAspects.xsd"/>
+		<File FilePath="cpsframework\ODDAspects.xsd" HomeFolder="Yes"/>
 	</Folder>
 </Project>
