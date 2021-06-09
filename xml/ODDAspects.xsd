@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2021 (http://www.altova.com) by Martin Burns (National Institute of Standards and Technology) -->
-<!--
-<xs:element name="Maturity" type="cpsframework:Maturity" minOccurs="0" maxOccurs="1"/>
--->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="cpsframework" xsi:schemaLocation="cpsframework ODDAspects.xsd">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework" targetNamespace="cpsframework">
 	<xs:redefine schemaLocation="cpsframework.xsd">
 		<xs:complexType name="FunctionalAspect">
 			<xs:complexContent>
