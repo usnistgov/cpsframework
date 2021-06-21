@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2021 (http://www.altova.com) by Martin Burns (National Institute of Standards and Technology) -->
-<xsl:stylesheet xmlns:cps="cpsframework" 
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
-xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:l="lookup"
-	exclude-result-prefixes="msxsl l"
-	
-
- version="1.0">
-
+<xsl:stylesheet xmlns:cps="cpsframework" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns="http://www.w3.org/1999/xhtml" xmlns:l="lookup" exclude-result-prefixes="msxsl l" version="1.0">
 	<!--Create and store aspect lookup table. This is stored as a sting
 		and must be converted back into an xml tree fragment.-->
 	<xsl:variable name="AspectLookupTableString">
 		<xsl:call-template name="CreateAspectLookup"/>
 	</xsl:variable>
-		
 	<!--Turns the Aspect lookup table back into an xml tree fragment.-->
-	<xsl:variable name="AspectLookupTable" select="msxsl:node-set($AspectLookupTableString)"/>	
-	
+	<!--	
+	<xsl:variable name="AspectLookupTable" select="msxsl:node-set($AspectLookupTableString)"/>
+-->
+	<xsl:variable name="AspectLookupTable" select="AspectLookupTableString"/>
 	<!--Creates an intermediary xml document based on all the Asepcts in the source document
 		in order to generate the Requirements table and create links to the rest of the document.-->
 	<xsl:template name="CreateAspectLookup">
@@ -34,19 +26,16 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</l:entry>
 		</xsl:for-each>
 	</xsl:template>
-	
 	<!--Get the number for the given Aspects Node.-->
 	<xsl:template match="Aspects" mode="GetAspectNumber">
 		<xsl:variable name="currentId" select="generate-id(.)"/>
 		<xsl:value-of select="$AspectLookupTable/l:entry[@id=$currentId]/@number"/>
 	</xsl:template>
-	
 	<!--Generates an aspect table with the Aspects that are children of the
 		given parent nodes.-->
 	<xsl:template name="GenerateAspectsTable">
 		<xsl:param name="id"/>
 		<xsl:param name="aspectNodes"/>
-		
 		<h2>
 			Requirements
 		</h2>
@@ -54,19 +43,16 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<tr>
 				<th colspan="2">Requirements</th>
 			</tr>
-			
 			<tr>
 				<th>R-ID</th>
 				<th>Details</th>
 			</tr>
-			
 			<xsl:for-each select="$aspectNodes">
 				<xsl:variable name="currentId" select="generate-id(.)"/>
 				<xsl:apply-templates select="$AspectLookupTable/l:entry[@id=$currentId]"/>
 			</xsl:for-each>
 		</table>
 	</xsl:template>
-	
 	<!--This template generates rows for the Requirements table based on the entries in the AspectLookupTable variable.-->
 	<xsl:template match="l:entry">
 		<tr>
@@ -80,7 +66,6 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</td>
 		</tr>
 	</xsl:template>
-	
 	<!--Generates elemtn paths for the given Aspects node.-->
 	<xsl:template match="Aspects" mode="GeneratePaths">
 		<xsl:for-each select="*">
@@ -89,29 +74,25 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</xsl:call-template>
 		</xsl:for-each>
 	</xsl:template>
-	
 	<!--Generates the entries for the Details column of the Requirements table. First the path of the node is output and the statement inside any
 		Property nodes are output joined with '; '.-->
 	<xsl:template name="CreateAspectElementPaths">
 		<xsl:param name="node"/>
 		<xsl:param name="path" select="''"/>
-		
 		<!--Create the path of the current node. If this is the first node, do not add a '/' before it.-->
 		<xsl:variable name="newPath">
 			<xsl:if test="$path != ''">
 				<xsl:value-of select="concat($path, '/')"/>
 			</xsl:if>
 			<xsl:value-of select="name($node)"/>
-		</xsl:variable>		
-		
+		</xsl:variable>
 		<!--If this node has at least one Property node after it, output an entry.-->
 		<xsl:if test="$node/Property">
 			<xsl:call-template name="OutputProperties">
 				<xsl:with-param name="path" select="$newPath"/>
 				<xsl:with-param name="nodes" select="$node/Property"/>
 			</xsl:call-template>
-		</xsl:if>		
-		
+		</xsl:if>
 		<!--For the remaining sub-nodes that are not type Property, recurse with the path of this node as the new paramater.-->
 		<xsl:for-each select="$node/*[name() != 'Property']">
 			<xsl:call-template name="CreateAspectElementPaths">
@@ -120,12 +101,10 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</xsl:call-template>
 		</xsl:for-each>
 	</xsl:template>
-	
 	<!--Creates a div grouping for a property name and its sub-table.-->
 	<xsl:template name="OutputProperties">
 		<xsl:param name="path"/>
 		<xsl:param name="nodes"/>
-		
 		<div>
 			<div style="display: inline-block; vertical-align: middle;">
 				<p>
@@ -137,7 +116,6 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</div>
 		</div>
 	</xsl:template>
-	
 	<!--Outputs a table for all of a property's elements.-->
 	<xsl:template match="Property">
 		<table style="margin: 8px;">
@@ -196,7 +174,6 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</xsl:if>
 		</table>
 	</xsl:template>
-	
 	<!--Joins the values in the given node set into one string with the given joinString in between.
 	Default JoinString is a space.-->
 	<xsl:template name="StringJoin">
@@ -209,10 +186,6 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
-	
-	
-	
-		
 	<xsl:output method="xml" version="4.0" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
 	<xsl:template match="/" name="initial-template">
 		<html>
@@ -252,7 +225,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 							text-align:justify;
 							page-break-after:avoid;
 							font-size:14.0pt;
-					Totbaknak$21ci		font-family:"Cambria","serif";
+							font-family:"Cambria","serif";
 							color:#365F91;
 							letter-spacing:.4pt;}
 					h2
@@ -319,198 +292,226 @@ xmlns="http://www.w3.org/1999/xhtml"
 					</tr>
 					<xsl:apply-templates select="cps:CPSFramework/BusinessCase"/>
 				</table>
-				<xsl:call-template name="GenerateAspectsTable">
-					<xsl:with-param name="id" select="'0.1'"/>
-					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/BusinessCase//Aspects"/>
-				</xsl:call-template>
-				<h1>
+				<xsl:if test="./UseCase  !=null">
+					<xsl:call-template name="GenerateAspectsTable">
+						<xsl:with-param name="id" select="'0.1'"/>
+						<xsl:with-param name="aspectNodes" select="cps:CPSFramework/BusinessCase//Aspects"/>
+					</xsl:call-template>
+				</xsl:if>
+				<xsl:if test="./BusinessCase  !=null">
+					<p>
+						<!--LOOKUP: BusinessCase/Domain/type-->
+						<xsl:value-of select="type"/>
+					</p>
+					<h1>
 					2       Description of the Use Case
 				</h1>
-				<h2>
+					<h2>
 					2.1    Name of Use Case
 				</h2>
-				<table id="2.1">
-					<tr>
-						<th colspan="3">Use Case Identification</th>
-					</tr>
-					<tr>
-						<th>ID</th>
-						<th>Name of Use Case</th>
-						<th>Description</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase"/>
-				</table>
-				<h2>
+					<table id="2.1">
+						<tr>
+							<th colspan="3">Use Case Identification</th>
+						</tr>
+						<tr>
+							<th>ID</th>
+							<th>Name of Use Case</th>
+							<th>Description</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase"/>
+					</table>
+					<h2>
 					2.2    Version Management
 				</h2>
-				<table id="2.2">
-					<tr>
-						<th colspan="7">Version Management</th>
-					</tr>
-					<tr>
-						<th>Version Management Changes</th>
-						<th>Date</th>
-						<th>Name, Author(s), or Committee</th>
-						<th>Approval Status, draft, for comments, for voting, final</th>
-						<th>Version Number</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Version"/>
-				</table>
-				<table id="2.2.1" style="margin-top:16px">
-					<tr>
-						<th colspan="5">Maturity</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/Maturity"/>
-				</table>
-				<h2>
+					<table id="2.2">
+						<tr>
+							<th colspan="7">Version Management</th>
+						</tr>
+						<tr>
+							<th>Version Management Changes</th>
+							<th>Date</th>
+							<th>Name, Author(s), or Committee</th>
+							<th>Approval Status, draft, for comments, for voting, final</th>
+							<th>Version Number</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Version"/>
+					</table>
+					<table id="2.2.1" style="margin-top:16px">
+						<tr>
+							<th colspan="5">Maturity</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/Maturity"/>
+					</table>
+					<h2>
 					2.3    Scope and Objectives of Use Case
 				</h2>
-				<table id="2.3">
-					<tr>
-						<th colspan="2">Scope and Objectives of Use Case</th>
-					</tr>
-					<xsl:call-template name="ScopeAndObjectives"/>
-				</table>
-				<h2>
+					<table id="2.3">
+						<tr>
+							<th colspan="2">Scope and Objectives of Use Case</th>
+						</tr>
+						<xsl:call-template name="ScopeAndObjectives"/>
+					</table>
+					<h2>
 					2.4    Narrative of Use Case
 				</h2>
-				<table id="2.4">
-					<tr>
-						<th>Narrative of Use Case</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Narrative"/>
-				</table>
-				<h2>
+					<table id="2.4">
+						<tr>
+							<th>Narrative of Use Case</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Narrative"/>
+					</table>
+					<h2>
 					2.5    General Remarks
 				</h2>
-				<table id="1.5">
-					<tr>
-						<th>General Remarks</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Remark"/>
-				</table>
-				<h1>
+					<table id="1.5">
+						<tr>
+							<th>General Remarks</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Remark"/>
+					</table>
+				</xsl:if>
+				<xsl:if test="type">
+					<h1>
 					3       Diagrams of Use Case
 				</h1>
-				<table id="3">
-					<tr>
-						<th>Diagram of the Use Case</th>
-					</tr>
-					<tr>
-						<td>
-							<xsl:apply-templates select="/cps:CPSFramework/UseCase/Drawing"/>
-						</td>
-					</tr>
-				</table>
-				<h1>
+					<table id="3">
+						<tr>
+							<th>Diagram of the Use Case</th>
+						</tr>
+						<tr>
+							<td>
+								<xsl:apply-templates select="/cps:CPSFramework/UseCase/Drawing"/>
+							</td>
+						</tr>
+					</table>
+				</xsl:if>
+				<xsl:if test="type">
+					<h1>
+					3       Diagrams of Use Case
+				</h1>
+					<table id="3">
+						<tr>
+							<th>Diagram of the Use Case</th>
+						</tr>
+						<tr>
+							<td>
+								<xsl:apply-templates select="/cps:CPSFramework/UseCase/Drawing"/>
+							</td>
+						</tr>
+					</table>
+				</xsl:if>
+				<xsl:if test="type">
+					<h1>
 					4       Technical Details Use Case
 				</h1>
-				<h2>
+					<h2>
 					4.1    Actors: People, Systems, Applications, Databases, the Power System, and Other Stakeholders
 				</h2>
-				<xsl:apply-templates select="cps:CPSFramework/UseCase/CPSGrouping"/>
-				<h2>
+					<xsl:apply-templates select="cps:CPSFramework/UseCase/CPSGrouping"/>
+					<h2>
 					4.2    Preconditions, Assumptions, Post condition, Events
 				</h2>
-				<table id="4.2">
-					<tr>
-						<th colspan="4">Use Case Conditions</th>
-					</tr>
-					<tr>
-						<th>Assumption name</th>
-						<th>Assumption content</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Assumption"/>
-				</table>
-				<table id="4.3">
-					<tr>
-						<th>Prerequisite name</th>
-						<th>Prerequisite content</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Prerequisite"/>
-				</table>
-				<h2>
+					<table id="4.2">
+						<tr>
+							<th colspan="4">Use Case Conditions</th>
+						</tr>
+						<tr>
+							<th>Assumption name</th>
+							<th>Assumption content</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Assumption"/>
+					</table>
+					<table id="4.3">
+						<tr>
+							<th>Prerequisite name</th>
+							<th>Prerequisite content</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Prerequisite"/>
+					</table>
+					<h2>
 					4.3    References / Issues
 				</h2>
-				<table id="4.4">
-					<tr>
-						<th colspan="8">References</th>
-					</tr>
-					<tr>
-						<th>No.</th>
-						<th>References Type</th>
-						<th>Reference</th>
-						<th>Description</th>
-						<th>Status</th>
-						<th>Impact on Use Case</th>
-						<th>Originator / Organisation</th>
-						<th>Link</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Reference"/>
-				</table>
-				<h2>
+					<table id="4.4">
+						<tr>
+							<th colspan="8">References</th>
+						</tr>
+						<tr>
+							<th>No.</th>
+							<th>References Type</th>
+							<th>Reference</th>
+							<th>Description</th>
+							<th>Status</th>
+							<th>Impact on Use Case</th>
+							<th>Originator / Organisation</th>
+							<th>Link</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Reference"/>
+					</table>
+					<h2>
 					4.4    Further Information to the Use Case for Classification / Mapping
 				</h2>
-				<table id="4.5">
-					<tr>
-						<th colspan="6">Classification Information</th>
-					</tr>
-					<tr>
-						<th>Relation to Other Use Cases</th>
-						<th>Level of Depth</th>
-						<th>Prioritisation</th>
-						<th>Generic, Regional or National Relation</th>
-						<th>View</th>
-						<th>Further Keywords for Classification</th>
-					</tr>
-					<xsl:call-template name="FurtherInformation"/>
-				</table>
-				<h2>
+					<table id="4.5">
+						<tr>
+							<th colspan="6">Classification Information</th>
+						</tr>
+						<tr>
+							<th>Relation to Other Use Cases</th>
+							<th>Level of Depth</th>
+							<th>Prioritisation</th>
+							<th>Generic, Regional or National Relation</th>
+							<th>View</th>
+							<th>Further Keywords for Classification</th>
+						</tr>
+						<xsl:call-template name="FurtherInformation"/>
+					</table>
+					<h2>
 					4.5 Custom Information
 				</h2>
-				<table id="4.6">
-					<tr>
-						<th>Key</th>
-						<th>Reference</th>
-						<th>Value</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/CustomInformation"/>
-				</table>
-				<h2>
+					<table id="4.6">
+						<tr>
+							<th>Key</th>
+							<th>Reference</th>
+							<th>Value</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/CustomInformation"/>
+					</table>
+					<h2>
 					4.6 Performance Indicators
 				</h2>
-				<table id="4.7">
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Objective</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/KeyPerformanceIndicator"/>
-				</table>
-				<h1>5       Step by Step Analysis of Use Case
+					<table id="4.7">
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Objective</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/KeyPerformanceIndicator"/>
+					</table>
+				</xsl:if>
+				<xsl:if test="type">
+					<h1>5       Step by Step Analysis of Use Case
 				</h1>
-				<table id="5">
-					<tr>
-						<th colspan="7">Scenario Conditions</th>
-					</tr>
-					<tr>
-						<th>No.</th>
-						<th>Scenario Name</th>
-						<th>Description</th>
-						<th>Primary Actor</th>
-						<th>Triggering Event</th>
-						<th>Pre-Condition</th>
-						<th>Post-Condition</th>
-						<th>Requirements R-ID</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/UseCase/Scenario" mode="ScenarioTable"/>
-				</table>
-				<xsl:call-template name="GenerateAspectsTable">
-					<xsl:with-param name="id" select="'5.0.1'"/>
-					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/UseCase//Aspects"/>
-				</xsl:call-template>
-				<xsl:apply-templates select="cps:CPSFramework/UseCase/Scenario" mode="ScenarioStepsTable"/>
-				<!--					5       Information Exchanged
+					<table id="5">
+						<tr>
+							<th colspan="7">Scenario Conditions</th>
+						</tr>
+						<tr>
+							<th>No.</th>
+							<th>Scenario Name</th>
+							<th>Description</th>
+							<th>Primary Actor</th>
+							<th>Triggering Event</th>
+							<th>Pre-Condition</th>
+							<th>Post-Condition</th>
+							<th>Requirements R-ID</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/UseCase/Scenario" mode="ScenarioTable"/>
+					</table>
+					<xsl:call-template name="GenerateAspectsTable">
+						<xsl:with-param name="id" select="'5.0.1'"/>
+						<xsl:with-param name="aspectNodes" select="cps:CPSFramework/UseCase//Aspects"/>
+					</xsl:call-template>
+					<xsl:apply-templates select="cps:CPSFramework/UseCase/Scenario" mode="ScenarioStepsTable"/>
+					<!--					5       Information Exchanged
 				<h1>				</h1>
 				<table id="5">
 					<tr>
@@ -535,136 +536,143 @@ xmlns="http://www.w3.org/1999/xhtml"
 					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InformationModelLibrary//Aspects"/>
 				</xsl:call-template>
 -->
-				<h1>
+				</xsl:if>
+				<xsl:if test="type">
+					<h1>
 					6       Interactions
 				</h1>
-				<h2>
+					<h2>
 					6.1 Interaction Libary Maturity
 				</h2>
-				<table id="6.1">
-					<tr>
-						<th colspan="5">Interaction Maturity</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Maturity"/>
-				</table>
-				<h2>
+					<table id="6.1">
+						<tr>
+							<th colspan="5">Interaction Maturity</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Maturity"/>
+					</table>
+					<h2>
 					6.2 Influences
 				</h2>
-				<table id="6.2">
-					<tr>
-						<th colspan="3">Influences</th>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Requirement R-ID</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Influences/influence"/>
-				</table>
-				<xsl:call-template name="GenerateAspectsTable">
-					<xsl:with-param name="id" select="'6.2.1'"/>
-					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InteractionLibrary/Influences//Aspects"/>
-				</xsl:call-template>
-				<h2>
+					<table id="6.2">
+						<tr>
+							<th colspan="3">Influences</th>
+						</tr>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Requirement R-ID</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Influences/influence"/>
+					</table>
+					<xsl:call-template name="GenerateAspectsTable">
+						<xsl:with-param name="id" select="'6.2.1'"/>
+						<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InteractionLibrary/Influences//Aspects"/>
+					</xsl:call-template>
+					<h2>
 					6.3 Messages
 				</h2>
-				<table id="6.3">
-					<tr>
-						<th colspan="3">Messages</th>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Requirement R-ID</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Messages/message"/>
-				</table>
-				<xsl:call-template name="GenerateAspectsTable">
-					<xsl:with-param name="id" select="'6.3.1'"/>
-					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InteractionLibrary/Messages//Aspects"/>
-				</xsl:call-template>
-				<h1>
+					<table id="6.3">
+						<tr>
+							<th colspan="3">Messages</th>
+						</tr>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Requirement R-ID</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/InteractionLibrary/Messages/message"/>
+					</table>
+					<xsl:call-template name="GenerateAspectsTable">
+						<xsl:with-param name="id" select="'6.3.1'"/>
+						<xsl:with-param name="aspectNodes" select="cps:CPSFramework/InteractionLibrary/Messages//Aspects"/>
+					</xsl:call-template>
+				</xsl:if>
+				<xsl:if test="type">
+					<h1>
 					7 CPS Library
 				</h1>
-				<h2>
+					<h2>
 					7.1 CPS List
 				</h2>
-				<table id="7.1">
-					<tr>
-						<th colspan="8">CPS List</th>
-					</tr>
-					<tr>
-						<th>Identifier</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Type</th>
-						<th>Domains</th>
-						<th>Requirements R-ID</th>
-						<th>Logical</th>
-						<th>Physical</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/cps"/>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//IrreducibleCPS"/>
-				</table>
-				<h2>7.2 Systems</h2>
-				<table id="7.2">
-					<tr>
-						<th>Identifier</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Type</th>
-						<th>Requirements R-ID</th>
-						<th>Domains</th>
-						<th>Human</th>
-						<th>Irreducible CPS</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/system"/>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//System"/>
-				</table>
-				<h2>7.3 Human Elements</h2>
-				<table id="7.3">
-					<tr>
-						<th>Identifier</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Type</th>
-						<th>Domains</th>
-						<th>Physical</th>
-						<th>Requirements R-ID</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/system/Human"/>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//System/Human"/>
-				</table>
-				<h2>7.4 System of Systems</h2>
-				<table id="7.4">
-					<tr>
-						<th>Identifier</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Type</th>
-						<th>Domains</th>
-						<th>System List</th>
-						<th>Requirements R-ID</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/systemofsystems"/>
-				</table>
-				<xsl:call-template name="GenerateAspectsTable">
-					<xsl:with-param name="id" select="'7.0.1'"/>
-					<xsl:with-param name="aspectNodes" select="cps:CPSFramework/CPSLibrary//Aspects"/>
-				</xsl:call-template>
-				<table id="7.5">
-					<tr>
-						<th colspan="5">Maturity</th>
-					</tr>
-					<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/Maturity"/>
-				</table>
+					<table id="7.1">
+						<tr>
+							<th colspan="8">CPS List</th>
+						</tr>
+						<tr>
+							<th>Identifier</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Type</th>
+							<th>Domains</th>
+							<th>Requirements R-ID</th>
+							<th>Logical</th>
+							<th>Physical</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/cps"/>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//IrreducibleCPS"/>
+					</table>
+					<h2>7.2 Systems</h2>
+					<table id="7.2">
+						<tr>
+							<th>Identifier</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Type</th>
+							<th>Requirements R-ID</th>
+							<th>Domains</th>
+							<th>Human</th>
+							<th>Irreducible CPS</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/system"/>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//System"/>
+					</table>
+					<h2>7.3 Human Elements</h2>
+					<table id="7.3">
+						<tr>
+							<th>Identifier</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Type</th>
+							<th>Domains</th>
+							<th>Physical</th>
+							<th>Requirements R-ID</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/system/Human"/>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary//System/Human"/>
+					</table>
+					<h2>7.4 System of Systems</h2>
+					<table id="7.4">
+						<tr>
+							<th>Identifier</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Type</th>
+							<th>Domains</th>
+							<th>System List</th>
+							<th>Requirements R-ID</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/systemofsystems"/>
+					</table>
+					<xsl:call-template name="GenerateAspectsTable">
+						<xsl:with-param name="id" select="'7.0.1'"/>
+						<xsl:with-param name="aspectNodes" select="cps:CPSFramework/CPSLibrary//Aspects"/>
+					</xsl:call-template>
+					<table id="7.5">
+						<tr>
+							<th colspan="5">Maturity</th>
+						</tr>
+						<xsl:apply-templates select="cps:CPSFramework/CPSLibrary/Maturity"/>
+					</table>
+				</xsl:if>
 			</body>
 		</html>
 	</xsl:template>
 	<xsl:template match="KeyPerformanceIndicator">
 		<tr>
 			<td>
-				<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+				<xsl:attribute name="id">
+					<xsl:value-of select="technicalId"/>
+				</xsl:attribute>
 				<xsl:value-of select="name"/>
 			</td>
 			<td>
@@ -696,7 +704,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 		<tr>
 			<td>
 				<p>
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<xsl:value-of select="identifier"/>
 				</p>
 			</td>
@@ -734,20 +744,26 @@ xmlns="http://www.w3.org/1999/xhtml"
 	</xsl:template>
 	<xsl:template match="system">
 		<tr>
-			<xsl:attribute name="id"><xsl:text>system</xsl:text></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:text>system</xsl:text>
+			</xsl:attribute>
 			<xsl:call-template name="GenerateSystemContent"/>
 		</tr>
 	</xsl:template>
 	<xsl:template match="System">
 		<tr>
-			<xsl:attribute name="id"><xsl:text>system-of-systems</xsl:text></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:text>system-of-systems</xsl:text>
+			</xsl:attribute>
 			<xsl:call-template name="GenerateSystemContent"/>
 		</tr>
 	</xsl:template>
 	<xsl:template name="GenerateSystemContent">
 		<td>
 			<p>
-				<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+				<xsl:attribute name="id">
+					<xsl:value-of select="technicalId"/>
+				</xsl:attribute>
 				<xsl:value-of select="identifier"/>
 			</p>
 		</td>
@@ -798,7 +814,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			</td>
 			<td>
 				<p>
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<xsl:value-of select="name"/>
 				</p>
 			</td>
@@ -827,20 +845,26 @@ xmlns="http://www.w3.org/1999/xhtml"
 	</xsl:template>
 	<xsl:template match="IrreducibleCPS">
 		<tr>
-			<xsl:attribute name="id"><xsl:text>irreducible-cps</xsl:text></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:text>irreducible-cps</xsl:text>
+			</xsl:attribute>
 			<xsl:call-template name="CreateCpsContent"/>
 		</tr>
 	</xsl:template>
 	<xsl:template match="cps">
 		<tr>
-			<xsl:attribute name="id"><xsl:text>cps</xsl:text></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:text>cps</xsl:text>
+			</xsl:attribute>
 			<xsl:call-template name="CreateCpsContent"/>
 		</tr>
 	</xsl:template>
 	<xsl:template name="CreateCpsContent">
 		<td>
 			<p>
-				<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+				<xsl:attribute name="id">
+					<xsl:value-of select="technicalId"/>
+				</xsl:attribute>
 				<xsl:value-of select="identifier"/>
 			</p>
 		</td>
@@ -879,7 +903,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 					<th>Name</th>
 					<th>
 						<p>
-							<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="technicalId"/>
+							</xsl:attribute>
 							<xsl:value-of select="name"/>
 						</p>
 					</th>
@@ -956,7 +982,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 					<th>Name</th>
 					<th>
 						<p>
-							<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="technicalId"/>
+							</xsl:attribute>
 							<xsl:value-of select="name"/>
 						</p>
 					</th>
@@ -1028,7 +1056,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 	</xsl:template>
 	<xsl:template match="Domain">
 		<p>
-			<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:value-of select="technicalId"/>
+			</xsl:attribute>
 			<xsl:value-of select="name"/>
 			<xsl:text>: </xsl:text>
 			<xsl:value-of select="description"/>
@@ -1041,7 +1071,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: BusinessCase/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: BusinessCase/identifier-->
 					<xsl:value-of select="identifier"/>
 				</p>
@@ -1056,7 +1088,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<xsl:for-each select="Domain">
 					<p>
 						<!--LOOKUP: BusinessCase/Domain/technicalId-->
-						<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+						<xsl:attribute name="id">
+							<xsl:value-of select="technicalId"/>
+						</xsl:attribute>
 						<!--LOOKUP: BusinessCase/Domain/name-->
 						<xsl:value-of select="name"/>
 					</p>
@@ -1091,7 +1125,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: UseCase/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: UseCase/Identifier-->
 					<xsl:value-of select="identifier"/>
 				</p>
@@ -1144,7 +1180,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<td>
 					<xsl:for-each select="RelatedObjective">
 						<p>
-							<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="technicalId"/>
+							</xsl:attribute>
 							<xsl:value-of select="concat(name,': ', description)"/>
 						</p>
 					</xsl:for-each>
@@ -1158,7 +1196,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: UseCase/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: UseCase/Remark/content-->
 					<xsl:value-of select="content"/>
 				</p>
@@ -1249,7 +1289,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 					<xsl:if test="identifier">
 						<p>
 							<!--LOOKUP: UseCase/CPSGrouping/identifier-->
-							<xsl:attribute name="id"><xsl:value-of select="identifier"/></xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="identifier"/>
+							</xsl:attribute>
 							<!--LOOKUP: UseCase/CPSGrouping/name-->
 							<xsl:value-of select="name"/>
 						</p>
@@ -1335,7 +1377,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: UseCase/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: UseCase/Reference/identifier-->
 					<xsl:value-of select="identifier"/>
 				</p>
@@ -1390,11 +1434,15 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<tr>
 				<td>
 					<!--LOOKUP: UseCase/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<xsl:for-each select="RelatedUseCase">
 						<p>
 							<!--LOOKUP: UseCase/RelatedUseCase/technicalId-->
-							<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="technicalId"/>
+							</xsl:attribute>
 							<!--LOOKUP: UseCase/RelatedUseCase/name-->
 							<!--<xsl:value-of select="if (position() = last()) then name else concat(name, ',')"/>-->
 							<xsl:value-of select="name"/>
@@ -1444,7 +1492,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: UseCase/Scenario/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: UseCase/Scenario/identifier-->
 					<xsl:value-of select="identifier"/>
 				</p>
@@ -1468,7 +1518,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<xsl:for-each select="PrimaryCPS">
 					<p>
 						<!--LOOKUP: PrimaryCPS/technicalId-->
-						<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+						<xsl:attribute name="id">
+							<xsl:value-of select="technicalId"/>
+						</xsl:attribute>
 						<!--LOOKUP: PrimaryCPS/name-->
 						<xsl:value-of select="name"/>
 					</p>
@@ -1513,7 +1565,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 		<h2>
 			<p>
 				<!--LOOKUP: Scenario/technicalId-->
-				<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+				<xsl:attribute name="id">
+					<xsl:value-of select="technicalId"/>
+				</xsl:attribute>
 				<!--LOOKUP: Scenario/name-->
 				<xsl:text>Steps - </xsl:text>
 				<xsl:value-of select="name"/>
@@ -1547,7 +1601,10 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<tr id="MacroActivity">
 				<th scope="row" colspan="2">
 					<p>
-						<xsl:attribute name="id"><!--LOOKUP: MacroActivity/technicald--><xsl:value-of select="technicalId"/></xsl:attribute>
+						<xsl:attribute name="id">
+							<!--LOOKUP: MacroActivity/technicald-->
+							<xsl:value-of select="technicalId"/>
+						</xsl:attribute>
 						<!--LOOKUP: Macroactivity/name-->
 						<xsl:value-of select="name"/>
 					</p>
@@ -1576,7 +1633,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<td colspan="12">
 					<xsl:for-each select="PrimaryCPS">
 						<p>
-							<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="technicalId"/>
+							</xsl:attribute>
 							<xsl:value-of select="name"/>
 						</p>
 					</xsl:for-each>
@@ -1616,7 +1675,10 @@ xmlns="http://www.w3.org/1999/xhtml"
 		<tr>
 			<td>
 				<p>
-					<xsl:attribute name="id"><!--LOOKUP: Step/technicalId--><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<!--LOOKUP: Step/technicalId-->
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: Step/identifier-->
 					<xsl:value-of select="identifier"/>
 				</p>
@@ -1649,7 +1711,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<xsl:for-each select="InformationProducer">
 					<p>
 						<!--LOOKUP: Step/InformationProducer/technicalId-->
-						<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+						<xsl:attribute name="id">
+							<xsl:value-of select="technicalId"/>
+						</xsl:attribute>
 						<!--LOOKUP: Step/InformationProducer/name-->
 						<xsl:value-of select="name"/>
 					</p>
@@ -1659,7 +1723,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<xsl:for-each select="InformationReceiver">
 					<p>
 						<!--LOOKUP: Step/InformationReceiver/technicalId-->
-						<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+						<xsl:attribute name="id">
+							<xsl:value-of select="technicalId"/>
+						</xsl:attribute>
 						<!--LOOKUP: Step/InformationReceiver/name-->
 						<xsl:value-of select="name"/>
 					</p>
@@ -1669,7 +1735,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 				<xsl:for-each select="BusinessObject">
 					<p>
 						<!--LOOKUP: Step/BusinessObject/technicalId-->
-						<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+						<xsl:attribute name="id">
+							<xsl:value-of select="technicalId"/>
+						</xsl:attribute>
 						<!--LOOKUP: Step/BusinessObject/name-->
 						<xsl:value-of select="name"/>
 					</p>
@@ -1704,7 +1772,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: InformationModel/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: InformationModel/name-->
 					<xsl:value-of select="name"/>
 				</p>
@@ -1781,7 +1851,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: influence/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: influence/name-->
 					<xsl:value-of select="name"/>
 				</p>
@@ -1805,7 +1877,9 @@ xmlns="http://www.w3.org/1999/xhtml"
 			<td>
 				<p>
 					<!--LOOKUP: message/technicalId-->
-					<xsl:attribute name="id"><xsl:value-of select="technicalId"/></xsl:attribute>
+					<xsl:attribute name="id">
+						<xsl:value-of select="technicalId"/>
+					</xsl:attribute>
 					<!--LOOKUP: message/name-->
 					<xsl:value-of select="name"/>
 				</p>
@@ -1827,13 +1901,25 @@ xmlns="http://www.w3.org/1999/xhtml"
 		use a p element.-->
 	<xsl:template match="Drawing">
 		<p>
-			<xsl:attribute name="id"><xsl:value-of select="drawingType"/></xsl:attribute>
+			<xsl:attribute name="id">
+				<xsl:value-of select="drawingType"/>
+			</xsl:attribute>
 			<xsl:element name="img">
-				<xsl:attribute name="id"><xsl:value-of select="URI/@type"/></xsl:attribute>
-				<xsl:attribute name="width"><xsl:value-of select="substring-before(substring-after(URI,'W'),'_')"/></xsl:attribute>
-				<xsl:attribute name="height"><xsl:value-of select="substring-before(substring-after(URI,'H'),'_')"/></xsl:attribute>
-				<xsl:attribute name="src"><xsl:value-of select="URI"/></xsl:attribute>
-				<xsl:attribute name="alt"><xsl:value-of select="name"/></xsl:attribute>
+				<xsl:attribute name="id">
+					<xsl:value-of select="URI/@type"/>
+				</xsl:attribute>
+				<xsl:attribute name="width">
+					<xsl:value-of select="substring-before(substring-after(URI,'W'),'_')"/>
+				</xsl:attribute>
+				<xsl:attribute name="height">
+					<xsl:value-of select="substring-before(substring-after(URI,'H'),'_')"/>
+				</xsl:attribute>
+				<xsl:attribute name="src">
+					<xsl:value-of select="URI"/>
+				</xsl:attribute>
+				<xsl:attribute name="alt">
+					<xsl:value-of select="name"/>
+				</xsl:attribute>
 			</xsl:element>
 		</p>
 	</xsl:template>
