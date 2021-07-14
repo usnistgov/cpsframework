@@ -2,7 +2,7 @@
 <Project>
 	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml">
 		<File FilePath="ODD.xml" HomeFolder="Yes"/>
-		<File FilePath="cpsframework\ODD_BusinessCase.xml"/>
+		<File FilePath="cpsframework\ODD_BusinessCase.xml" HomeFolder="Yes"/>
 		<File FilePath="cpsframework\ODDCPSLibrary.xml" HomeFolder="Yes"/>
 		<File FilePath="cpsframework\ODDUseCase.xml" HomeFolder="Yes"/>
 	</Folder>
@@ -29,7 +29,9 @@
 		<File FilePath="CPSFrameworkDOCToXML.xsl"/>
 		<File FilePath="cpsframework\CPSFrameworkXMLToDOC.xsl" HomeFolder="Yes"/>
 		<File FilePath="cpsframework\ODD.xml" HomeFolder="Yes"/>
-		<File FilePath="cpsframework\ODD_BusinessCase.xml" HomeFolder="Yes"/>
+		<File FilePath="cpsframework\ODD_BusinessCase.xml"/>
 		<File FilePath="cpsframework\ODDAspects.xsd" HomeFolder="Yes"/>
+		<File FilePath="cpsframework\ODDCPSLibrary.xml"/>
+		<File FilePath="cpsframework\ODDUseCase.xml"/>
 	</Folder>
 </Project>
