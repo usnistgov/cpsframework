@@ -1,0 +1,624 @@
+{
+	"#": " edited with XMLSpy v2021 (x64) (http://www.altova.com) by Anirban Bhattacharjee (National Institute of Standards & Technology) ",
+	"n1:CPSFramework": {
+		"Maturity": {
+			"effective": "",
+			"maturity": "submitted",
+			"responsibleParty": "",
+			"revision": "0.1",
+			"status": "asDeveloped"
+		},
+		"#": " Specify the USECASE ",
+		"UseCase": [
+			{
+				"description": "Car following another car on a single-lane road",
+				"identifier": "ADS-T-1",
+				"name": "Verification and Validation of Safety Features for ADS",
+				"technicalId": "ADS-T-1- UUID",
+				"classification": "Generic",
+				"CPSGrouping": [
+					{
+						"CPS": [
+							{
+								"name": "TimingLocation",
+								"technicalId": "12345543211"
+							}
+						]
+					}
+				],
+				"CustomInformation": [
+					{
+						"key": "String",
+						"reference": "String",
+						"value": "String"
+					}
+				],
+				"Drawing": [
+					{
+						"drawingType": "MacroActivities Flowchart",
+						"name": "String",
+						"URI": {
+							"@type": "Image",
+							"$": "file:///C:/Users/vagrant/Documents/Source/cpsframework/xml/CPSFederationDescriptor.png"
+						}
+					}
+				],
+				"KeyPerformanceIndicator": [
+					{
+						"description": "String",
+						"name": "String",
+						"Objective": [
+							{
+								"technicalId": "String"
+							}
+						],
+						"technicalId": "String"
+					}
+				],
+				"keywords": "User, federate, ODD, sensor, path planner, path segment, HLA, vehicle physics, monitor, analysis",
+				"levelOfDepth": "Detailed",
+				"Narrative": {
+					"completeDescription": " \nThis use case describes an automated vehicle's operations to follow another vehicle on a single lane road.  The vehicle has three operational modes – acceleration, deceleration, and lane following. Event Sensors of the vehicle provides the inputs for road-level environment modeling. These inputs are external inputs such as road types, road conditions, environmental conditions such as snow, rainfall, and variations. Vehicle Sensors are responsible for context-/scene modeling concerning the contextual goal. These inputs are vehicle type, class, condition, tire friction in the specific environmental condition, etc. along with the camera image/Lidar scanner input. Based on these inputs the vehicle controller is responsible for detecting events and execution of steering and acceleration/deceleration action to maintain a safe distance. It is also responsible for fallback performance in the safest possible way. All communications among multiple functional modules happen over the vehicle bus. Remote client applications are responsible for monitoring and logging the interaction of the functional modules.\n\t\t",
+					"shortDescription": "\nThis use case describes an automated vehicle's operations to follow another vehicle on a single lane road.  The vehicle has three operational modes – acceleration, deceleration, and lane following."
+				},
+				"nature": "Technical",
+				"prioritisation": "High",
+				"RelatedUseCase": [
+					{
+						"name": "",
+						"technicalId": ""
+					}
+				],
+				"Scenario": [
+					{
+						"description": "This is the acceleration setting on the vehicle.",
+						"identifier": "0.1",
+						"name": "Acceleration Mode",
+						"technicalId": "String",
+						"Aspects": {
+							"communication": {
+								"Communication-on-off-vehicle": {
+								},
+								"VehicleBus": {
+								},
+								"WirelessLinks": {
+								}
+							},
+							"functional": {
+								"TransportationInfrastructure": {
+									"Property": [
+										{
+											"statement": " The transportation infrastructure type is a Single-lane road. "
+										}
+									]
+								},
+								"RoadType": {
+									"Property": [
+										{
+											"statement": " The road surface type is Asphalt. "
+										}
+									]
+								},
+								"RoadCondition": {
+									"Property": [
+										{
+											"statement": " Current condition of the road is Dry. "
+										}
+									]
+								},
+								"Obstacles": {
+									"Property": [
+										{
+											"statement": " Following a movable object, which is straight ahead. "
+										}
+									]
+								},
+								"EnvironmentCondition": {
+									"Property": [
+										{
+											"statement": " Weather condition is sunny and glare angle is at 30 degree on west. "
+										}
+									]
+								},
+								"VehicleStatus": {
+									"Property": [
+										{
+											"statement": " Vehicle status is working with no hazard (Engine Light Off). "
+										}
+									]
+								}
+							}
+						},
+						"MacroActivity": [
+							{
+								"description": "The commands and statuses reference to VehiclePhysicsEng",
+								"name": "Acceleration Mode",
+								"PrimaryCPS": [
+									{
+										"name": "OEDRC",
+										"technicalId": "OEDRC-UUID"
+									},
+									{
+										"name": "VehiclePhysicsEng",
+										"technicalId": "VehiclePhysicsEng-UUID"
+									}
+								],
+								"Requirement": [
+									{
+										"technicalId": "String"
+									}
+								],
+								"Step": [
+									{
+										"BusinessObject": [
+											{
+												"name": "TripPlan",
+												"technicalId": "String"
+											}
+										],
+										"description": "Create trip plan to follow the car by keep safe distance gap.",
+										"event": "SetSafeDistance",
+										"identifier": "1",
+										"InformationProducer": [
+											{
+												"name": "TripPlanner",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "OEDRC",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1234"
+										},
+										"name": "SetSafeDistance",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "EnvironmentScenario",
+												"technicalId": "String"
+											}
+										],
+										"description": "Measure the distance from the leader car from the sensed image.",
+										"event": "DistanceChange",
+										"identifier": "2",
+										"InformationProducer": [
+											{
+												"name": "OEDRC",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Response",
+												"technicalId": "String"
+											},
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1235"
+										},
+										"name": "EnvironmentScenario",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "SensorData",
+												"technicalId": "String"
+											}
+										],
+										"description": "Send vehicle sensor data.",
+										"event": "SensorData",
+										"identifier": "3",
+										"InformationProducer": [
+											{
+												"name": "Sensors",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "OEDRC",
+												"technicalId": "String"
+											},
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1236"
+										},
+										"name": "SensorData",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "TorqueRequestsOp",
+												"technicalId": "String"
+											}
+										],
+										"description": "Response generates Torque Request for acceleration.",
+										"event": "ScenarioUpdate",
+										"identifier": "4",
+										"InformationProducer": [
+											{
+												"name": "Response",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "VehiclePhysicsEng",
+												"technicalId": "String"
+											},
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1237"
+										},
+										"name": "TorqueRequestsOp",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "VehiclePhysState",
+												"technicalId": "String"
+											}
+										],
+										"description": "Vehicle Physics Engine measure vehicle physics state.",
+										"event": "TorqueRequestsChange",
+										"identifier": "5",
+										"InformationProducer": [
+											{
+												"name": "VehiclePhysicsEng",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1238"
+										},
+										"name": "VehiclePhysState",
+										"service": "REPORT"
+									}
+								],
+								"technicalId": "String"
+							}
+						],
+						"Postcondition": [
+							{
+								"content": "The throttle is running until the gap is lower than the safe distance.",
+								"name": "String"
+							}
+						],
+						"Precondition": [
+							{
+								"content": "Larger gap than the safe distance from the leader vehicle.",
+								"name": "String"
+							}
+						],
+						"PrimaryCPS": [
+							{
+								"name": "TripPlanner",
+								"technicalId": "TripPlanner-UUID"
+							},
+							{
+								"name": "OEDRC",
+								"technicalId": "OEDRC-UUID"
+							},
+							{
+								"name": "VehiclePhysicsEng",
+								"technicalId": "VehiclePhysicsEng-UUID"
+							}
+						],
+						"TriggeringEvent": [
+							{
+								"content": "Distance from the leader car",
+								"name": "Gap"
+							}
+						]
+					},
+					{
+						"description": "This is the deceleration setting on the vehicle.",
+						"identifier": "0.2",
+						"name": "Deceleration Mode",
+						"technicalId": "String",
+						"Aspects": {
+							"communication": {
+								"Communication-on-off-vehicle": {
+								},
+								"VehicleBus": {
+								},
+								"WirelessLinks": {
+								}
+							},
+							"functional": {
+								"TransportationInfrastructure": {
+									"Property": [
+										{
+											"statement": " The transportation infrastructure type is a Single-lane road. "
+										}
+									]
+								},
+								"RoadType": {
+									"Property": [
+										{
+											"statement": " The road surface type is Asphalt. "
+										}
+									]
+								},
+								"RoadCondition": {
+									"Property": [
+										{
+											"statement": " Current condition of the road is Dry. "
+										}
+									]
+								},
+								"Obstacles": {
+									"Property": [
+										{
+											"statement": " Following a movable object, which is straight ahead. "
+										}
+									]
+								},
+								"EnvironmentCondition": {
+									"Property": [
+										{
+											"statement": " Weather condition is sunny and glare angle is at 30 degree on west. "
+										}
+									]
+								},
+								"VehicleStatus": {
+									"Property": [
+										{
+											"statement": " Vehicle status is working with no hazard (Engine Light Off). "
+										}
+									]
+								}
+							}
+						},
+						"MacroActivity": [
+							{
+								"description": "The commands and statuses reference to VehiclePhysicsEng",
+								"name": "Deceleration Mode",
+								"PrimaryCPS": [
+									{
+										"name": "OEDRC",
+										"technicalId": "OEDRC-UUID"
+									},
+									{
+										"name": "VehiclePhysicsEng",
+										"technicalId": "VehiclePhysicsEng-UUID"
+									}
+								],
+								"Requirement": [
+									{
+										"technicalId": "String"
+									}
+								],
+								"Step": [
+									{
+										"BusinessObject": [
+											{
+												"name": "TripPlan",
+												"technicalId": "String"
+											}
+										],
+										"description": "Create trip plan to follow the car by keep safe distance gap.",
+										"event": "SetSafeDistance",
+										"identifier": "1",
+										"InformationProducer": [
+											{
+												"name": "TripPlanner",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "OEDRC",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1234"
+										},
+										"name": "SetSafeDistance",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "EnvironmentScenario",
+												"technicalId": "String"
+											}
+										],
+										"description": "Measure the distance from the leader car from the sensed image.",
+										"event": "DistanceChange",
+										"identifier": "2",
+										"InformationProducer": [
+											{
+												"name": "OEDRC",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Response",
+												"technicalId": "String"
+											},
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1235"
+										},
+										"name": "EnvironmentScenario",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "SensorData",
+												"technicalId": "String"
+											}
+										],
+										"description": "Send vehicle sensor data.",
+										"event": "SensorData",
+										"identifier": "3",
+										"InformationProducer": [
+											{
+												"name": "Sensors",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "OEDRC",
+												"technicalId": "String"
+											},
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1236"
+										},
+										"name": "SensorData",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "TorqueRequestsOp",
+												"technicalId": "String"
+											}
+										],
+										"description": "Response generates Brake Request for deceleration.",
+										"event": "ScenarioUpdate",
+										"identifier": "4",
+										"InformationProducer": [
+											{
+												"name": "Response",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "VehiclePhysicsEng",
+												"technicalId": "String"
+											},
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1237"
+										},
+										"name": "TorqueRequestsOp",
+										"service": "REPORT"
+									},
+									{
+										"BusinessObject": [
+											{
+												"name": "VehiclePhysState",
+												"technicalId": "String"
+											}
+										],
+										"description": "Vehicle Physics Engine measure vehicle physics state.",
+										"event": "TorqueRequestsChange",
+										"identifier": "5",
+										"InformationProducer": [
+											{
+												"name": "VehiclePhysicsEng",
+												"technicalId": "String"
+											}
+										],
+										"InformationReceiver": [
+											{
+												"name": "Monitor",
+												"technicalId": "String"
+											}
+										],
+										"interaction": {
+											"refMessage": "msg1238"
+										},
+										"name": "VehiclePhysState",
+										"service": "REPORT"
+									}
+								],
+								"technicalId": "String"
+							}
+						],
+						"Postcondition": [
+							{
+								"content": "The braking is running until the gap is lower than the safe distance.",
+								"name": "String"
+							}
+						],
+						"Precondition": [
+							{
+								"content": "Smaller gap than the safe distance from the leader vehicle.",
+								"name": "String"
+							}
+						],
+						"PrimaryCPS": [
+							{
+								"name": "TripPlanner",
+								"technicalId": "TripPlanner-UUID"
+							},
+							{
+								"name": "OEDRC",
+								"technicalId": "OEDRC-UUID"
+							},
+							{
+								"name": "VehiclePhysicsEng",
+								"technicalId": "VehiclePhysicsEng-UUID"
+							}
+						],
+						"TriggeringEvent": [
+							{
+								"content": "Distance from the leader car",
+								"name": "Gap"
+							}
+						]
+					}
+				],
+				"scope": "Safety Measurement for Autonomous Vehicle",
+				"Version": [
+					{
+						"Author": [
+							{
+								"name": " Marty Burns, Anirban Bhattacharjee "
+							}
+						],
+						"date": " 2020-06-30T00:00:00Z "
+					}
+				]
+			}
+		]
+	}
+}
