@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework" targetNamespace="cpsframework">
+	<xs:redefine schemaLocation="cpsframework.xsd">
+		<xs:complexType name="FunctionalAspect">
+			<xs:complexContent>
+				<xs:extension base="FunctionalAspect">
+					<xs:sequence>
+						<xs:element name="TransportationInfrastructure" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="RoadType" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="RoadCondition" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Obstacles" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="EnvironmentCondition" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleStatus" type="FunctionalAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="BusinessAspect">
+			<xs:complexContent>
+				<xs:extension base="BusinessAspect">
+					<xs:sequence>
+						<xs:element name="OperationalConstraints" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="TrafficLaws" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Right-of-wayRules" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureStandards" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleTypeClassification" type="BusinessAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="HumanAspect">
+			<xs:complexContent>
+				<xs:extension base="HumanAspect">
+					<xs:sequence>
+						<xs:element name="OtherHumanDrivers" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="FallbackDriverPresence" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Pedestrian-Bicyclist-AnimalPresense" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleUsagePolicy" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="HumanVehicleInterface" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="PassengerPresence" type="HumanAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="CommunicationAspect">
+			<xs:annotation>
+				<xs:documentation>The Communication Aspect is a set of concerns related to the communication between the CPS components.</xs:documentation>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="CommunicationAspect">
+					<xs:sequence>
+						<xs:element name="Communication-on-off-vehicle" type="CommunicationAspect" minOccurs="0"/>
+						<xs:element name="Connectivity" type="CommunicationAspect" minOccurs="0"/>
+						<xs:element name="V2VCommunications" type="CommunicationAspect" minOccurs="0"/>
+						<xs:element name="V2ICommunications" type="CommunicationAspect" minOccurs="0"/>
+						<xs:element name="VehicleBus" type="CommunicationAspect" minOccurs="0"/>
+						<xs:element name="WirelessLinks" type="CommunicationAspect" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="TrustworthinessAspect">
+			<xs:complexContent>
+				<xs:extension base="TrustworthinessAspect">
+					<xs:sequence>
+						<xs:element name="SafetySigns" type="Property" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="OperationalSecurityCapabilities" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Safety-EmergencyResponseProcedures" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="CriticalFunctionRedundancy" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="DDTFallback" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="MRCCapabilities" type="TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="TimingAspect">
+			<xs:complexContent>
+				<xs:extension base="TimingAspect">
+					<xs:sequence>
+						<xs:element name="TimingSignalSources" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Latency-UncertaintyLimits" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="SignalLoss" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Timed-ManeuverLimits" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="V2VSynchronization" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="V2ISynchronization" type="TimingAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="DataAspect">
+			<xs:complexContent>
+				<xs:extension base="DataAspect">
+					<xs:sequence>
+						<xs:element name="OperationalData" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Real-TimeTrafficFeed" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="HistoricalTrafficPatterns" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Connectivity" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="V2VCommunication" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="V2ICommunication" type="DataAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="BoundariesAspect">
+			<xs:complexContent>
+				<xs:extension base="BoundariesAspect">
+					<xs:sequence>
+						<xs:element name="Geolocation" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Zones" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="GeofenceSpecifications" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="WeatherRestrictions" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Local-State-NationalJurisdictions" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Sensing-Actuation-OperatingLimits" type="BoundariesAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="CompositionAspect">
+			<xs:complexContent>
+				<xs:extension base="CompositionAspect">
+					<xs:sequence>
+						<xs:element name="TrafficManagementSystems" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Cross-infrastructureIntegration" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="EV-ChargingSystemsInteractions" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="CoordinatedManeuvers" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="MultiVehiclesPlatoons" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="ConnectedVehicleSafetyMessages" type="CompositionAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="LifecyscleAspect">
+			<xs:complexContent>
+				<xs:extension base="LifecyscleAspect">
+					<xs:sequence>
+						<xs:element name="VehicleComponentLifetimeLimits" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="CurrentComponentWearStatus" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureLifetimeLimits" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureWearStatus" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureUpdate-PatchStatus" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleReflash-FOTA" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleWear-Durability-Life-Testing" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+</xs:schema>
