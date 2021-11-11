@@ -1259,7 +1259,7 @@ These aspects, nine of them in the CPS Framework, are the high-level concerns or
 			<xs:element name="data" type="cpsframework:DataAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="functional" type="cpsframework:FunctionalAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="human" type="cpsframework:HumanAspect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="lifecylce" type="cpsframework:LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="lifecycle" type="cpsframework:Ref_Requirement" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="timing" type="cpsframework:TimingAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="trustworthiness" type="cpsframework:TrustworthinessAspect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Maturity" type="cpsframework:Maturity" minOccurs="0" maxOccurs="1"/>
@@ -2247,8 +2247,8 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="LifecyscleAspect" type="cpsframework:LifecyscleAspect"/>
-	<xs:complexType name="LifecyscleAspect">
+	<xs:element name="LifecycleAspect" type="cpsframework:LifecycleAspect"/>
+	<xs:complexType name="LifecycleAspect">
 		<xs:annotation>
 			<xs:documentation>Concerns about the lifecycle of CPS including its components.</xs:documentation>
 		</xs:annotation>
