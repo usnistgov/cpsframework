@@ -36,7 +36,7 @@
 	<xs:element name="Assumption" type="cpsframework:Assumption"/>
 	<xs:complexType name="Assumption">
 		<xs:annotation>
-			<xs:documentation>May be used to define further, general assumption for a use case, such as: which systems already exist, which contractual relations exist, and which configurations of systems are probably in place. Initial states of information exchanged shall also be identified.</xs:documentation>
+			<xs:documentation>May be used to defline further, general assumption for a use case, such as: which systems already exist, which contractual relations exist, and which configurations of systems are probably in place. Initial states of information exchanged shall also be identified.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="content" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -2725,8 +2725,8 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:element name="Resiliance" type="cpsframework:Resiliance"/>
-	<xs:complexType name="Resiliance">
+	<xs:element name="Resilience" type="cpsframework:Resilience"/>
+	<xs:complexType name="Resilience">
 		<xs:annotation>
 			<xs:documentation>Concerns related to the ability of the CPS to withstand instability, unexpected conditions, and gracefully return to predictable, but possibly degraded, performance.</xs:documentation>
 		</xs:annotation>
@@ -2921,14 +2921,14 @@ The status of maturity of an instance of the CPS reflects where the CPS elements
 	<xs:element name="TrustworthinessAspect" type="cpsframework:TrustworthinessAspect"/>
 	<xs:complexType name="TrustworthinessAspect">
 		<xs:annotation>
-			<xs:documentation>Concerns about trustworthiness of CPS including cybersecurity, privacy, safety, reliability, and resilience.</xs:documentation>
+			<xs:documentation>Concerns about trustworthiness of CPS including cybersecurity, privacy, safety, reliability, and resilience</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="cpsframework:Aspect">
 				<xs:sequence>
 					<xs:element name="Privacy" type="cpsframework:Privacy" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Reliability" type="cpsframework:Reliability" minOccurs="0" maxOccurs="1"/>
-					<xs:element name="Resiliance" type="cpsframework:Resiliance" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="Resilience" type="cpsframework:Resilience" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Safety" type="cpsframework:Safety" minOccurs="0" maxOccurs="1"/>
 					<xs:element name="Security" type="cpsframework:Security" minOccurs="0" maxOccurs="1"/>
 				</xs:sequence>

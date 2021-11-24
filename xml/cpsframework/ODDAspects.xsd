@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2021 (x64) (http://www.altova.com) by Anirban Bhattacharjee (National Institute of Standards & Technology) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="cpsframework" xmlns:cpsframework="cpsframework" targetNamespace="cpsframework">
 	<xs:redefine schemaLocation="cpsframework.xsd">
 		<xs:complexType name="FunctionalAspect">
@@ -129,17 +130,17 @@
 				</xs:extension>
 			</xs:complexContent>
 		</xs:complexType>
-		<xs:complexType name="LifecyscleAspect">
+		<xs:complexType name="LifecycleAspect">
 			<xs:complexContent>
-				<xs:extension base="LifecyscleAspect">
+				<xs:extension base="LifecycleAspect">
 					<xs:sequence>
-						<xs:element name="VehicleComponentLifetimeLimits" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="CurrentComponentWearStatus" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="InfrastructureLifetimeLimits" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="InfrastructureWearStatus" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="InfrastructureUpdate-PatchStatus" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="VehicleReflash-FOTA" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
-						<xs:element name="VehicleWear-Durability-Life-Testing" type="LifecyscleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleComponentLifetimeLimits" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="CurrentComponentWearStatus" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureLifetimeLimits" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureWearStatus" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InfrastructureUpdate-PatchStatus" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleReflash-FOTA" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="VehicleWear-Durability-Life-Testing" type="LifecycleAspect" minOccurs="0" maxOccurs="1"/>
 					</xs:sequence>
 				</xs:extension>
 			</xs:complexContent>
